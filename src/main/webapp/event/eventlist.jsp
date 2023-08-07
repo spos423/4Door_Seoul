@@ -75,15 +75,15 @@
 	
 	<div class="col-1 offset-md-5">
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  			<button class="btn btn-primary me-md-2" type="button">Button</button>
-  			<button class="btn btn-primary" type="button">Button</button>
+  			<button class="btn btn-primary me-md-2" type="button">기간 검색</button>
+  			<button class="btn btn-primary" type="button" >키워드 검색</button>
 		</div>	
 	</div>
 
 </div>
 <!--// sort end -->
 
-
+<br>
 
 	<div class="row mb-2">
     <div class="col-md-6">
