@@ -31,7 +31,6 @@
 
     <!-- Carousel Start -->
 	<div class="dd" style="float: left; height:100px; width:100%; display:inline-block;"></div>
-   
 	<main class="container-fluid px-0 mb-5" style="float:left; width:60%; display: block; flex: 1;">
 		
 	</main>
@@ -44,8 +43,7 @@
     	<c:import url="/main/footer.jsp"></c:import>
     </footer>
     <!-- Copyright End -->
-
-
+	
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
