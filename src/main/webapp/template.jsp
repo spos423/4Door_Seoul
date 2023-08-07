@@ -13,8 +13,8 @@
 		     flex-flow:column;
 		     min-height:100vh;
 		     padding:0;
-		     margin:0;">
-		     
+		     margin:0;">	   
+		    
 	<!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -31,7 +31,9 @@
 
     <!-- Carousel Start -->
 	<div class="dd" style="float: left; height:100px; width:100%; display:inline-block;"></div>
-   		
+
+
+
 	<main class="container-fluid px-0 mb-5" style="float:left; width:60%; display: block; flex: 1;">
 		
 	</main>
@@ -44,8 +46,7 @@
     	<c:import url="/main/footer.jsp"></c:import>
     </footer>
     <!-- Copyright End -->
-
-
+	
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
