@@ -74,7 +74,10 @@
 	</div>
 	
 	<div class="col-1 offset-md-5">
-		<div>sdfa</div>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  			<button class="btn btn-primary me-md-2" type="button">Button</button>
+  			<button class="btn btn-primary" type="button">Button</button>
+		</div>	
 	</div>
 
 </div>
