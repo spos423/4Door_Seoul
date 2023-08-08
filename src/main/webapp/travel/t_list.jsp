@@ -14,7 +14,7 @@
 
 	<!-- Navbar Start -->
 	<header>
-		<c:import url="/main/header.jsp"></c:import>
+		<c:import url="./header.jsp"></c:import>
 	</header>
 	<!-- Navbar End -->
 
@@ -530,7 +530,7 @@
 
 	<!-- Copyright Start -->
 	<footer>
-		<c:import url="/main/footer.jsp"></c:import>
+		<c:import url="./footer.jsp"></c:import>
 	</footer>
 	<!-- Copyright End -->
 

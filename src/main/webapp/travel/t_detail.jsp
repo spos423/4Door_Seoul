@@ -14,7 +14,7 @@
 
 	<!-- Navbar Start -->
 	<header>
-		<c:import url="/main/header.jsp"></c:import>
+		<c:import url="./header.jsp"></c:import>
 	</header>
 	<!-- Navbar End -->
 
@@ -71,11 +71,163 @@
 			</div>
 			
 			<div class="detail" style="text-align: left; width: 800px; display: inline-block; margin: 35px 0px 35px 0px">
-			sdfhsaldfsdlfka
+				<dl class="detatil_dl" style="position: relative;
+										      padding: 10px 0px 10px 0px;
+										      text-align: left;">
+					<dt class="detail_dt" style="position: absolute;
+												display: inline-block;
+											    left: 0px;
+											    top: 10px;
+											    z-index: 1;
+											    width: 200px;
+											    font-size: 18px;
+											    color: #222;
+											    font-weight: 700;">
+						 전화번호
+	                </dt>
+					<dd class="detail_dd" style="dispaly: inline-block;
+												 width:600px;
+												 font-size: 18px;
+    											 font-weight: 300;
+    											 margin-left: 200px;">
+    					02-954-2566
+    				</dd>
+				</dl>
+				<dl class="detatil_dl" style="position: relative;
+										      padding: 10px 0px 10px 0px;
+										      text-align: left;">
+					<dt class="detail_dt" style="position: absolute;
+												display: inline-block;
+											    left: 0px;
+											    top: 10px;
+											    z-index: 1;
+											    width: 200px;
+											    font-size: 18px;
+											    color: #222;
+											    font-weight: 700;">
+						 웹사이트
+	                </dt>
+					<dd class="detail_dd" style="dispaly: inline-block;
+												 width:600px;
+												 font-size: 18px;
+    											 font-weight: 300;
+    											 margin-left: 200px;
+    											 ">
+    					<a href="#" style="text-decoration: none;
+    									   color: #666;">
+    						웹사이트 보기→
+    					</a>
+    				</dd>
+				</dl>
+				<dl class="detatil_dl" style="position: relative;
+										      padding: 10px 0px 10px 0px;
+										      text-align: left;">
+					<dt class="detail_dt" style="position: absolute;
+												display: inline-block;
+											    left: 0px;
+											    top: 10px;
+											    z-index: 1;
+											    width: 200px;
+											    font-size: 18px;
+											    color: #222;
+											    font-weight: 700;">
+						 이용시간
+	                </dt>
+					<dd class="detail_dd" style="dispaly: inline-block;
+												 width:600px;
+												 font-size: 18px;
+    											 font-weight: 300;
+    											 margin-left: 200px;">
+    					07:30 ~ 18:00 (3월~10월)
+    					<br>
+    					08:00 ~ 17:00 (11월~2월)
+    				</dd>
+				</dl>
+				<dl class="detatil_dl" style="position: relative;
+										      padding: 10px 0px 10px 0px;
+										      text-align: left;">
+					<dt class="detail_dt" style="position: absolute;
+												display: inline-block;
+											    left: 0px;
+											    top: 10px;
+											    z-index: 1;
+											    width: 200px;
+											    font-size: 18px;
+											    color: #222;
+											    font-weight: 700;">
+						 운영 요일
+	                </dt>
+					<dd class="detail_dd" style="dispaly: inline-block;
+												 width:600px;
+												 font-size: 18px;
+    											 font-weight: 300;
+    											 margin-left: 200px;">
+    					매일
+    				</dd>
+				</dl>
+				<dl class="detatil_dl" style="position: relative;
+										      padding: 10px 0px 10px 0px;
+										      text-align: left;">
+					<dt class="detail_dt" style="position: absolute;
+												display: inline-block;
+											    left: 0px;
+											    top: 10px;
+											    z-index: 1;
+											    width: 200px;
+											    font-size: 18px;
+											    color: #222;
+											    font-weight: 700;">
+						주소
+	                </dt>
+					<dd class="detail_dd" style="dispaly: inline-block;
+												 width:600px;
+												 font-size: 18px;
+    											 font-weight: 300;
+    											 margin-left: 200px;">
+    					132-010 서울특별시 도봉구 도봉동 경기 의정부시, 양주시 장흥면 일대
+    				</dd>
+				</dl>
+				<dl class="detatil_dl" style="position: relative;
+										      padding: 10px 0px 10px 0px;
+										      text-align: left;">
+					<dt class="detail_dt" style="position: absolute;
+												display: inline-block;
+											    left: 0px;
+											    top: 10px;
+											    z-index: 1;
+											    width: 200px;
+											    font-size: 18px;
+											    color: #222;
+											    font-weight: 700;">
+						 교통 정보
+	                </dt>
+					<dd class="detail_dd" style="dispaly: inline-block;
+												 width:600px;
+												 font-size: 18px;
+    											 font-weight: 300;
+    											 margin-left: 200px;">
+    					7호선 도보산 1번출구 도보 10분
+    					<br><br>
+    					1호선 도보산 1번출구 도보 10분
+    				</dd>
+				</dl>
+			</div>
+			
+			<div style="position: relative; text-align: center; margin: 0px 0px 50px 0px;">	
+				<div style="content: '';
+					  display: block;
+					  clear: both;
+					  position: absolute;
+					  left: 0px;
+					  right: 0px;
+					  top: 0px;
+					  z-index: 1;
+					  height: 1px;
+					  background-color: #ddd;"></div>
 			</div>
 			
 			
-			<div id="map" style="width:100%; height:300px; display:inline-block; justify-content:center;" ></div>
+			<div id="map" style="width:1000px; height:500px; display:inline-block; justify-content:center;" ></div>
 			
 			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=44694e80891ede312de6d526b4b7f5a0&libraries=services"></script>
 			<script>
@@ -124,7 +276,7 @@
 
 	<!-- Copyright Start -->
 	<footer>
-		<c:import url="/main/footer.jsp"></c:import>
+		<c:import url="./footer.jsp"></c:import>
 	</footer>
 	<!-- Copyright End -->
 
