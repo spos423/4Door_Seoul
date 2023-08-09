@@ -96,7 +96,7 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 		</div>
 	
 	
-		<div align="center" class="container text-center">
+		<div class="container text-center">
 			<form class="form-control"  id="sh-date" action="#" method="post" style="display:none;">
 				<label>시작일 </label> 
     			<input type="date" style="width: 200px;">
@@ -105,8 +105,8 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
     			<input type="submit" value="검색">
     		</form>
     	</div>
-    	<div>
-    		<form id="sh-keyword" action="#" method="post" style="display:none;">
+    	<div class="container text-center">
+    		<form class="form-control" id="sh-keyword" action="#" method="post" style="display:none;">
     			<input type="text" name="keyword">
     			<input type="submit" value="키워드 검색">
     		</form>
@@ -206,7 +206,6 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 </div>
 
 </main>
-
 
 <footer style="height: 30%">
 	<c:import url="/main/footer.jsp" />
