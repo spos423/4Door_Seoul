@@ -27,6 +27,7 @@
 	<main class="container-fluid px-0 mb-5"
 		style="float: left; width: 60%; display: block; flex: 1;">
 	
+	
 	</main>
 
 
