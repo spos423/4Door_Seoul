@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+	<!-- <context:component-scan base-package="polymorphism" /> -->
+	
+	<context:component-scan base-package="com.globalin.biz" />
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
+	<!--  
+ 	User의 Bean  
+	<bean id="userService" class="com.globalin.biz.user.impl.UserServiceImpl">
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	<bean id="userDAO" class="com.globalin.biz.user.impl.UserDAO" /> 
+	-->
+	
+	
+	<!--* : 전체... ex) * : 반환형 전체 / *Impl : Impl로 끝나는 클래스 전체 / *(..) 메소드 전체
+																 ※ 반환형이 있는 것만 선택할 경우 메소드 수만큼 * 입력
+		.. : 들어가 있을 수도 있고, 안 들어가 있을 수도 있다???? ex) *(..) 메소드가 없는 것과 있는 것 모두 포함함
+	
+	 PointCut(특정 조건에 의해 필터링된 Joinpoint) 선언 -->
+	                                                                         
+<!-- 	                                                                          
+	<bean id="log" class="com.globalin.biz.common.LogAdvice"></bean>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.globalin.biz..*Impl.*(..))" id="allPointcut"/>
+		<aop:aspect ref="log">
+			<aop:before method="printLog" pointcut-ref="allPointcut"/>
+		</aop:aspect>
+	</aop:config>
+	 -->
+	
+	<!--  
+	<bean id="log" class="com.globalin.biz.common.Log4jAdvice"></bean>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.globalin.biz..*Impl.*(..))" id="allPointcut"/>
+		<aop:aspect ref="log">
+			<aop:before method="printLogging" pointcut-ref="allPointcut"/>
+		</aop:aspect>
+	</aop:config>
+	-->
+	
+  	<!-- 
+	<bean id="before" class="com.globalin.biz.common.BeforeAdvice"></bean>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.globalin.biz..*Impl.*(..))" id="allPointcut"/>
+		<aop:aspect ref="before">
+			<aop:before method="beforeLog" pointcut-ref="allPointcut"/>		
+		</aop:aspect>
+	</aop:config>
+	-->
+	
+	<!-- 	
+	<bean id="afterReturning" class="com.globalin.biz.common.AfterReturningAdvice"></bean>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.globalin.biz..*Impl.get*(..))" id="getPointcut"/>
+		<aop:aspect ref="afterReturning">
+			<aop:after-returning method="afterLog" returning="returnObj" pointcut-ref="getPointcut"/>		
+		</aop:aspect>
+	</aop:config>
+ 	-->
+	
+	
+	<!--
+ 	<bean id="afterThrowing" class="com.globalin.biz.common.AFterThrowingAdvice"></bean>
+	<bean id="after" class="com.globalin.biz.common.AfterAdvice"></bean>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.globalin.biz..*Impl.*(..))" id="allPointcut"/>
+		<aop:aspect ref="afterThrowing">
+			<aop:after-throwing method="exceptionLog" throwing="exceptObj" pointcut-ref="allPointcut"/>	
+		</aop:aspect>
+	  	
+		<aop:aspect ref="after">
+			<aop:after method="finallyLog" pointcut-ref="allPointcut"/>
+		</aop:aspect>
+	</aop:config> 
+	-->
+	
+	
+	<!-- 	 
+	<bean id="around" class="com.globalin.biz.common.AroundAdvice" ></bean>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.globalin.biz..*Impl.*(..))" id="allPointcut"/>
+		<aop:aspect ref="around">
+			<aop:around method="aroundLog" pointcut-ref="allPointcut"/>		
+		</aop:aspect>
+	</aop:config>
+	 -->
+	
+	
+	<!-- DataSource 설정  -->
+	<context:property-placeholder location="classpath:config/database.properties"/>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}"></property>
+		<property name="url" value="${jdbc.url}"></property>	
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>	
+	</bean>
+	
+	<!-- Spring JDBC 설정 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- Transaction 설정 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.globalin.biz..*(..))" id="txPointcut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+	</aop:config>
+	
+	<!-- <bean class="polymorphism.AppleSpeaker" /> -->
+
+<!-- 
+	<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" 
+	destroy-method="destroryMethod" lazy-init="true" scope="singleton" p:speaker-ref="apple" p:price="27000000">
+		index 로 매개변수의 순서를 지정할 수 있음 
+		<constructor-arg index="0" ref="apple" />
+		<constructor-arg index="1" value="27000000" />
+		<property name="speaker" ref="apple" />
+		<property name="price" value="27000000" />
+	</bean>
+	<bean id="sony" class="polymorphism.SonySpeaker" lazy-init="true" />
+	<bean id="apple" class="polymorphism.AppleSpeaker" lazy-init="true" />
+ -->	
+	
+	<!-- lazy-init : 객체를 미리 생성하지 않고 호출할 때마다 생성하는 속성 -->
+	<!-- <bean class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroryMethod" /> -->
+	
+<!-- 	
+	<bean id="collectionBean" class="com.globalin.ioc.injection.CollectionBean">
+	 	<property name="addressList">
+		<list>
+				<value>서울특별시 강남구 역삼동</value>
+				<value>서울특별시 영등포구 영등포동</value>
+			</list>
+			
+			
+			<set value-type="java.lang.String">
+				<value >서울특별시 강남구 역삼동</value>
+				<value>서울특별시 영등포구 영등포동</value>
+			</set>
+			
+			
+			<map>
+				<entry>
+					<key>
+						<value>홍길동</value>
+					</key>
+					<value>서울특별시 강남구 역삼동</value>
+				</entry>
+				<entry>
+					<key>
+						<value>이순신</value>
+					</key>
+					<value>서울특별시 영등포구 영등포동</value>
+				</entry>
+			</map> 
+			
+			
+			<props>
+				<prop key="홍길동">서울특별시 강남구 역삼동</prop>
+				<prop key="이순신">서울특별시 영등포구 영등포동</prop>
+			</props>
+			
+		</property>
+		
+	</bean> 
+-->
+
+
+</beans>
