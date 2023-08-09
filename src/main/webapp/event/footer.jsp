@@ -23,5 +23,31 @@
         </div>
     </div>
     <!-- Copyright End -->
+    
+    		<div class="collapse" id="collapseExample">
+			<div class="card card-body">
+			<div class="container text-center">
+				<form class="form-control"  id="sh-date" action="#" method="post" style="display:none;">
+					<label>시작일 </label> 
+					<input type="date" style="width: 200px;">
+					<label>~ 종료일 </label>
+    				<input type="date" style="width: 200px;">
+    				<input type="submit" value="검색">
+    			</form>
+    		</div>	
+  			</div>
+		</div>	
+	
+		<div class="collapse" id="collapseExample2">
+			<div class="card card-body">
+    		<div class="container text-center">
+    			<form class="form-control" id="sh-keyword" action="#" method="post" style="display:none;">
+    				<input type="text" name="keyword">
+    				<input type="submit" value="키워드 검색">
+    			</form>
+    		</div>
+  			</div>
+		</div>	
+    </div>
 </body>
 </html>

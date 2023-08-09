@@ -53,6 +53,11 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 <header>
 <c:import url="/main/header.jsp" />
 
+</header>
+
+
+<main style="flex:1;">
+
 <div class="container-fluid px-0 mb-5">
 	<div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
     	<div class="carousel-inner">
@@ -73,10 +78,6 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
         </button>
     </div>
 </div>
-</header>
-
-
-<main style="flex:1;">
 
 <div class="container">
 
@@ -94,10 +95,10 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 		<div class="col-4" style="--bs-breadcrumb-divider:'|';); float: left;" aria-label="breadcrumb">
 			<ul class="breadcrumb">
 				<li class="breadcrumb-item">
-					<a href="#" onclick="schdulSumit(&#39;&#39;); return false;" title="목록 항목 선택됨">전체</a>
+					<a href="#" title="목록 항목 선택됨">전체</a>
 				</li>
 				<li class="breadcrumb-item">
-					<a href="#" onclick="schdulSumit(&#39;&#39;); return false;" title="목록 항목 선택됨">진행중</a>
+					<a href="#" title="목록 항목 선택됨">진행중</a>
 				</li>
 				<li class="breadcrumb-item">
 					<a href="#" onclick="schdulSumit(&#39;U&#39;); return false;">진행예정</a>
@@ -112,33 +113,16 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 	
 		<div class="offset-md-5 col-3" id="sh">
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  				<input class="btn btn-primary me-md-2" type="button" value="기간 검색">
-  				<input class="btn btn-primary" type="button" value="키워드 검색">
-			</div>	
+  				<p class="d-inline-flex gap-1">
+	 				<input class="btn btn-primary me-md-2" type="button" value="기간 검색" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  					<input class="btn btn-primary" type="button" value="키워드 검색" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+				</p>
+			</div>
 		</div>
+	</div>
 	
 	
-		<div class="container text-center">
-			<form class="form-control"  id="sh-date" action="#" method="post" style="display:none;">
-				<label>시작일 </label> 
-    			<input type="date" style="width: 200px;">
-    			<label>~ 종료일 </label>
-    			<input type="date" style="width: 200px;">
-    			<input type="submit" value="검색">
-    		</form>
-    	</div>
-    	<div class="container text-center">
-    		<form class="form-control" id="sh-keyword" action="#" method="post" style="display:none;">
-    			<input type="text" name="keyword">
-    			<input type="submit" value="키워드 검색">
-    		</form>
-    	</div>
-    </div>
-	
-	
-	
-
-<!--// sort end -->
+<!-- sort end -->
 
 
 
