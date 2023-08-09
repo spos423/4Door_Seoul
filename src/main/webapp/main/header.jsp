@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>navbar</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<<<<<<< HEAD
 <meta content="" name="keywords">
 <meta content="" name="description">
 
@@ -31,9 +32,10 @@
 <!-- Template Stylesheet -->
 <link href="./css/style.css" rel="stylesheet">
 
+=======
+>>>>>>> refs/remotes/origin/YOSEONG
 </head>
 <body>
-
     <!-- Navbar Start -->
     <div class="container-fluid bg-blue sticky-top">
         <div class="container">
@@ -81,6 +83,7 @@
         </div>
     </div>
     <!-- Navbar End -->
+<<<<<<< HEAD
 
 
     <!-- JavaScript Libraries -->
@@ -94,5 +97,7 @@
     <!-- Template Javascript -->
     <script src="./js/main.js"></script>
 
+=======
+>>>>>>> refs/remotes/origin/YOSEONG
 </body>
 </html>
