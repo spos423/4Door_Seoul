@@ -96,7 +96,7 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 		</div>
 	
 	
-		<div class="container text-center">
+		<div align="center" class="container text-center">
 			<form class="form-control"  id="sh-date" action="#" method="post" style="display:none;">
 				<label>시작일 </label> 
     			<input type="date" style="width: 200px;">
