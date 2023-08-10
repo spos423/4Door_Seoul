@@ -108,8 +108,6 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 				</li>
 			</ul>
 		</div>
-
-
 	
 		<div class="offset-md-5 col-3" id="sh">
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -122,27 +120,25 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 	</div>
 	
 	<div class="collapse" id="searchPeriod">
-			<div class="container text-center" >
-				<form class="form-control" action="#" method="post">
-					<label>시작일 </label> 
-					<input type="date" style="width: 200px;">
-					<label>~ 종료일 </label>
-    				<input type="date" style="width: 200px;">
-    				<input type="submit" value="검색">
-    			</form>
-    		</div>	
-		</div>	
+		<div class="container text-center" >
+			<form class="form-control" action="#" method="post">
+				<label>시작일 </label> 
+				<input type="date" style="width: 200px;">
+				<label>~ 종료일 </label>
+   				<input type="date" style="width: 200px;">
+   				<input type="submit" value="검색">
+   			</form>
+   		</div>
+   	</div>	
 	
-		<div class="collapse" id="searchKeyword">
-    		<div class="container text-center">
-    			<form class="form-control" action="#" method="post">
-    				<input type="text" name="keyword">
-    				<input type="submit" value="키워드 검색">
-    			</form>
-    		</div>
-		</div>
-	
-	
+	<div class="collapse" id="searchKeyword">
+    	<div class="container text-center">
+    		<form class="form-control" action="#" method="post">
+    			<input type="text" name="keyword">
+    			<input type="submit" value="키워드 검색">
+    		</form>
+    	</div>
+	</div>	
 <!-- sort end -->
 
 
