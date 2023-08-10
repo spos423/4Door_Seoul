@@ -101,27 +101,44 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 					<a href="#" title="목록 항목 선택됨">진행중</a>
 				</li>
 				<li class="breadcrumb-item">
-					<a href="#" onclick="schdulSumit(&#39;U&#39;); return false;">진행예정</a>
+					<a href="#">진행예정</a>
 				</li>
 				<li class="breadcrumb-item">
-					<a href="https://korean.visitseoul.net/events#" onclick="schdulSumit(&#39;C&#39;); return false;">진행완료</a>
+					<a href="https://korean.visitseoul.net/events#">진행완료</a>
 				</li>
 			</ul>
 		</div>
-
-
 	
 		<div class="offset-md-5 col-3" id="sh">
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
   				<p class="d-inline-flex gap-1">
-	 				<input class="btn btn-primary me-md-2" type="button" value="기간 검색" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  					<input class="btn btn-primary" type="button" value="키워드 검색" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+	 				<input class="btn btn-primary me-md-2" type="button" value="기간 검색" data-bs-toggle="collapse" data-bs-target="#searchPeriod" aria-expanded="false" aria-controls="searchPeriod">
+  					<input class="btn btn-primary" type="button" value="키워드 검색" data-bs-toggle="collapse" data-bs-target="#searchKeyword" aria-expanded="false" aria-controls="searchKeyword">
 				</p>
 			</div>
 		</div>
 	</div>
 	
+	<div class="collapse" id="searchPeriod">
+		<div class="container text-center" >
+			<form class="form-control" action="#" method="post">
+				<label>시작일 </label> 
+				<input type="date" style="width: 200px;">
+				<label>~ 종료일 </label>
+   				<input type="date" style="width: 200px;">
+   				<input type="submit" value="검색">
+   			</form>
+   		</div>
+   	</div>	
 	
+	<div class="collapse" id="searchKeyword">
+    	<div class="container text-center">
+    		<form class="form-control" action="#" method="post">
+    			<input type="text" name="keyword">
+    			<input type="submit" value="키워드 검색">
+    		</form>
+    	</div>
+	</div>	
 <!-- sort end -->
 
 
