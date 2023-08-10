@@ -5,31 +5,42 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>FOR문 SEOUL : 이벤트 리스트</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+<!-- Favicon -->
+<link href="img/favicon.ico" rel="icon">
 
-<script src="./js/jquery-1.11.0.min.js"></script>
-<script>
-$(function(){               
-// slide toggle(hide & show)
-$('main > .container > .sort-element > #sh > div > input:eq(0)').click(function(){
-    $('main > .container > .sort-element > div > #sh-date').slideToggle(150, 'linear');
-});
- 
-$('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(){
-    $('main > .container > .sort-element > div > #sh-keyword').slideToggle(150, 'linear');
-}); 
- 
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
-});
-</script>
+<!-- Icon Font Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+<!-- Libraries Stylesheet -->
+<link href="./lib/animate/animate.min.css" rel="stylesheet">
+<link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Bootstrap Stylesheet -->
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+
+<!-- Template Stylesheet -->
+<link href="./css/style.css" rel="stylesheet">
+
+<title>FOR문 SEOUL : 이벤트 리스트</title>
 </head>
 <body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
 
 <header>
 <c:import url="/main/header.jsp" />
+
+</header>
+
+
+<main style="flex:1;">
 
 <div class="container-fluid px-0 mb-5">
 	<div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -51,10 +62,6 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
         </button>
     </div>
 </div>
-</header>
-
-
-<main style="flex:1;">
 
 <div class="container">
 
@@ -72,74 +79,51 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 		<div class="col-4" style="--bs-breadcrumb-divider:'|';); float: left;" aria-label="breadcrumb">
 			<ul class="breadcrumb">
 				<li class="breadcrumb-item">
-					<a href="#" onclick="schdulSumit(&#39;&#39;); return false;" title="목록 항목 선택됨">전체</a>
+					<a href="#" title="목록 항목 선택됨">전체</a>
 				</li>
 				<li class="breadcrumb-item">
-					<a href="#" onclick="schdulSumit(&#39;&#39;); return false;" title="목록 항목 선택됨">진행중</a>
+					<a href="#" title="목록 항목 선택됨">진행중</a>
 				</li>
 				<li class="breadcrumb-item">
-					<a href="#" onclick="schdulSumit(&#39;U&#39;); return false;">진행예정</a>
+					<a href="#">진행예정</a>
 				</li>
 				<li class="breadcrumb-item">
-					<a href="https://korean.visitseoul.net/events#" onclick="schdulSumit(&#39;C&#39;); return false;">진행완료</a>
+					<a href="https://korean.visitseoul.net/events#">진행완료</a>
 				</li>
 			</ul>
 		</div>
-
-
 	
 		<div class="offset-md-5 col-3" id="sh">
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  				<input class="btn btn-primary me-md-2" type="button" value="기간 검색">
-  				<input class="btn btn-primary" type="button" value="키워드 검색">
-			</div>	
+  				<p class="d-inline-flex gap-1">
+	 				<input class="btn btn-primary me-md-2" type="button" value="기간 검색" data-bs-toggle="collapse" data-bs-target="#searchPeriod" aria-expanded="false" aria-controls="searchPeriod">
+  					<input class="btn btn-primary" type="button" value="키워드 검색" data-bs-toggle="collapse" data-bs-target="#searchKeyword" aria-expanded="false" aria-controls="searchKeyword">
+				</p>
+			</div>
 		</div>
+	</div>
 	
-	
-		<div align="center" class="container text-center">
-			<form class="form-control"  id="sh-date" action="#" method="post" style="display:none;">
+	<div class="collapse" id="searchPeriod">
+		<div class="container text-center" >
+			<form class="form-control" action="#" method="post">
 				<label>시작일 </label> 
-    			<input type="date" style="width: 200px;">
-    			<label>~ 종료일 </label>
-    			<input type="date" style="width: 200px;">
-    			<input type="submit" value="검색">
-    		</form>
-    	</div>
+				<input type="date" style="width: 200px;">
+				<label>~ 종료일 </label>
+   				<input type="date" style="width: 200px;">
+   				<input type="submit" value="검색">
+   			</form>
+   		</div>
+   	</div>	
+	
+	<div class="collapse" id="searchKeyword">
     	<div class="container text-center">
-    		<form class="form-control" id="sh-keyword" action="#" method="post" style="display:none;">
+    		<form class="form-control" action="#" method="post">
     			<input type="text" name="keyword">
     			<input type="submit" value="키워드 검색">
     		</form>
     	</div>
-    </div>
-	
-	    <div class="collapse" id="collapseExample">
-			<div class="card card-body">
-			<div class="container text-center">
-				<form class="form-control"  id="sh-date" action="#" method="post" style="display:none;">
-					<label>시작일 </label> 
-					<input type="date" style="width: 200px;">
-					<label>~ 종료일 </label>
-    				<input type="date" style="width: 200px;">
-    				<input type="submit" value="검색">
-    			</form>
-    		</div>	
-  			</div>
-		</div>	
-	
-		<div class="collapse" id="collapseExample2">
-			<div class="card card-body">
-    		<div class="container text-center">
-    			<form class="form-control" id="sh-keyword" action="#" method="post" style="display:none;">
-    				<input type="text" name="keyword">
-    				<input type="submit" value="키워드 검색">
-    			</form>
-    		</div>
-  			</div>
-		</div>
-	
-
-<!--// sort end -->
+	</div>	
+<!-- sort end -->
 
 
 
@@ -234,7 +218,18 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 	<c:import url="/main/footer.jsp" />
 </footer>
 
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="./lib/wow/wow.min.js"></script>
+    <script src="./lib/easing/easing.min.js"></script>
+    <script src="./lib/waypoints/waypoints.min.js"></script>
+    <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- Template JavaScript -->
+    <script src="./js/main.js"></script>
+	<!-- Bootstrap Script -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
