@@ -30,34 +30,43 @@
 
 <title></title>
 </head>
-<body style="display: flex; flex-flow: column; min-height: 100vh; padding: 0; margin: 0;">
+<body style="display:flex;
+		     flex-flow:column;
+		     min-height:100vh;
+		     padding:0;
+		     margin:0;">	   
+		    
+	<!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
 
-	<!-- Navbar Start -->
-	<header>
-		<c:import url="./header.jsp"></c:import>
-	</header>
-	<!-- Navbar End -->
+    
+    <!-- Navbar Start -->
+    <header>
+    	<c:import url="/main/header.jsp"></c:import>
+    </header>
+    <!-- Navbar End -->
 
 
-	<!-- Carousel Start -->
-	<div class="dd"
-		style="float: left; height: 100px; width: 100%; display: inline-block;"></div>
+    <!-- Carousel Start -->
+	<div class="dd" style="float: left; height:100px; width:100%; display:inline-block;"></div>
 
 
 
-	<main class="container-fluid px-0 mb-5"
-		style="float: left; width: 60%; display: block; flex: 1;">
-	
+	<main class="container-fluid px-0 mb-5" style="float:left; width:60%; display: block; flex: 1;">
+		
 	</main>
-
-
-	<!-- Carousel End -->
-
-	<!-- Copyright Start -->
-	<footer>
-		<c:import url="./footer.jsp"></c:import>
-	</footer>
-	<!-- Copyright End -->
+   	
+   	
+    <!-- Carousel End -->
+	
+    <!-- Copyright Start -->
+    <footer>
+    	<c:import url="/main/footer.jsp"></c:import>
+    </footer>
+    <!-- Copyright End -->
 	
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -72,7 +81,6 @@
     <script src="./js/main.js"></script>
 	<!-- Bootstrap Script -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
 
 
 </body>
