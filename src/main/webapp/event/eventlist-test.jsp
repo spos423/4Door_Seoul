@@ -114,17 +114,16 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
 		<div class="offset-md-5 col-3" id="sh">
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
   				<p class="d-inline-flex gap-1">
-	 				<input class="btn btn-primary me-md-2" type="button" value="기간 검색" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  					<input class="btn btn-primary" type="button" value="키워드 검색" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+	 				<input class="btn btn-primary me-md-2" type="button" value="기간 검색" data-bs-toggle="collapse" data-bs-target="#searchPeriod" aria-expanded="false" aria-controls="searchPeriod">
+  					<input class="btn btn-primary" type="button" value="키워드 검색" data-bs-toggle="collapse" data-bs-target="#searchKeyword" aria-expanded="false" aria-controls="searchKeyword">
 				</p>
 			</div>
 		</div>
 	</div>
 	
-	<div class="collapse" id="collapseExample">
-			
+	<div class="collapse" id="searchPeriod">
 			<div class="container text-center" >
-				<form class="form-control"  id="sh-date" action="#" method="post">
+				<form class="form-control" action="#" method="post">
 					<label>시작일 </label> 
 					<input type="date" style="width: 200px;">
 					<label>~ 종료일 </label>
@@ -134,9 +133,9 @@ $('main > .container > .sort-element > #sh > div > input:eq(1)').click(function(
     		</div>	
 		</div>	
 	
-		<div class="collapse" id="collapseExample2">
+		<div class="collapse" id="searchKeyword">
     		<div class="container text-center">
-    			<form class="form-control" id="sh-keyword" action="#" method="post">
+    			<form class="form-control" action="#" method="post">
     				<input type="text" name="keyword">
     				<input type="submit" value="키워드 검색">
     			</form>
