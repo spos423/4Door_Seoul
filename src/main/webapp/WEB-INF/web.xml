@@ -4,8 +4,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
 <!-- <filter>로 인코딩 설정 => *.do로 접근하면 인코딩 설정을 잡아줌 -->	
-
-<!--
 	<filter>
 		<filter-name>characterEncoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -18,11 +16,18 @@
 		<filter-name>characterEncoding</filter-name>
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
--->	
-	
-	
-	<!-- DispatcherServlet -->
-<!--  	
+
+<!-- needed for ContextLoaderListener -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+<!-- Bootstraps the root web application context before servlet initialization -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+<!-- DispatcherServlet -->  	
 	<servlet>
 		<servlet-name>action</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -35,7 +40,5 @@
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>	
 	</servlet-mapping>	
--->
-
 
 </web-app>

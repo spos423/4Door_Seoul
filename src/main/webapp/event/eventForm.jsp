@@ -1,102 +1,177 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시판 글쓰기</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<c:import url="../main/nav2.jsp" />
+    <meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<!-- Favicon -->
+<link href="img/favicon.ico" rel="icon">
+
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+<!-- Icon Font Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="./lib/animate/animate.min.css" rel="stylesheet">
+<link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Bootstrap Stylesheet -->
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+
+<!-- Template Stylesheet -->
+<link href="./css/style.css" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<title>FOR문 SEOUL : 이벤트 리스트</title>
+
+<style type="text/css">
+#zipcode_div{
+	width:50%
+}
+#zipcode_p{
+	width:24%
+}
+span, label {
+	width: 12%
+}
+
+
+</style>
+
+
+
 </head>
-<body>
+<body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
+
+<header>
+<c:import url="/main/header.jsp" />
+
+</header>
+
+
+<main class="eventform" style="flex:1; width:50%;align-self: center;">
 <div class="container" style="flex:1;">
-  <h2>게시판 글쓰기</h2>
+	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  		<ol class="breadcrumb">
+    		<li class="breadcrumb-item h5"><a href="#">HOME</a></li>
+    		<li class="breadcrumb-item h5 active"><a href="#">사대문</a></li>
+    		<li class="breadcrumb-item h5"><a href="./eventlist.jsp">행사안내</a></li>
+    		<li class="breadcrumb-item active h5" aria-current="page">게시글 작성</li>
+  		</ol>
+	</nav>
+
+  <p class="display-1">행사안내 양식</p>
+  <hr>
   <form action="#" method="post">
-    <div class="form-group">
-      <label for="title">제목</label>
-<!-- placeholder 속성 입력한 데이터가 없는 경우 배경으로 나타난다.실제적으로 입력을 100자까지로 지정 -->
-<!-- required 속성을 설정하면 필수입력 사항이된다. -->
-<!-- pattern 속성을 이용한 정규표현식으로 데이터의 유효성 검사를 할 수 있다. -->
-      <input type="text" class="form-control" id="title"
-       placeholder="제목 입력(4-100)" name="title"
-       maxlength="100" required="required"
-       pattern=".{4,100}">
-    </div>
-    
-    <div class="form-group">
-      <label for="writer">작성자</label>
-      <input type="text" class="form-control" id="writer" placeholder="작성자(2자-10자)" name="writer">
-    </div>
-    
-    <div>
-    <input type="file" class="form-control form-control-sm" id="formFileSm">
-    </div>
-	
-	<br>
-    
-    <div class="form-group">
-   <label for="content">내용</label>
-<!--  여러줄의 데이터를 입력하고 하고자 할때 textarea 태그를 사용한다. -->
-<!--  textarea 안에 있는 모든 글자는 그대로 나타난다. 공백문자, tag, enter -->
-   <textarea class="form-control" rows="30" id="content"
-    name="content" placeholder="내용 작성"></textarea>
+    <div class="input-group mb-3">
+  		<span class="input-group-text">제목</span>
+ 		<input type="text" name="title" class="form-control" placeholder="Title" aria-label="Title" style="width:48%">
+ 		<span class="input-group-text">작성자</span>
+ 		<input type="text" name="writer" class="form-control" placeholder="Wirter" aria-label="Writer" style="width:28%">
 	</div>
 	
-	<div class="form-group">
-      <label for="zipcode">우편번호 / 도로명 주소</label>
-      <input type="text" width="30" id="zipcode" placeholder="우편번호 5자리" name="zipcode">
-      <input type="button" class="btn btn-default" value="검색" onclick="#">
-      <input type="text" class="form-control" id="zipcode" placeholder="도로명 주소 입력" name="zipcode">
+	<div class="input-group mb-3">
+  		<label class="input-group-text" for="inputGroupFile01">Upload</label>
+  		<input type="file" class="form-control">
 	</div>
     
-   	<div class="form-group">
-      <label for="traffic_info">교통정보</label>
-      <input type="text" class="form-control" id="traffic_info"
-       placeholder="교통 정보를 간단하게 입력" name="traffic_info">
-    </div>
-    
-    <div class="form-group">
-      <label for="fee_info">이용요금</label>
-      <input type="text" class="form-control" id="fee_info"
-       placeholder="요금 입력" name="fee_info">
-    </div>
-    
-    <div class="form-group">
-      <label for="tel_info">전화번호</label>
-      <input type="text" class="form-control" id="tel_info" placeholder="행사 담당 연락처 입력" name="tel_info">
-    </div>
-    
-    <div class="form-group">
-      <label for="url_info">웹사이트</label>
-      <input type="text" class="form-control" id="url_info" placeholder="요금 입력" name="url_info">
-    </div>
-	
-	<div style="display: inline-block;">
-		<label for="start_event">행사 시작일</label><br>
-		<input type="datetime-local" class="form-control" name="start_event">&nbsp;&nbsp;&nbsp;&nbsp;
-	</div>
-	<div style="display: inline-block;">	
-		<label for="end_event">행사 종료일</label><br>
-		<input type="datetime-local" class="form-control" name="end_event">&nbsp;&nbsp;&nbsp;&nbsp;
+	<div class="input-group mb-3" id="zipcode_div">
+  		<span class="input-group-text" id="zipcode_p">우편번호</span>
+  		<input type="text" class="form-control" placeholder="Username" aria-label="Username">
+  		<button class="btn btn-outline-secondary" type="button">Button</button>
 	</div>
 	
+	<div class="input-group mb-3">
+		<span class="input-group-text">주소</span>
+  		 <input type="text" class="form-control" placeholder="도로명 주소 입력" name="zipcode">
+	</div>
+	
+<div id="summernote"></div>
+    <script>
+      $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 500,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
 	<br>
 	
-	<div>	
-    <button class="dark" style="width: 100px; border-radius: 20px;" type="submit" class="btn btn-default">등록</button>
-    <button style="width: 100px" type="button" class="btn btn-default">취소</button>
+    <div class="input-group mb-3">
+  		<span class="input-group-text">이용요금</span>
+ 		<input type="text" name="charge" class="form-control" placeholder="Charge_info" aria-label="Charge_info">
+ 		<span class="input-group-text">전화번호</span>
+ 		<input type="text" name="tel" class="form-control" placeholder="tel_info" aria-label="tel_info">
+	</div>
+    
+    <div class="input-group mb-3">
+    	<span class="input-group-text">교통정보</span>
+      	<input type="text" name="traffic" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력">
+    </div>
+    
+    <div class="input-group mb-3">
+    	<span class="input-group-text">웹사이트</span>
+      	<input type="text" name="url" class="form-control" id="url_info" placeholder="요금 입력">
+    </div>
+    
+    <div class="input-group mb-3">
+    	<span class="input-group-text">행사 시작일</span>
+		<input type="datetime-local" class="form-control" name="start_event">
+		<span class="input-group-text">행사 종료일</span>
+		<input type="datetime-local" class="form-control" name="end_event">
+    </div>
+ 
+	
+	<div class="row">
+		<div class="offset-md-9 col-3">
+			<button style="width: 100px; border-radius: 20px;" type="submit" class="btn btn-primary">등록</button>
+ 		   	<button style="width: 100px; border-radius: 20px;" type="submit" class="btn btn-primary">취소</button>
+    	</div>
+    	
     </div>
     
     <br><br>
     
   </form>
 </div>
+</main>
 
 <footer style="height: 30%">
-	<c:import url="../main/bottom.jsp" />
+	<c:import url="/main/footer.jsp" />
 </footer>
 
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="./lib/wow/wow.min.js"></script>
+    <script src="./lib/easing/easing.min.js"></script>
+    <script src="./lib/waypoints/waypoints.min.js"></script>
+    <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- Template JavaScript -->
+    <script src="./js/main.js"></script>
+	<!-- Bootstrap Script -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
