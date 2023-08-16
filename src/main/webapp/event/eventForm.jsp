@@ -49,8 +49,11 @@ span, label {
 
 
 </style>
-
-
+<script type="text/javascript">
+function postForm() {
+    $('textarea[name="content"]').val($('#summernote').summernote('code'));
+}
+</script>
 
 </head>
 <body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
@@ -74,7 +77,7 @@ span, label {
 
   <p class="display-1">행사안내 양식</p>
   <hr>
-  <form action="#" method="post">
+  <form action="insertE_Board.do" method="post" onsubmit="postForm()">
     <div class="input-group mb-3">
   		<span class="input-group-text">제목</span>
  		<input type="text" name="title" class="form-control" placeholder="Title" aria-label="Title" style="width:48%">
@@ -97,7 +100,8 @@ span, label {
 		<span class="input-group-text">주소</span>
   		 <input type="text" class="form-control" placeholder="도로명 주소 입력" name="zipcode">
 	</div>
-	
+
+<textarea name="content" style="display: none;"></textarea>	
 <div id="summernote"></div>
     <script>
       $('#summernote').summernote({
@@ -119,33 +123,33 @@ span, label {
 	
     <div class="input-group mb-3">
   		<span class="input-group-text">이용요금</span>
- 		<input type="text" name="charge" class="form-control" placeholder="Charge_info" aria-label="Charge_info">
+ 		<input type="text" name="price" class="form-control" placeholder="Charge_info" aria-label="Charge_info">
  		<span class="input-group-text">전화번호</span>
  		<input type="text" name="tel" class="form-control" placeholder="tel_info" aria-label="tel_info">
 	</div>
     
     <div class="input-group mb-3">
     	<span class="input-group-text">교통정보</span>
-      	<input type="text" name="traffic" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력">
+      	<input type="text" name="traf" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력">
     </div>
     
     <div class="input-group mb-3">
     	<span class="input-group-text">웹사이트</span>
-      	<input type="text" name="url" class="form-control" id="url_info" placeholder="요금 입력">
+      	<input type="text" name="uri" class="form-control" id="url_info" placeholder="요금 입력">
     </div>
     
     <div class="input-group mb-3">
     	<span class="input-group-text">행사 시작일</span>
-		<input type="datetime-local" class="form-control" name="start_event">
+		<input type="datetime-local" class="form-control" name="startdate">
 		<span class="input-group-text">행사 종료일</span>
-		<input type="datetime-local" class="form-control" name="end_event">
+		<input type="datetime-local" class="form-control" name="enddate">
     </div>
  
 	
 	<div class="row">
 		<div class="offset-md-9 col-3">
 			<button style="width: 100px; border-radius: 20px;" type="submit" class="btn btn-primary">등록</button>
- 		   	<button style="width: 100px; border-radius: 20px;" type="submit" class="btn btn-primary">취소</button>
+ 		   	<button style="width: 100px; border-radius: 20px;" type="button" class="btn btn-primary">취소</button>
     	</div>
     	
     </div>

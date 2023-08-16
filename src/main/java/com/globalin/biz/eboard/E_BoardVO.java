@@ -1,6 +1,6 @@
 package com.globalin.biz.eboard;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class E_BoardVO {
 	private int num;
@@ -10,21 +10,22 @@ public class E_BoardVO {
 	private String address;
 	private String traf;
 	private String price;
-	private Date startdate;
-	private Date enddate;
+	private Timestamp startdate;
+	private Timestamp enddate;
 	private String tel;
 	private String uri;
 	private char deleteyn;
 	private String writer;
-	private Date writeday;
+	private Timestamp writedate;
 	private String updater;
-	private Date updateday;
+	private Timestamp updatedate;
 	private int readcnt;
 	private String img1_url;
 	private String img2_url;
 	private String img3_url;
 	private String img4_url;
 	private String img5_url;
+	
 	public int getNum() {
 		return num;
 	}
@@ -67,16 +68,16 @@ public class E_BoardVO {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public Date getStartdate() {
+	public Timestamp getStartdate() {
 		return startdate;
 	}
-	public void setStartdate(Date startdate) {
-		this.startdate = startdate;
+	public void setStartdate(Timestamp timestamp) {
+		this.startdate = timestamp;
 	}
-	public Date getEnddate() {
+	public Timestamp getEnddate() {
 		return enddate;
 	}
-	public void setEnddate(Date enddate) {
+	public void setEnddate(Timestamp enddate) {
 		this.enddate = enddate;
 	}
 	public String getTel() {
@@ -103,11 +104,11 @@ public class E_BoardVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Date getWriteday() {
-		return writeday;
+	public Timestamp getWritedate() {
+		return writedate;
 	}
-	public void setWriteday(Date writeday) {
-		this.writeday = writeday;
+	public void setWritedate(Timestamp writedate) {
+		this.writedate = writedate;
 	}
 	public String getUpdater() {
 		return updater;
@@ -115,11 +116,11 @@ public class E_BoardVO {
 	public void setUpdater(String updater) {
 		this.updater = updater;
 	}
-	public Date getUpdateday() {
-		return updateday;
+	public Timestamp getUpdatedate() {
+		return updatedate;
 	}
-	public void setUpdateday(Date updateday) {
-		this.updateday = updateday;
+	public void setUpdatedate(Timestamp updatedate) {
+		this.updatedate = updatedate;
 	}
 	public int getReadcnt() {
 		return readcnt;

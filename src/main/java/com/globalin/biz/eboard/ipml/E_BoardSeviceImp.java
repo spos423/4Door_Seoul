@@ -7,15 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.globalin.biz.eboard.E_BoardVO;
 
-@Service("e_boardService")
+@Service("E_BoardService")
 public class E_BoardSeviceImp implements E_BoardService {
 
 	@Autowired
-	private E_BoardDAOMybatis E_boardDAO;
+	//private E_BoardDAOMybatis E_boardDAO;
+	private E_BoardDAO E_boardDAO;
 	
 	@Override
 	public void insertBoard(E_BoardVO vo) {
-		E_boardDAO.insertE_Board(vo);
+		E_boardDAO.insertBoard(vo);
 	}
 
 	@Override
