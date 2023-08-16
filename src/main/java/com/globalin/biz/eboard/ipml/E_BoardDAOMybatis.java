@@ -3,6 +3,7 @@ package com.globalin.biz.eboard.ipml;
 import org.mybatis.spring.SqlSessionTemplate;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Repository;
 
 import com.globalin.biz.eboard.E_BoardVO;
 

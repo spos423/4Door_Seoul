@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.globalin.biz.common.JDBCUtil;
 import com.globalin.biz.eboard.E_BoardVO;
 
-@Repository("E_BoardDAO")
+//@Repository("E_BoardDAO")
 public class E_BoardDAO {
 	
 	public void insertBoard(E_BoardVO vo) {

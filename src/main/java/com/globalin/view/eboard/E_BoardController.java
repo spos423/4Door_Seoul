@@ -20,7 +20,7 @@ public class E_BoardController {
 	private E_BoardService e_boardService;
 	
 	
-	@RequestMapping(value = "/insertE_Board.do")
+	@RequestMapping("/biz/event/insertE_Board.do")
 	public String insertBoard(E_BoardVO vo) throws IOException {
 		
 		System.out.println("글 등록 처리");
@@ -32,7 +32,13 @@ public class E_BoardController {
 		}
 		*/
 		e_boardService.insertBoard(vo);
-		return "/event/header.jsp";
+		return "redirect:/event/eventlist.jsp";
 	}
 	
+	@RequestMapping("/eventlist.do")
+	public String searchBoardList(E_BoardVO vo) {
+		
+		
+		return "/event/eventlist.jsp";
+	}
 }
