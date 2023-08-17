@@ -7,10 +7,17 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-<!-- 설정한 패키지 내의 요소를 스캔(Annotation이 적용되는 범위 설정)  -->
-<context:component-scan base-package="com.globalin.view.eboard"></context:component-scan>
-<mvc:annotation-driven></mvc:annotation-driven><!-- SpringMVC 적용시 필요  -->
+<!-- HandlerMapping 등록  -->
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/event/insertE_Board.do">insertE_Board</prop>
+			</props>
+		</property>	
+</bean>
 
+<!-- Controller 등록 -->
+<bean id="insertE_Board" class="com.globalin.view.eboard.InsertE_BoardController" />
 <!-- 파일 업로드 설정 
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	<property name="maxUploadSize" value="100000"></property>크기 무제한 : -1  -->

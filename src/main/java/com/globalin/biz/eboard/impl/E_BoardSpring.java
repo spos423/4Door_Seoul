@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.globalin.biz.eboard.E_BoardVO;
 
-@Repository("E_BoardDAO")
+//@Repository("E_BoardDAO")
 public class E_BoardSpring {
 	
 	String E_BOARD_INSERT = "insert into E_Board(NUM, TITLE, CONTENT, ZIPCODE, ADDRESS, TRAF, PRICE, STARTDATE, ENDDATE," + 

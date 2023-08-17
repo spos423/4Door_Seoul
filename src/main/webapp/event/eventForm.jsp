@@ -92,13 +92,13 @@ function postForm() {
     
 	<div class="input-group mb-3" id="zipcode_div">
   		<span class="input-group-text" id="zipcode_p">우편번호</span>
-  		<input type="text" class="form-control" placeholder="Username" aria-label="Username">
+  		<input type="text" class="form-control" placeholder="Username" aria-label="Username" name="zipcode">
   		<button class="btn btn-outline-secondary" type="button">Button</button>
 	</div>
 	
 	<div class="input-group mb-3">
 		<span class="input-group-text">주소</span>
-  		 <input type="text" class="form-control" placeholder="도로명 주소 입력" name="zipcode">
+  		 <input type="text" class="form-control" placeholder="도로명 주소 입력" name="address">
 	</div>
 
 <textarea name="content" style="display: none;"></textarea>	

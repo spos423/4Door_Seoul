@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.globalin.biz.eboard.E_BoardVO;
 import com.globalin.biz.eboard.impl.E_BoardService;
 
-@Controller
-@SessionAttributes("E_Board")
+//@Controller
+//@SessionAttributes("E_Board")
 public class E_BoardController {
 	
-	@Autowired
+	//@Autowired
 	private E_BoardService E_BoardService;
 	
 	

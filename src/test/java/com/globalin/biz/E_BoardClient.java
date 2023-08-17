@@ -8,7 +8,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.globalin.biz.eboard.E_BoardVO;
-import com.globalin.biz.eboard.ipml.E_BoardService;
+import com.globalin.biz.eboard.impl.E_BoardService;
 
 
 
