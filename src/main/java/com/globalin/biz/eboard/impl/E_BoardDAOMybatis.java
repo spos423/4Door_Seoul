@@ -1,4 +1,4 @@
-package com.globalin.biz.eboard.ipml;
+package com.globalin.biz.eboard.impl;
 
 import org.mybatis.spring.SqlSessionTemplate;
 //import org.springframework.beans.factory.annotation.Autowired;

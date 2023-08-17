@@ -1,9 +1,10 @@
-package com.globalin.biz.eboard.ipml;
+package com.globalin.biz.eboard.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,7 @@ import com.globalin.biz.common.JDBCUtil;
 import com.globalin.biz.eboard.E_BoardVO;
 
 //@Repository("E_BoardDAO")
-public class E_BoardDAO {
+public class E_BoardDAO implements E_BoardService{
 	
 	public void insertBoard(E_BoardVO vo) {
 		
@@ -55,5 +56,29 @@ public class E_BoardDAO {
 				try{conn.close();}catch(SQLException sqle){sqle.printStackTrace();} 
 		}
 	}// end insertArticle
+
+	@Override
+	public void updateBoard(E_BoardVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteBoard(E_BoardVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public E_BoardVO getBoard(E_BoardVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<E_BoardVO> getBoardList(E_BoardVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

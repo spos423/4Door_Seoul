@@ -1,4 +1,4 @@
-package com.globalin.biz.eboard.ipml;
+package com.globalin.biz.eboard.impl;
 
 import java.util.List;
 
@@ -10,14 +10,14 @@ import com.globalin.biz.eboard.E_BoardVO;
 @Service("E_BoardService")
 public class E_BoardServiceImpl implements E_BoardService {
 
-	@Autowired
-	private E_BoardSpring E_boardDAO;
+	//@Autowired
+	private E_BoardSpring E_BoardDAO;
 	//private E_BoardDAOMybatis E_boardDAO;
 	//private E_BoardDAO E_boardDAO;
 	
 	@Override
 	public void insertBoard(E_BoardVO vo) {
-		E_boardDAO.insertBoard(vo);
+		E_BoardDAO.insertBoard(vo);
 	}
 
 	@Override

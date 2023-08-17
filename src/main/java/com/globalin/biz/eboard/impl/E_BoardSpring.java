@@ -1,4 +1,4 @@
-package com.globalin.biz.eboard.ipml;
+package com.globalin.biz.eboard.impl;
 
 //import java.sql.Timestamp;
 
@@ -14,8 +14,6 @@ public class E_BoardSpring {
 	String E_BOARD_INSERT = "insert into E_Board(NUM, TITLE, CONTENT, ZIPCODE, ADDRESS, TRAF, PRICE, STARTDATE, ENDDATE," + 
 			"TEL, URI, WRITER, WRITEDATE, UPDATER, UPDATEDATE)" + 
 			"values((select nvl(max(num),0)+1 from E_Board), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	
-	
 	
 	@Autowired
 	private JdbcTemplate jdbctemplate;

@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 //import org.springframework.web.multipart.MultipartFile;
 
 import com.globalin.biz.eboard.E_BoardVO;
-import com.globalin.biz.eboard.ipml.E_BoardService;
+import com.globalin.biz.eboard.impl.E_BoardService;
 
 @Controller
-//@SessionAttributes("E_Board")
+@SessionAttributes("E_Board")
 public class E_BoardController {
 	
 	@Autowired
-	private E_BoardService e_boardService;
+	private E_BoardService E_BoardService;
 	
 	
 	@RequestMapping("/biz/event/insertE_Board.do")
@@ -31,7 +31,7 @@ public class E_BoardController {
 			uploadFile.transferTo(new File("C:/ddd/"+filename));
 		}
 		*/
-		e_boardService.insertBoard(vo);
+		E_BoardService.insertBoard(vo);
 		return "redirect:/event/eventlist.jsp";
 	}
 	

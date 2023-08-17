@@ -1,4 +1,4 @@
-package com.globalin.biz.eboard.ipml;
+package com.globalin.biz.eboard.impl;
 
 import java.util.List;
 
