@@ -1,0 +1,33 @@
+.thumbnail_custom {
+	overflow: hidden;
+	position: relative;
+	width: 180px;
+	height: 220px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+body {
+	display:flex; 
+	flex-flow:column; 
+	min-height:100vh; 
+	padding:0; 
+	margin:0;
+}
+
+main {
+	flex:1;
+}
+
+.listslide_custom {
+	overflow: hidden;
+	position: relative;	
+	width:100%!important;
+	height:300px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	object-fit: cover;
+	object-position: 50% 75%;
+}

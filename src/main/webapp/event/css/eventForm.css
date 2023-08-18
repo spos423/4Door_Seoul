@@ -1,0 +1,45 @@
+.eventform{
+	flex:1;
+	width:50%;
+	align-self:center;"
+}
+
+.container{
+	flex:1;
+}
+#zipcode_div{
+	width:50%
+}
+#zipcode_span{
+	width:24%
+}
+/* span, label {
+	width: 12%
+} */
+
+#event_span, #event_label {
+	width: 12%
+}
+body {
+	display:flex;
+	flex-flow:column;
+	min-height:100vh;
+	padding:0;
+	margin:0;
+}
+input[name="title"] {
+	width: 48%
+}
+input[name="writer"] {
+	width: 28%
+}
+textarea[name="content"] {
+	display:none;
+}
+button[name="submit_btn"], button[name="cancel_btn"] {
+	width: 100px; 
+	border-radius: 20px;"
+}
+footer {
+	height: 30%;
+}

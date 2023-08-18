@@ -29,10 +29,11 @@
 
 <!-- Template Stylesheet -->
 <link href="./css/style.css" rel="stylesheet">
+<link href="./css/eventlist.css" rel="stylesheet">
 
 <title>FOR문 SEOUL : 이벤트 리스트</title>
 </head>
-<body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
+<body>
 
 <header>
 <c:import url="/main/header.jsp" />
@@ -40,16 +41,16 @@
 </header>
 
 
-<main style="flex:1;">
+<main>
 
 <div class="container-fluid px-0 mb-5">
 	<div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
     	<div class="carousel-inner">
         	<div class="carousel-item active">
-            	<img class="w-100" src="img/getImage.png" alt="Image" style="width:500px; height:800px;">
+            	<img class="listslide_custom" src="img/asd123.jpg" alt="Image">
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="img/getImage(1).png" alt="Image" style="width:500px; height:800px;">
+                <img class="listslide_custom" src="img/getImage(1).png" alt="Image">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
@@ -63,7 +64,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container sort">
 
 	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
   		<ol class="breadcrumb">
@@ -133,50 +134,32 @@
     	<div class="col-md-6">
       		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         		<div class="col p-4 d-flex flex-column position-static">
-          		<strong class="d-inline-block mb-2 text-success">행사 안내 제목</strong>
-          		<h3 class="mb-0">행사안내 예시</h3>
-          	<div class="mb-1 text-muted">행사 기간 표시</div>
-          		<p class="mb-auto">이 곳은 행사 안내를 위해 간략한 내용을 표시하기 위한 공간입니다.</p>
-          		<a href="#" class="stretched-link">페이지 이동을 위한 &lt;a &gt;태그</a>
+          			<strong class="d-inline-block mb-2 text-success">행사 안내 제목</strong>
+          			<h3 class="mb-0">행사안내 예시</h3>
+          			<div class="mb-1 text-muted">행사 기간 표시</div>
+          			<p class="mb-auto">이 곳은 행사 안내를 위해 간략한 내용을 표시하기 위한 공간입니다.</p>
+          			<a href="#" class="stretched-link">페이지 이동을 위한 &lt;a &gt;태그</a>
         		</div>
-        	<div class="col-auto d-none d-lg-block">
-          		<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-        	</div>
+        		<div class="col-auto d-none d-lg-block">
+          			<img src="./img/about-3.jpg" class="img-thumbnail thumbnail_custom" alt="...">
+        		</div>
       		</div>
     	</div>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">행사 안내 제목</strong>
-          <h3 class="mb-0">행사안내 예시</h3>
-          <div class="mb-1 text-muted">행사 기간 표시</div>
-          <p class="mb-auto">이 곳은 행사 안내를 위해 간략한 내용을 표시하기 위한 공간입니다.</p>
-          <a href="#" class="stretched-link">페이지 이동을 위한 &lt;a &gt;태그</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-        </div>
-      </div>
-    </div>
-  	</div>
-  	
-  	<div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">행사 안내 제목</strong>
-          <h3 class="mb-0">행사안내 예시</h3>
-          <div class="mb-1 text-muted">행사 기간 표시</div>
-          <p class="card-text mb-auto">이 곳은 행사 안내를 위해 간략한 내용을 표시하기 위한 공간입니다.</p>
-          <a href="#" class="stretched-link">페이지 이동을 위한 &lt;a &gt;태그</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-        </div>
-      </div>
-    </div>
-
+    	
+    	<div class="col-md-6">
+      		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        		<div class="col p-4 d-flex flex-column position-static">
+          			<strong class="d-inline-block mb-2 text-success">행사 안내 제목</strong>
+          			<h3 class="mb-0">행사안내 예시</h3>
+          			<div class="mb-1 text-muted">행사 기간 표시</div>
+          			<p class="mb-auto">이 곳은 행사 안내를 위해 간략한 내용을 표시하기 위한 공간입니다.</p>
+          			<a href="#" class="stretched-link">페이지 이동을 위한 &lt;a &gt;태그</a>
+        		</div>
+        		<div class="col-auto d-none d-lg-block">
+          			<img src="./img/getImage.png" class="img-thumbnail thumbnail_custom" alt="...">
+        		</div>
+      		</div>
+    	</div>
   	</div>
   	
   	
@@ -213,6 +196,7 @@
     <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
     <!-- Template JavaScript -->
     <script src="./js/main.js"></script>
+    <script src="./js/eventlist.js"></script>
 	<!-- Bootstrap Script -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

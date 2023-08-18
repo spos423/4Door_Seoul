@@ -29,44 +29,30 @@
 
 <!-- Template Stylesheet -->
 <link href="./css/style.css" rel="stylesheet">
+<link href="./css/eventForm.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-<title>FOR문 SEOUL : 이벤트 리스트</title>
-
-<style type="text/css">
-#zipcode_div{
-	width:50%
-}
-#zipcode_p{
-	width:24%
-}
-span, label {
-	width: 12%
-}
-
-
-</style>
+<!-- Summernote JavaScript -->
 <script type="text/javascript">
 function postForm() {
     $('textarea[name="content"]').val($('#summernote').summernote('code'));
 }
 </script>
-
+<title>FOR문 SEOUL : 이벤트 리스트</title>
 </head>
-<body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
+<body>
 
 <header>
 <c:import url="/main/header.jsp" />
-
 </header>
 
 
-<main class="eventform" style="flex:1; width:50%;align-self: center;">
-<div class="container" style="flex:1;">
-	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+<main class="eventform">
+<div class="container">
+	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
   		<ol class="breadcrumb">
     		<li class="breadcrumb-item h5"><a href="#">HOME</a></li>
     		<li class="breadcrumb-item h5 active"><a href="#">사대문</a></li>
@@ -79,29 +65,29 @@ function postForm() {
   <hr>
   <form action="insertE_Board.do" method="post" onsubmit="postForm()">
     <div class="input-group mb-3">
-  		<span class="input-group-text">제목</span>
- 		<input type="text" name="title" class="form-control" placeholder="Title" aria-label="Title" style="width:48%">
- 		<span class="input-group-text">작성자</span>
- 		<input type="text" name="writer" class="form-control" placeholder="Wirter" aria-label="Writer" style="width:28%">
+  		<span class="input-group-text" id="event_span">제목</span>
+ 		<input type="text" name="title" class="form-control" placeholder="Title">
+ 		<span class="input-group-text" id="event_span">작성자</span>
+ 		<input type="text" name="writer" class="form-control" placeholder="Wirter">
 	</div>
 	
 	<div class="input-group mb-3">
-  		<label class="input-group-text" for="inputGroupFile01">Upload</label>
+  		<label class="input-group-text" for="inputGroupFile01" id="event_label">Upload</label>
   		<input type="file" class="form-control">
 	</div>
     
 	<div class="input-group mb-3" id="zipcode_div">
-  		<span class="input-group-text" id="zipcode_p">우편번호</span>
+  		<span class="input-group-text" id="zipcode_span">우편번호</span>
   		<input type="text" class="form-control" placeholder="Username" aria-label="Username" name="zipcode">
   		<button class="btn btn-outline-secondary" type="button">Button</button>
 	</div>
 	
 	<div class="input-group mb-3">
-		<span class="input-group-text">주소</span>
+		<span class="input-group-text" id="event_span">주소</span>
   		 <input type="text" class="form-control" placeholder="도로명 주소 입력" name="address">
 	</div>
 
-<textarea name="content" style="display: none;"></textarea>	
+<textarea name="content"></textarea>	
 <div id="summernote"></div>
     <script>
       $('#summernote').summernote({
@@ -122,34 +108,34 @@ function postForm() {
 	<br>
 	
     <div class="input-group mb-3">
-  		<span class="input-group-text">이용요금</span>
- 		<input type="text" name="price" class="form-control" placeholder="Charge_info" aria-label="Charge_info">
- 		<span class="input-group-text">전화번호</span>
+  		<span class="input-group-text" id="event_span">이용요금</span>
+ 		<input type="text" name="price" class="form-control" placeholder="Charge_info">
+ 		<span class="input-group-text" id="event_span">전화번호</span>
  		<input type="text" name="tel" class="form-control" placeholder="tel_info" aria-label="tel_info">
 	</div>
     
     <div class="input-group mb-3">
-    	<span class="input-group-text">교통정보</span>
+    	<span class="input-group-text" id="event_span">교통정보</span>
       	<input type="text" name="traf" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력">
     </div>
     
     <div class="input-group mb-3">
-    	<span class="input-group-text">웹사이트</span>
+    	<span class="input-group-text" id="event_span">웹사이트</span>
       	<input type="text" name="uri" class="form-control" id="url_info" placeholder="요금 입력">
     </div>
     
     <div class="input-group mb-3">
-    	<span class="input-group-text">행사 시작일</span>
+    	<span class="input-group-text" id="event_span">행사 시작일</span>
 		<input type="datetime-local" class="form-control" name="startdate">
-		<span class="input-group-text">행사 종료일</span>
+		<span class="input-group-text" id="event_span">행사 종료일</span>
 		<input type="datetime-local" class="form-control" name="enddate">
     </div>
  
 	
 	<div class="row">
 		<div class="offset-md-9 col-3">
-			<button style="width: 100px; border-radius: 20px;" type="submit" class="btn btn-primary">등록</button>
- 		   	<button style="width: 100px; border-radius: 20px;" type="button" class="btn btn-primary">취소</button>
+			<button name="submit_btn" type="submit" class="btn btn-primary">등록</button>
+ 		   	<button name="cancel_btn" type="button" class="btn btn-primary" onclick="javascript:history.go(-1)">취소</button>
     	</div>
     	
     </div>
@@ -160,7 +146,7 @@ function postForm() {
 </div>
 </main>
 
-<footer style="height: 30%">
+<footer>
 	<c:import url="/main/footer.jsp" />
 </footer>
 
