@@ -63,7 +63,7 @@ function postForm() {
 
   <p class="display-1">행사안내 양식</p>
   <hr>
-  <form action="insertE_Board.do" method="post" enctype="multipart/form-data">
+  <form action="/event/insertE_Board.do" method="post" enctype="multipart/form-data">
     <div class="input-group mb-3">
   		<span class="input-group-text" id="event_span">제목</span>
  		<input type="text" name="title" class="form-control" placeholder="Title">
