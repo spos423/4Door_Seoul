@@ -45,6 +45,8 @@ public class E_BoardClient {
 		vo.setUpdatedate(new Timestamp(System.currentTimeMillis()));
 		
 		boardService.insertBoard(vo);
+		
+		factory.close();
 	}
 
 }
