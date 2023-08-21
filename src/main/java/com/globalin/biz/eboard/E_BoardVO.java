@@ -6,12 +6,12 @@ public class E_BoardVO {
 	private int num;
 	private String title;
 	private String content;
-	private int zipcode;
+	private String zipcode;
 	private String address;
 	private String traf;
 	private String price;
-	private Timestamp startdate;
-	private Timestamp enddate;
+	private String startdate;
+	private String enddate;
 	private String tel;
 	private String uri;
 	private char deleteyn;
@@ -44,10 +44,10 @@ public class E_BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getZipcode() {
+	public String getZipcode() {
 		return zipcode;
 	}
-	public void setZipcode(int zipcode) {
+	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 	public String getAddress() {
@@ -68,16 +68,16 @@ public class E_BoardVO {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public Timestamp getStartdate() {
+	public String getStartdate() {
 		return startdate;
 	}
-	public void setStartdate(Timestamp timestamp) {
-		this.startdate = timestamp;
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
 	}
-	public Timestamp getEnddate() {
+	public String getEnddate() {
 		return enddate;
 	}
-	public void setEnddate(Timestamp enddate) {
+	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
 	public String getTel() {

@@ -12,7 +12,8 @@ import com.globalin.biz.eboard.E_BoardVO;
 public class E_BoardServiceImpl implements E_BoardService {
 
 	@Autowired
-	private E_BoardDAO e_boardDAO;
+	private E_BoardSpring e_boardDAO;
+	//private E_BoardDAO e_boardDAO;
 	
 	@Override
 	public void insertBoard(E_BoardVO vo) {

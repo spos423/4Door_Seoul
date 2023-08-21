@@ -74,22 +74,20 @@ function postForm() {
 	<div class="input-group mb-3 insert">
   		<label class="input-group-text" for="inputGroupFile01" id="event_label">Upload</label>
   		<input type="file" class="form-control" name="uploadFile">
-  		<div class="file-list"></div>
-
 	</div>
     
 	<div class="input-group mb-3" id="zipcode_div">
   		<span class="input-group-text" id="zipcode_span">우편번호</span>
-  		<input type="text" class="form-control" placeholder="Username" aria-label="Username" name="zipcode">
-  		<button class="btn btn-outline-secondary" type="button">Button</button>
+  		<input type="text" name="zipcode" class="form-control" placeholder="zipcode" aria-label="Username">
+  		<button class="btn btn-outline-secondary" type="button">주소검색</button>
 	</div>
 	
 	<div class="input-group mb-3">
 		<span class="input-group-text" id="event_span">주소</span>
-  		 <input type="text" class="form-control" placeholder="도로명 주소 입력" name="address">
+  		 <input type="text" name="address" class="form-control" placeholder="도로명 주소 입력">
 	</div>
 
-<textarea id="summernote" name="content"></textarea>
+<!-- <textarea id="summernote" name="content"></textarea> -->
     <script>
       $('#summernote').summernote({
         height: 500,
@@ -127,9 +125,9 @@ function postForm() {
     
     <div class="input-group mb-3">
     	<span class="input-group-text" id="event_span">행사 시작일</span>
-		<input type="datetime-local" class="form-control" name="startdate">
+		<input type="datetime-local" name="startdate" class="form-control">
 		<span class="input-group-text" id="event_span">행사 종료일</span>
-		<input type="datetime-local" class="form-control" name="enddate">
+		<input type="datetime-local" name="enddate" class="form-control">
     </div>
  
 	
@@ -138,7 +136,6 @@ function postForm() {
 			<button name="submit_btn" type="submit" class="btn btn-primary">등록</button>
  		   	<button name="cancel_btn" type="button" class="btn btn-primary" onclick="javascript:history.go(-1)">취소</button>
     	</div>
-    	
     </div>
     
     <br><br>

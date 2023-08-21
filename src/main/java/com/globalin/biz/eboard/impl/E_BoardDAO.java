@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -21,39 +22,35 @@ public class E_BoardDAO implements E_BoardService{
 				"values((select nvl(max(num),0)+1 from E_Board), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		Connection conn = null;
-		PreparedStatement pstmt = null;
+		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
+		System.out.println(vo.getStartdate());
 		try {
 			conn = JDBCUtil.getConnection();
 			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getTitle());
-			pstmt.setString(2, vo.getContent());
-			pstmt.setInt(3, vo.getZipcode());
-			pstmt.setString(4, vo.getAddress());
-			pstmt.setString(5, vo.getTraf());
-			pstmt.setString(6, vo.getPrice());
-			pstmt.setTimestamp(7, vo.getStartdate());
-			pstmt.setTimestamp(8, vo.getEnddate());
-			pstmt.setString(9, vo.getTel());
-			pstmt.setString(10, vo.getUri());
-			pstmt.setString(11, vo.getWriter());
-			pstmt.setTimestamp(12, vo.getWritedate());
-			pstmt.setString(13, vo.getUpdater());
-			pstmt.setTimestamp(14, vo.getUpdatedate());
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, vo.getTitle());
+			stmt.setString(2, vo.getContent());
+			stmt.setString(3, vo.getZipcode());
+			stmt.setString(4, vo.getAddress());
+			stmt.setString(5, vo.getTraf());
+			stmt.setString(6, vo.getPrice());
+			stmt.setTimestamp(7, Timestamp.valueOf(vo.getStartdate().substring(0,11) +" "+ vo.getStartdate().substring(11)+":00"));
+			stmt.setTimestamp(8, Timestamp.valueOf(vo.getEnddate().substring(0,11) +" "+ vo.getEnddate().substring(11)+":59"));
+			stmt.setString(9, vo.getTel());
+			stmt.setString(10, vo.getUri());
+			stmt.setString(11, vo.getWriter());
+			stmt.setTimestamp(12, vo.getWritedate());
+			stmt.setString(13, vo.getUpdater());
+			stmt.setTimestamp(14, vo.getUpdatedate());
 			
-			pstmt.executeUpdate();
+			stmt.executeUpdate();
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			if(rs!=null) 
-				try{rs.close();}catch(SQLException sqle){sqle.printStackTrace();}
-			if(pstmt!=null) 
-				try{pstmt.close();}catch(SQLException sqle){sqle.printStackTrace();} 
-			if(conn!=null) 
-				try{conn.close();}catch(SQLException sqle){sqle.printStackTrace();} 
+			JDBCUtil.close(rs, stmt, conn);
 		}
 	}// end insertArticle
 

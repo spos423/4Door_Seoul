@@ -51,12 +51,12 @@ public class InsertE_BoardController {
 		E_BoardVO vo = new E_BoardVO();
 		vo.setTitle(title);
 		vo.setContent(content);
-		vo.setZipcode(Integer.parseInt(zipcode));
+		vo.setZipcode(zipcode);
 		vo.setAddress(address);
 		vo.setTraf(traf);
 		vo.setPrice(price);
-		vo.setStartdate(startdate);
-		vo.setEnddate(enddate);
+		//vo.setStartdate(startdate);
+		//vo.setEnddate(enddate);
 		vo.setTel(tel);
 		vo.setUri(uri);
 		vo.setWriter(writer);

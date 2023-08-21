@@ -19,9 +19,17 @@ public class E_BoardSpring {
 	private JdbcTemplate jdbcTemplate;
 	
 	public void insertBoard(E_BoardVO vo) {
-		jdbcTemplate.update(E_BOARD_INSERT, vo.getTitle(), vo.getContent(), vo.getZipcode(),
-		vo.getAddress(), vo.getTraf(), vo.getPrice(), vo.getStartdate(), vo.getEnddate(), vo.getTel(),
-		vo.getUri(), vo.getWriter(), vo.getWritedate(), vo.getUpdater(), vo.getUpdatedate());
+		System.out.println("E_BoardSpring에서 insertBoard 처리");
+		
+		
+		jdbcTemplate.update(E_BOARD_INSERT, 
+				vo.getTitle(), 
+				vo.getContent(), 
+				vo.getZipcode(),
+		vo.getAddress(), vo.getTraf(), vo.getPrice(),
+		vo.getStartdate(),
+		vo.getEnddate(),
+		vo.getTel(), vo.getUri(), vo.getWriter(), vo.getWritedate(), vo.getUpdater(), vo.getUpdatedate());
 	}
 	
 	

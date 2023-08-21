@@ -31,12 +31,12 @@ public class E_BoardClient {
 		E_BoardVO vo = new E_BoardVO();
 		vo.setTitle("1111");
 		vo.setContent("1111");
-		vo.setZipcode(1111);
+		vo.setZipcode("1111");
 		vo.setAddress("1111");
 		vo.setTraf("1111");
 		vo.setPrice("1111");
-		vo.setStartdate(new Timestamp(System.currentTimeMillis()));
-		vo.setEnddate(new Timestamp(System.currentTimeMillis()));
+		//vo.setStartdate(new Timestamp(System.currentTimeMillis()));
+		//vo.setEnddate(new Timestamp(System.currentTimeMillis()));
 		vo.setTel("111-1111-1111");
 		vo.setUri("1111");
 		vo.setWriter("1111");
