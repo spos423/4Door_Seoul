@@ -1,0 +1,23 @@
+.post-element span {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 2px 15px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    font-weight: 300;
+}
+
+
+.listslide_custom {
+	overflow: hidden;
+	position: relative;	
+	width:100%!important;
+	height:400px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	object-fit: cover;
+	object-position: 50% 50%;
+}

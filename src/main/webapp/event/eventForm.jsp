@@ -63,17 +63,19 @@ function postForm() {
 
   <p class="display-1">행사안내 양식</p>
   <hr>
-  <form action="insertE_Board.do" method="post" onsubmit="postForm()">
+  <form action="/event/insertE_Board.do" method="post" enctype="multipart/form-data">
     <div class="input-group mb-3">
   		<span class="input-group-text" id="event_span">제목</span>
  		<input type="text" name="title" class="form-control" placeholder="Title">
  		<span class="input-group-text" id="event_span">작성자</span>
- 		<input type="text" name="writer" class="form-control" placeholder="Wirter">
+ 		<input type="text" name="writer" class="form-control" placeholder="Writer">
 	</div>
 	
-	<div class="input-group mb-3">
+	<div class="input-group mb-3 insert">
   		<label class="input-group-text" for="inputGroupFile01" id="event_label">Upload</label>
-  		<input type="file" class="form-control">
+  		<input type="file" class="form-control" name="uploadFile">
+  		<div class="file-list"></div>
+
 	</div>
     
 	<div class="input-group mb-3" id="zipcode_div">
@@ -87,13 +89,12 @@ function postForm() {
   		 <input type="text" class="form-control" placeholder="도로명 주소 입력" name="address">
 	</div>
 
-<textarea name="content"></textarea>	
-<div id="summernote"></div>
+<textarea id="summernote" name="content"></textarea>
     <script>
       $('#summernote').summernote({
+        height: 500,
         placeholder: 'Hello stand alone ui',
         tabsize: 2,
-        height: 500,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],

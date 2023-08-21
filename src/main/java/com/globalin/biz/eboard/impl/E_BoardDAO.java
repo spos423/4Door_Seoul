@@ -12,10 +12,13 @@ import org.springframework.stereotype.Repository;
 import com.globalin.biz.common.JDBCUtil;
 import com.globalin.biz.eboard.E_BoardVO;
 
-@Repository("E_BoardDAO")
+@Repository("e_boardDAO")
 public class E_BoardDAO implements E_BoardService{
-	
+
 	public void insertBoard(E_BoardVO vo) {
+		String sql="insert into E_Board(NUM, TITLE, CONTENT, ZIPCODE, ADDRESS, TRAF, PRICE, STARTDATE, ENDDATE," + 
+				"TEL, URI, WRITER, WRITEDATE, UPDATER, UPDATEDATE)" + 
+				"values((select nvl(max(num),0)+1 from E_Board), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -24,9 +27,6 @@ public class E_BoardDAO implements E_BoardService{
 		try {
 			conn = JDBCUtil.getConnection();
 			
-			String sql="insert into E_Board(NUM, TITLE, CONTENT, ZIPCODE, ADDRESS, TRAF, PRICE, STARTDATE, ENDDATE," + 
-					"TEL, URI, WRITER, WRITEDATE, UPDATER, UPDATEDATE)" + 
-					"values((select nvl(max(num),0)+1 from E_Board), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getTitle());
 			pstmt.setString(2, vo.getContent());

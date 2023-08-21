@@ -37,7 +37,6 @@
 
 <header>
 <c:import url="/main/header.jsp" />
-
 </header>
 
 
@@ -161,6 +160,15 @@
       		</div>
     	</div>
   	</div>
+  	
+  	<div class="offset-md-9 col-3" id="sh">
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  			<p class="d-inline-flex gap-1">
+	 			<input class="btn btn-primary me-md-2" type="button" value="새글 작성" onclick="location.href='/event/eventForm.jsp'">
+			</p>
+		</div>
+	</div>
+  	
   	
   	
   	<div aria-label="..." class="container text-center">

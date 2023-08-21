@@ -28,8 +28,9 @@
 
 <!-- Template Stylesheet -->
 <link href="./css/style.css" rel="stylesheet">
+<link href="./css/eventboard.css" rel="stylesheet">
 
-<title>FOR문 SEOUL : 이벤트 리스트</title>
+<title>FOR문 SEOUL : 이벤트 보드</title>
 </head>
 <body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
 
@@ -39,10 +40,9 @@
 </header>
 
 
-<main style="flex:1;">
+<main style="flex:1;width:50%;align-self:center;">
 
 <div class="container">
-
 	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
   		<ol class="breadcrumb">
     		<li class="breadcrumb-item h5"><a href="#">HOME</a></li>
@@ -50,14 +50,57 @@
     		<li class="breadcrumb-item active h5" aria-current="page">행사안내</li>
   		</ol>
 	</nav>
+
+	<div>
+		<span class="text-primary fw-bold" style="justify-content: center; align-items: center; display: flex;">이벤트</span>
+		<br>
+		<h3 class="text-secondary"style="justify-content: center; align-items: center; display: flex; font-family:'Noto Sans Korean', 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', 'dotum', '돋움', sans-serif;">제목이 들어갈 자리입니다.</h3>
+	</div>
 	
+	<div class="post-element" style="justify-content: center; align-items: center; display: flex;">
+		<span>최초작성일 : 2023.08.18 / 수정일 : 2023.08.18</span>
+		<hr>
+	</div>
 	
+	<div>
+		<img src="./img/carousel-1.jpg" style="position: relative;width:100%!important;background-size: contain;background-repeat: no-repeat;background-position: bottom;">
+	</div>
+	<br>
 	
+	<div width="100%" height="400px" border="1">asdfa</div>
+	
+	<div align="center">
+		<table border="1" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="center" width="30%">주소</td>
+				<td align="left" width="70%">우편번호 주소 출력</td>
+			</tr>
+			<tr>
+				<td align="center" width="30%">교통정보</td>
+				<td align="left" width="70%">교통정보 출력</td>
+			</tr>
+			<tr>
+				<td align="center" width="30%">이용요금</td>
+				<td align="left" width="70%">이용요금 출력</td>
+			</tr>
+			<tr>
+				<th align="center" width="30%">행사 기간</th>
+				<td align="left" width="70%">행사 시작일, 행사 종료일 출력</td>
+			</tr>
+			<tr>
+				<th align="center" width="30%">전화번호</th>
+				<td align="left" width="70%">전화번호 출력</td>
+			</tr>
+			<tr>
+				<th align="center" width="30%">홈페이지</th>
+				<td align="left" width="70%">홈페이지 주소 출력</td>
+			</tr>
+		</table>
+	</div>
 	
 </div>
 
-
-
+<br>
 </main>
 
 

@@ -10,18 +10,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 //import org.springframework.web.multipart.MultipartFile;
 
 import com.globalin.biz.eboard.E_BoardVO;
+import com.globalin.biz.eboard.impl.E_BoardDAO;
 import com.globalin.biz.eboard.impl.E_BoardService;
 
-//@Controller
+@Controller(value="e_boardService")
 //@SessionAttributes("E_Board")
 public class E_BoardController {
 	
-	//@Autowired
-	private E_BoardService E_BoardService;
-	
-	
-	@RequestMapping("/biz/event/insertE_Board.do")
-	public String insertBoard(E_BoardVO vo) throws IOException {
+	@RequestMapping("/event/insertE_Board.do")
+	public String insertBoard(E_BoardVO vo, E_BoardDAO dao) throws IOException {
 		
 		System.out.println("글 등록 처리");
 		/*
@@ -31,13 +28,12 @@ public class E_BoardController {
 			uploadFile.transferTo(new File("C:/ddd/"+filename));
 		}
 		*/
-		E_BoardService.insertBoard(vo);
-		return "redirect:/event/eventlist.jsp";
+		dao.insertBoard(vo);
+		return "/event/eventForm_Proc.jsp";
 	}
 	
-	@RequestMapping("/eventlist.do")
-	public String searchBoardList(E_BoardVO vo) {
-		
+	@RequestMapping("/event/eventlist.do")
+	public String getE_BoardList(E_BoardVO vo) {
 		
 		return "/event/eventlist.jsp";
 	}
