@@ -33,9 +33,6 @@ input[name="title"] {
 input[name="writer"] {
 	width: 28%
 }
-textarea[name="content"] {
-	display:none;
-}
 button[name="submit_btn"], button[name="cancel_btn"] {
 	width: 100px; 
 	border-radius: 20px;"

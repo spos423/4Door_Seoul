@@ -37,7 +37,6 @@
 
 <header>
 <c:import url="/main/header.jsp" />
-
 </header>
 
 

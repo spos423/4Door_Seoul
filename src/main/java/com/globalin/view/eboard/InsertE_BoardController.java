@@ -5,20 +5,31 @@ import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.globalin.biz.eboard.E_BoardVO;
 import com.globalin.biz.eboard.impl.E_BoardDAO;
+//import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class InsertE_BoardController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		//String uploadPath = request.getSession().getServletContext().getRealPath("/"); //saveDirectory
+		//int size = 10*1024*1024; //  10MB(단위는 byte), maxPostSize
+		//DefaultFileRenamePolicy renamepolicy = new DefaultFileRenamePolicy();
+		
+		//MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8", renamepolicy);
+		
 		String title = request.getParameter("title");
+		System.out.println(title);
 		String content = request.getParameter("content");
+		System.out.println(content);
 		String zipcode = request.getParameter("zipcode");
+		System.out.println(zipcode);
 		String address = request.getParameter("address");;
 		String traf = request.getParameter("traf");;
 		String price = request.getParameter("price");

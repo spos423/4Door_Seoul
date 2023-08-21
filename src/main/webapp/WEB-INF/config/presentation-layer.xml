@@ -18,10 +18,10 @@
 
 <!-- Controller 등록 -->
 <bean id="insertE_Board" class="com.globalin.view.eboard.InsertE_BoardController" />
-<!-- 파일 업로드 설정 
+<!-- 파일 업로드 설정 -->
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	<property name="maxUploadSize" value="100000"></property>크기 무제한 : -1  -->
-
+	<property name="maxUploadSize" value="100000"></property> <!-- 크기 무제한 : -1  -->
+</bean>
 
 
 </beans>
