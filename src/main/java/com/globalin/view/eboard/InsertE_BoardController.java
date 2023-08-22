@@ -16,7 +16,6 @@ import com.globalin.biz.eboard.impl.E_BoardDAO;
 //import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.globalin.biz.eboard.impl.E_BoardService;
 
-
 public class InsertE_BoardController {
 	
 	E_BoardService e_boardService;

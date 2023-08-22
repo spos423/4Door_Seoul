@@ -41,6 +41,9 @@ function postForm() {
     $('textarea[name="content"]').val($('#summernote').summernote('code'));
 }
 </script>
+
+<!-- 폼 정보 알림 메세지 -->
+<script src="./js/eventForm.js"></script>
 <title>FOR문 SEOUL : 이벤트 리스트</title>
 </head>
 <body>
@@ -63,31 +66,31 @@ function postForm() {
 
   <p class="display-1">행사안내 양식</p>
   <hr>
-  <form action="/event/insertE_Board.do" method="post" enctype="multipart/form-data">
+  <form action="/event/insertE_Board.do" name="eventForm" method="post" enctype="multipart/form-data" onsubmit="return formCheck()">
     <div class="input-group mb-3">
   		<span class="input-group-text" id="event_span">제목</span>
- 		<input type="text" name="title" class="form-control" placeholder="Title">
+ 		<input type="text" name="title" class="form-control" placeholder="글 제목을 입력해주세요.(50자 이내)" maxlength="50" oninput="lengthLimit(this,maxlength)">
  		<span class="input-group-text" id="event_span">작성자</span>
- 		<input type="text" name="writer" class="form-control" placeholder="Writer">
+ 		<input type="text" name="writer" class="form-control" placeholder="Writer" value="일단 이걸로(10자 이내)" maxlength="10" oninput="lengthLimit(this,maxlength)" readonly>
 	</div>
 	
 	<div class="input-group mb-3 insert">
   		<label class="input-group-text" for="inputGroupFile01" id="event_label">Upload</label>
-  		<input type="file" class="form-control" name="uploadFile">
+  		<input type="file" class="form-control" name="thumb_img1">
 	</div>
     
 	<div class="input-group mb-3" id="zipcode_div">
   		<span class="input-group-text" id="zipcode_span">우편번호</span>
-  		<input type="text" name="zipcode" class="form-control" placeholder="zipcode" aria-label="Username">
+  		<input type="text" name="zipcode" class="form-control" placeholder="zipcode" aria-label="Username" maxlength="8" oninput="lengthLimit(this,maxlength)">
   		<button class="btn btn-outline-secondary" type="button">주소검색</button>
 	</div>
 	
 	<div class="input-group mb-3">
 		<span class="input-group-text" id="event_span">주소</span>
-  		 <input type="text" name="address" class="form-control" placeholder="도로명 주소 입력">
+  		 <input type="text" name="address" class="form-control" placeholder="도로명 주소 입력" maxlength="50" oninput="lengthLimit(this,maxlength)">
 	</div>
 
-<!-- <textarea id="summernote" name="content"></textarea> -->
+<textarea id="summernote" name="content"></textarea>
     <script>
       $('#summernote').summernote({
         height: 500,
@@ -108,14 +111,14 @@ function postForm() {
 	
     <div class="input-group mb-3">
   		<span class="input-group-text" id="event_span">이용요금</span>
- 		<input type="text" name="price" class="form-control" placeholder="Charge_info">
+ 		<input type="text" name="price" class="form-control" placeholder="이용요금 있을시 작성(30자 내외)" maxlength="30" oninput="lengthLimit(this,maxlength)">
  		<span class="input-group-text" id="event_span">전화번호</span>
- 		<input type="text" name="tel" class="form-control" placeholder="tel_info" aria-label="tel_info">
+ 		<input type="text" name="tel" class="form-control" placeholder="행사 담당부서 연락처(20자 내외)" maxlength="20" oninput="lengthLimit(this,maxlength)">
 	</div>
     
     <div class="input-group mb-3">
     	<span class="input-group-text" id="event_span">교통정보</span>
-      	<input type="text" name="traf" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력">
+      	<input type="text" name="traf" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력" maxlength="100" oninput="lengthLimit(this,maxlength)">
     </div>
     
     <div class="input-group mb-3">

@@ -1,21 +1,26 @@
 package com.globalin.biz.eboard.impl;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.globalin.biz.common.DateUtil;
 import com.globalin.biz.common.JDBCUtil;
 import com.globalin.biz.eboard.E_BoardVO;
 
 @Repository("e_boardDAO")
 public class E_BoardDAO implements E_BoardService{
 
+	
+	
+	
 	public void insertBoard(E_BoardVO vo) {
 		String sql="insert into E_Board(NUM, TITLE, CONTENT, ZIPCODE, ADDRESS, TRAF, PRICE, STARTDATE, ENDDATE," + 
 				"TEL, URI, WRITER, WRITEDATE, UPDATER, UPDATEDATE)" + 
@@ -25,8 +30,8 @@ public class E_BoardDAO implements E_BoardService{
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		System.out.println(vo.getStartdate());
 		try {
+			
 			conn = JDBCUtil.getConnection();
 			
 			stmt = conn.prepareStatement(sql);
@@ -36,14 +41,16 @@ public class E_BoardDAO implements E_BoardService{
 			stmt.setString(4, vo.getAddress());
 			stmt.setString(5, vo.getTraf());
 			stmt.setString(6, vo.getPrice());
-			stmt.setTimestamp(7, Timestamp.valueOf(vo.getStartdate().substring(0,11) +" "+ vo.getStartdate().substring(11)+":00"));
-			stmt.setTimestamp(8, Timestamp.valueOf(vo.getEnddate().substring(0,11) +" "+ vo.getEnddate().substring(11)+":59"));
+			stmt.setTimestamp(7, Timestamp.valueOf(vo.getStartdate().substring(0,10) +" "+ vo.getStartdate().substring(11)+":00"));
+			stmt.setTimestamp(8, Timestamp.valueOf(vo.getEnddate().substring(0,10) +" "+ vo.getEnddate().substring(11)+":59"));
 			stmt.setString(9, vo.getTel());
 			stmt.setString(10, vo.getUri());
-			stmt.setString(11, vo.getWriter());
-			stmt.setTimestamp(12, vo.getWritedate());
-			stmt.setString(13, vo.getUpdater());
-			stmt.setTimestamp(14, vo.getUpdatedate());
+			stmt.setString(11, vo.getWriter()); 
+			stmt.setTimestamp(12, DateUtil.getCurrentTime());
+			stmt.setString(13, vo.getWriter());
+			stmt.setTimestamp(14, DateUtil.getCurrentTime());
+			
+			
 			
 			stmt.executeUpdate();
 			

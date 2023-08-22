@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 //import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,14 +18,15 @@ import com.globalin.biz.eboard.impl.E_BoardDAO;
 public class E_BoardController {
 	
 	@RequestMapping("/event/insertE_Board.do")
-	public String insertBoard(E_BoardVO vo, E_BoardDAO dao, @RequestParam("uploadFile") MultipartFile uploadFile) throws IOException {
+	public String insertBoard(E_BoardVO vo, E_BoardDAO dao) throws IOException {
 		
 		System.out.println("글 등록 처리");
-		
-		
-		if(!uploadFile.isEmpty()) {
-			String filename = uploadFile.getOriginalFilename();
-			uploadFile.transferTo(new File("classpath:"+filename));
+	
+		MultipartFile thumb_img1 = vo.getThumb_img1();
+		if(!thumb_img1.isEmpty()) {
+			
+			String filename = thumb_img1.getOriginalFilename();
+			thumb_img1.transferTo(new File("C:/ddd/"+filename));
 		}
 		
 		dao.insertBoard(vo);

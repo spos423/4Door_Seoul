@@ -1,3 +1,47 @@
+function formCheck() {
+
+    if(document.eventForm.title.value==""){
+    alert('제목를 입력해주세요.');
+    document.eventForm.title.focus();
+    return false;
+    }
+    
+    if(document.eventForm.writer.value==""){
+    alert('작성자를 입력해주세요.');
+    document.eventForm.writer.focus();
+    return false;
+    }
+
+
+    if(document.eventForm.writer.value==""){
+    alert('내용를 입력해주세요.');
+    document.eventForm.content.focus();
+    return false;
+    }
+
+    if(document.eventForm.zipcode.value==""){
+    alert('우편번호를 입력해주세요.');
+    document.eventFormForm.zipcode.focus();
+    return false;
+    }   
+}
+
+function lengthLimit(el,maxlength) {
+	if(el.length > maxlength){
+    el.value = el.value.substr(0, maxlength);
+    }
+}
+
+
+
+function frm_sub(i) {
+	i_frm.action="/board/list.bdo?pageNum="+i;
+	i_frm.submit();
+}
+
+
+
+
 var fileNo = 0;
 var filesArr = new Array();
 
