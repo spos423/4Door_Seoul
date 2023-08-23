@@ -77,3 +77,29 @@ tr > td {
 	display : block;
     margin : auto!important;
 }
+
+.Comment-form-title{
+	font-size: 18px;
+}
+
+.Comment-form-writer{
+	font-size: 16px;
+	margin-top: 10px;
+	color:black;
+}
+
+.Comment-form-content{
+	font-size: 16px;
+	color:black;
+}
+
+.comment-form-date{
+	font-size: 13px;
+	color: #6F6F6F;
+	color:black;
+}
+
+.comment-form-date > a{
+	font-size: 14px;
+	color:#7F7F7F;
+}

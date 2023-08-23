@@ -14,7 +14,7 @@ import com.globalin.biz.eboard.E_BoardVO;
 import com.globalin.biz.eboard.impl.E_BoardDAO;
 
 @Controller(value="e_boardService")
-@SessionAttributes("E_Board")
+@SessionAttributes("e_board")
 public class E_BoardController {
 	
 	@RequestMapping("/event/insertE_Board.do")

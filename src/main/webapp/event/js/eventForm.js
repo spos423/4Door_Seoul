@@ -11,19 +11,48 @@ function formCheck() {
     document.eventForm.writer.focus();
     return false;
     }
-
-
-    if(document.eventForm.writer.value==""){
-    alert('내용를 입력해주세요.');
-    document.eventForm.content.focus();
-    return false;
-    }
-
+    
     if(document.eventForm.zipcode.value==""){
     alert('우편번호를 입력해주세요.');
-    document.eventFormForm.zipcode.focus();
+    document.eventForm.address.focus();
+    document.getElementById("address_kakao").click();
     return false;
-    }   
+    }
+    
+    if(document.eventForm.address.value==""){
+    alert('주소를 입력해주세요.');
+    document.eventForm.address.focus();
+    return false;
+    }
+    
+    if(document.eventForm.startdate.value==""){
+    alert('행사 시작일을 입력해주세요.');
+    document.eventForm.startdate.focus();
+    return false;
+    }
+    
+	if(document.eventForm.enddate.value==""){
+    alert('행사 종료일을 입력해주세요.');
+    document.eventForm.enddate.focus();
+    return false;
+    }
+    
+   	var splitStartdate = document.eventForm.startdate.value.split('T');
+    var splitEnddate = document.eventForm.enddate.value.split('T');
+    var getStartdate = splitStartdate[0].split('-');
+    var getEnddate = splitEnddate[0].split('-');
+    
+    var start = new Date(getStartdate[0], getStartdate[1], getStartdate[2]);
+    var end = new Date(getEnddate[0], getEnddate[1], getEnddate[2]);   
+    
+    compare = end.getTime() - start.getTime();
+        
+    if(compare<0){
+    alert('행사 시작일은 행사 종료일 보다 빨라야 합니다.');
+    document.eventForm.startdate.focus();
+    return false;
+    }
+    
 }
 
 function lengthLimit(el,maxlength) {
@@ -33,11 +62,30 @@ function lengthLimit(el,maxlength) {
 }
 
 
-
-function frm_sub(i) {
-	i_frm.action="/board/list.bdo?pageNum="+i;
-	i_frm.submit();
+function startFirst(){
+	if(document.eventForm.startdate.value==""){
+	alert('행사 시작일을 먼저 입력해주세요.');
+	document.eventForm.startdate.focus();
+    return false;
+	}
 }
+
+function compareDate(){
+	let getStartdate = document.eventForm.startdate.value.split('-');
+    let getEnddate = document.eventForm.enddate.value.split('-');
+    
+    let start = new Date(getStartdate[0], getStartdate[1], getStartdate[2]);
+    let end = new Date(getEnddate[0], getEnddate[1], getEnddate[2]);   
+    
+    compare = end.getTime() - start.getTime();
+        
+    if(compare<0){
+    alert('행사 시작일은 행사 종료일 보다 빨라야 합니다.');
+    document.eventForm.startdate.focus();
+    return false;
+    }
+}
+
 
 
 

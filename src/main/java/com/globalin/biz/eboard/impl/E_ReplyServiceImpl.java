@@ -4,42 +4,43 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.globalin.biz.eboard.E_BoardVO;
+import com.globalin.biz.eboard.E_ReplyVO;
 
 @Service
-public class E_BoardServiceImpl implements E_BoardService {
-
+public class E_ReplyServiceImpl implements E_ReplyService {
+	
 	@Autowired
-	private E_BoardDAO e_boardDAO;
+	private E_ReplyDAO e_replyDAO;
 	
 	@Override
-	public void insertBoard(E_BoardVO vo) {
-		e_boardDAO.insertBoard(vo);
-	}
-
-	@Override
-	public void updateBoard(E_BoardVO vo) {
+	public void insertReply(E_ReplyVO vo) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteBoard(E_BoardVO vo) {
+	public void updateReply(E_ReplyVO vo) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public E_BoardVO getBoard(E_BoardVO vo) {
+	public void deleteReply(E_ReplyVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public E_ReplyVO getReply(E_ReplyVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<E_BoardVO> getBoardList(E_BoardVO vo) {
+	public List<E_ReplyVO> getReplyList(E_ReplyVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 }

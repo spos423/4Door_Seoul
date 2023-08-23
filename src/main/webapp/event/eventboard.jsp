@@ -30,7 +30,6 @@
 <link href="./css/style.css" rel="stylesheet">
 <link href="./css/eventboard.css" rel="stylesheet">
 
-
 <title>FOR문 SEOUL : 이벤트 보드</title>
 </head>
 <body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
@@ -78,7 +77,6 @@
 	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
 	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
 	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
-	
 	</div>
 	
 	<div align="center">
@@ -118,17 +116,6 @@
 	
 	<br><hr>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<div class="container">
 		<form action="#" method="post">
 			<div class="input-group">
@@ -141,6 +128,25 @@
 	
 	<br>
 	
+	<div class="container" >
+		<table width="100%" height="auto" cellpadding="0" cellspacing="0">
+			<tr><td class="Comment-form-title">댓&ensp;&ensp;&ensp;&ensp;글</td></tr>
+			
+			<tr height="25px"><td class="Comment-form-writer">&ensp;작성자</td></tr>
+			<tr><td class="Comment-form-content">&ensp;댓글 내용이 입력될 공간입니다.</td></tr>
+			<tr><td class="comment-form-date">&ensp;작성일자 : 2023.08.23&ensp;<a href="#" class="reply-comment">답글쓰기</a></td></tr>
+			
+			<table width="100%" height="auto" cellpadding="0" cellspacing="0">
+			<tr><td class="Comment-form-writer">&ensp;작성자</td></tr>
+			<tr><td class="Comment-form-content">&ensp;댓글 내용이 입력될 공간입니다.</td></tr>
+			<tr><td class="comment-form-date">&ensp;작성일자 : 2023.08.23&ensp;<a href="#" class="reply-comment">답글쓰기</a></td></tr>
+			</table>
+			
+		</table>
+		
+	</div>
+	
+	<br>
 
 </div>
 

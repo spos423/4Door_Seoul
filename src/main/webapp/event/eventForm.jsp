@@ -5,7 +5,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <!-- Favicon -->
 <link href="img/favicon.ico" rel="icon">
@@ -75,19 +76,19 @@ function postForm() {
 	</div>
 	
 	<div class="input-group mb-3 insert">
-  		<label class="input-group-text" for="inputGroupFile01" id="event_label">Upload</label>
+  		<label class="input-group-text" id="event_label">Upload</label>
   		<input type="file" class="form-control" name="thumb_img1">
 	</div>
     
 	<div class="input-group mb-3" id="zipcode_div">
   		<span class="input-group-text" id="zipcode_span">우편번호</span>
-  		<input type="text" name="zipcode" class="form-control" placeholder="zipcode" aria-label="Username" maxlength="8" oninput="lengthLimit(this,maxlength)">
-  		<button class="btn btn-outline-secondary" type="button">주소검색</button>
+  		<input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="우편번호 입력(5자)" maxlength="5" oninput="lengthLimit(this,maxlength)" readonly="readonly">
+  		<button class="btn btn-outline-secondary" id="address_kakao" type="button">주소검색</button>
 	</div>
 	
 	<div class="input-group mb-3">
 		<span class="input-group-text" id="event_span">주소</span>
-  		 <input type="text" name="address" class="form-control" placeholder="도로명 주소 입력" maxlength="50" oninput="lengthLimit(this,maxlength)">
+  		 <input type="text" name="address" id="address" class="form-control" placeholder="도로명 주소 입력" maxlength="50" oninput="lengthLimit(this,maxlength)">
 	</div>
 
 <textarea id="summernote" name="content"></textarea>
@@ -102,7 +103,6 @@ function postForm() {
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
           ['table', ['table']],
-          ['insert', ['link', 'picture', 'video']],
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       });
@@ -123,14 +123,14 @@ function postForm() {
     
     <div class="input-group mb-3">
     	<span class="input-group-text" id="event_span">웹사이트</span>
-      	<input type="text" name="uri" class="form-control" id="url_info" placeholder="요금 입력">
+      	<input type="text" name="uri" class="form-control" id="url_info" placeholder="요금 입력" maxlength="100" oninput="lengthLimit(this,maxlength)">
     </div>
     
     <div class="input-group mb-3">
     	<span class="input-group-text" id="event_span">행사 시작일</span>
-		<input type="datetime-local" name="startdate" class="form-control">
+		<input type="datetime-local" name="startdate" class="form-control" oninput="printConsole(this)">
 		<span class="input-group-text" id="event_span">행사 종료일</span>
-		<input type="datetime-local" name="enddate" class="form-control">
+		<input type="datetime-local" name="enddate" class="form-control" oninput="return startFirst()">
     </div>
  
 	
@@ -153,7 +153,24 @@ function postForm() {
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+	
+	<!-- 카카오 주소검색 라이브러리 -->
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+window.onload = function(){
+    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("zipcode").value = data.zonecode; // 우편번호 넣기
+                document.getElementById("address").value = data.address; // 주소 넣기
+                document.querySelector("input[name=address]").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+}
+</script>
+	
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="./lib/wow/wow.min.js"></script>

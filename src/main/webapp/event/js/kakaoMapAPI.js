@@ -1,3 +1,6 @@
+var addressForMap = "서울특별시 노원구 노원로 62 306동 702호";
+
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
    
 mapOption = {
@@ -12,7 +15,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var geocoder = new kakao.maps.services.Geocoder();
 
 // 주소로 좌표를 검색합니다
-geocoder.addressSearch('서울 종로구 종로 288 흥인지문', function(result, status) {
+geocoder.addressSearch(addressForMap, function(result, status) {
 
 // 정상적으로 검색이 완료됐으면 
 if (status === kakao.maps.services.Status.OK) {
