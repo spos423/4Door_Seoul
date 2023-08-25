@@ -108,13 +108,14 @@
 	</div>
 	
 	<div class="collapse" id="searchPeriod">
-		<div class="container text-center" >
+		<div class="text-center" >
 			<form action="/event/eventlist.do" class="form-control" name="searchPeriod_Form" method="post" onsubmit="return searchPeriod()">
-				<label>시작일 </label> 
-				<input type="date" name="search_startDate" style="width: 200px;">
-				<label>~ 종료일 </label>
-   				<input type="date" name="search_endDate" style="width: 200px;">
-   				<input type="submit" value="검색">
+				<div class="input-group mb-3">
+    			<span class="input-group-text" id="event_span">행사 시작일</span>
+				<input type="datetime-local" name="startdate" class="form-control" oninput="printConsole(this)">
+				<span class="input-group-text" id="event_span">행사 종료일</span>
+				<input type="datetime-local" name="enddate" class="form-control" oninput="return startFirst()">
+    			</div>
    			</form>
    		</div>
    	</div>	
@@ -240,13 +241,13 @@
   			<div class="col-md-auto">
   			<ul class="pagination align-items-start">
   				<c:if test="${startPage > pageBlock}">
-    			<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="frm_sub(${startPage - pageBlock})">Previous</a></li>
+    				<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="frm_sub(${startPage - pageBlock})">Previous</a></li>
     			</c:if>
     			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-    			<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="frm_sub(${i})">${i}</a></li>
+    				<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="frm_sub(${i})">${i}</a></li>
     			</c:forEach>
     			<c:if test="${endPage < pageCount }">
-    			<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="frm_sub(${startPage + pageBlock})">Next</a></li>
+    				<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="frm_sub(${startPage + pageBlock})">Next</a></li>
   				</c:if>
   			</ul>
   			</div>
