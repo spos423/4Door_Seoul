@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,11 +56,30 @@
 	<div>
 		<span class="text-primary fw-bold" style="justify-content: center; align-items: center; display: flex;">이벤트</span>
 		<br>
-		<h3 class="text-dark"style="justify-content: center; align-items: center; display: flex; font-family:'Noto Sans Korean', 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', 'dotum', '돋움', sans-serif; color:black">제목이 들어갈 자리입니다.</h3>
+		<h3 class="text-dark" style="justify-content: center; align-items: center; display: flex; font-family:'Noto Sans Korean', 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', 'dotum', '돋움', sans-serif; color:black">${e_board.title}</h3>
 	</div>
 	
+	
+    <fmt:parseDate value="${startdate}" var="start" pattern="yyyy-MM-dd'T'HH:mm" />
+    <fmt:parseDate value="${enddate}" var="end" pattern="yyyy-MM-dd'T'HH:mm" />
+    <fmt:parseDate value="${writedate}" var="writeDay" pattern="yyyy-MM-dd HH:mm:ss.SSS" />
+    <fmt:parseDate value="${updatedate}" var="updateDay" pattern="yyyy-MM-dd HH:mm:ss.SSS" />
+	
+	<jsp:useBean id="now" class="java.util.Date" scope="request" />
+    <fmt:parseNumber value="${now.time/(1000*60*60*24)}" integerOnly="true" var="nowDays" scope="request" />
+    <fmt:parseNumber value="${writeDay.time/(1000*60*60*24)}" integerOnly="true" var="writeDays" scope="request" />
+    <fmt:parseNumber value="${start.time/(1000*60*60*24)}" integerOnly="true" var="startDays" scope="request" />
+	<fmt:parseNumber value="${end.time/(1000*60*60*24)}" integerOnly="true" var="endDays" scope="request" />
+	
+	
+	
+	
+	
+	
+	
+	
 	<div class="dateline">
-		최초작성일 : 2023.08.18 / 수정일 : 2023.08.18
+		최초작성일 : <fmt:formatDate value="${writeDay}" pattern="yyyy-MM-dd" /> / <fmt:formatDate value="${updateDay}" pattern="yyyy-MM-dd" />
 	</div>
 	
 	<div class="container">

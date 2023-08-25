@@ -37,10 +37,10 @@ function formCheck() {
     return false;
     }
     
-   	var splitStartdate = document.eventForm.startdate.value.split('T');
-    var splitEnddate = document.eventForm.enddate.value.split('T');
-    var getStartdate = splitStartdate[0].split('-');
-    var getEnddate = splitEnddate[0].split('-');
+   	let splitStartdate = document.eventForm.startdate.value.split('T');
+    let splitEnddate = document.eventForm.enddate.value.split('T');
+    let getStartdate = splitStartdate[0].split('-');
+    let getEnddate = splitEnddate[0].split('-');
     
     var start = new Date(getStartdate[0], getStartdate[1], getStartdate[2]);
     var end = new Date(getEnddate[0], getEnddate[1], getEnddate[2]);   
@@ -52,7 +52,7 @@ function formCheck() {
     document.eventForm.startdate.focus();
     return false;
     }
-    
+	
 }
 
 function lengthLimit(el,maxlength) {
@@ -86,7 +86,16 @@ function compareDate(){
     }
 }
 
-
+function fileUploadCheck(fileVal) {
+	let fileLength = fileVal.length;
+	let fileDot = fileVal.lastIndexOf(".");
+	let fileType = fileVal.substring(fileDot+1, fileLength).toLowerCase();
+	
+	if(fileType !== "jpg" && fileType !== "jpeg" && fileType !== "png"){
+	alert('업로드 파일의 확장자는 jpg, jpeg, png만 가능합니다.');
+	document.eventForm.thumb_img1.value="";
+	}
+}
 
 
 

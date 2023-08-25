@@ -77,7 +77,7 @@ function postForm() {
 	
 	<div class="input-group mb-3 insert">
   		<label class="input-group-text" id="event_label">Upload</label>
-  		<input type="file" class="form-control" name="thumb_img1">
+  		<input type="file" class="form-control" name="thumb_img1" onchange="return fileUploadCheck(this.value)">
 	</div>
     
 	<div class="input-group mb-3" id="zipcode_div">
