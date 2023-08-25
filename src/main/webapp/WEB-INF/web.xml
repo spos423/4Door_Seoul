@@ -3,7 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-<!-- <filter>로 인코딩 설정 => *.do로 접근하면 인코딩 설정을 잡아줌 -->	
+	<!-- 
+		Spring에서 지원해주는 MVC를 사용할 때는
+		인코딩 설정을 <filter>태그로 지정
+	 -->
 	<filter>
 		<filter-name>characterEncoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -11,34 +14,48 @@
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
-	</filter>	
+	</filter>
 	<filter-mapping>
 		<filter-name>characterEncoding</filter-name>
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
-
-<!-- needed for ContextLoaderListener -->
-<!-- 	<context-param>
+	
+	<!-- 
+		param-value에서 classpath: -> src/main/resources를 뜻함
+	-->
+	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
-	</context-param> -->
-<!-- Bootstraps the root web application context before servlet initialization -->
-<!-- 	<listener>
+	</context-param>
+	
+	<!-- 
+		listener : applicationContext 파일을 읽을 때 작성하는 태그
+	-->
+	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener> -->
+	</listener>
+	
 
-<!-- DispatcherServlet -->  	
+
+	<!-- 
+		Servlet 설정 !!!!!
+	-->
 	<servlet>
 		<servlet-name>action</servlet-name>
+		<!-- 1. 우리가 만든  DispatcherServlet
+			<servlet-class>com.globalin.view.controller.DispatcherServlet</servlet-class> 
+		-->
+		
+		<!-- 2. Spring에서 지원해주는 DispatcherServlet -->
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
- 		<init-param>
+		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/config/presentation-layer.xml</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
-		<url-pattern>*.do</url-pattern>	
-	</servlet-mapping>	
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 
 </web-app>

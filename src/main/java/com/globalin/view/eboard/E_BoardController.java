@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.globalin.biz.eboard.E_BoardVO;
 import com.globalin.biz.eboard.ipml.E_BoardService;
 
-@Controller
+//@Controller
 //@SessionAttributes("E_Board")
 public class E_BoardController {
 	
-	@Autowired
+	//@Autowired
 	private E_BoardService e_boardService;
 	
 	
-	@RequestMapping("/biz/event/insertE_Board.do")
+	//@RequestMapping("/biz/event/insertE_Board.do")
 	public String insertBoard(E_BoardVO vo) throws IOException {
 		
-		System.out.println("글 등록 처리");
+		System.out.println("湲� �벑濡� 泥섎━");
 		/*
 		MultipartFile uploadFile = vo.getUploadFile();
 		if(!uploadFile.isEmpty()) {

@@ -9,12 +9,15 @@
 
 <!-- Alias 설정 : SQL명령어들이 저장되는 SQL Mapper에서 사용할 수 있도록 하는 설정 -->
 <typeAliases>
-	<typeAlias alias="E_Board" type="com.globalin.biz.eboard.E_BoardVO"/>
+	<typeAlias alias="FR_Board" type="com.globalin.biz.frboard.FR_BoardVO"/>
+	<typeAlias alias="GM_Board" type="com.globalin.biz.gmboard.GM_BoardVO"/>
+	<!-- <typeAlias alias="FR_Board" type="com.globalin.biz.frboard.FR_BoardVO"/> -->
 </typeAliases>
 
 <!-- SQL Mapper 설정 -->
 <mappers>
-	<mapper resource="mappings/E_Board-mappings.xml"/>
+	<mapper resource="mappings/FR_Board-mappings.xml"/>
+	<mapper resource="mappings/GM_Board-mappings.xml"/>
 </mappers>
   	
 </configuration>
