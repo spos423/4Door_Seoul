@@ -36,7 +36,7 @@ public class E_BoardServiceImpl implements E_BoardService {
 
 	@Override
 	public void deleteBoard(E_BoardVO vo) {
-		// TODO Auto-generated method stub
+		e_boardDAO.deleteBoard(vo);
 		
 	}
 

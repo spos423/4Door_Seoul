@@ -135,9 +135,11 @@ function postForm() {
  
 	
 	<div class="row">
-		<div class="offset-md-9 col-3">
+		<div class="offset-md-8 col-2">
 			<button name="submit_btn" type="submit" class="btn btn-primary">등록</button>
- 		   	<button name="cancel_btn" type="button" class="btn btn-primary" onclick="javascript:history.go(-1)">취소</button>
+    	</div>
+    	<div class="col-2">
+ 			<button name="cancel_btn" type="button" class="btn btn-primary" onclick="javascript:history.go(-1)">취소</button>
     	</div>
     </div>
     

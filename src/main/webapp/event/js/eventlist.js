@@ -58,7 +58,8 @@ function searchKeyword() {
 	}
 }
 
-function goBoard(num, currentPage) {
+
+function goBoard(num) {
 	
 	let f = document.createElement('form');
     
@@ -68,16 +69,9 @@ function goBoard(num, currentPage) {
     obj1.setAttribute('name', 'num');
     obj1.setAttribute('value', num);
     
-    obj2 = document.createElement('input');
-    obj2.setAttribute('type', 'hidden');
-    obj2.setAttribute('name', 'currentPage');
-    obj2.setAttribute('value', currentPage);
-    
     f.appendChild(obj1);
-    f.appendChild(obj2);
     f.setAttribute('method', 'post');
     f.setAttribute('action', '/event/eventboard.do');
     document.body.appendChild(f);
     f.submit();
-
 }

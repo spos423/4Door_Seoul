@@ -33,6 +33,7 @@
 <link href="./css/style.css" rel="stylesheet">
 <link href="./css/eventlist.css" rel="stylesheet">
 
+<!--  커스텀 JS -->
 <script type="text/javascript" src="./js/eventlist.js"></script>
 
 <title>FOR문 SEOUL : 이벤트 리스트</title>
@@ -190,11 +191,7 @@
           				<fmt:formatDate value="${end}" pattern="yyyy-MM-dd" />
           			</div>
           			<div class="mb-auto" style="height: 50px!important; overflow: hidden; text-overflow: ellipsis;">${item.content}</div>
-          				
-          				<c:if test="${pageNum eq null}"><c:set var="pageNum" value="1"></c:set></c:if>
-          				
-          				
-          				<a class="stretched-link" href="javascript:void(0)" onclick="javascript:goBoard('${item.num}','${pageNum}')">작성일 : <fmt:formatDate value="${writeDay}" pattern="yyyy-MM-dd" /></a>
+          				<a class="stretched-link" href="javascript:void(0)" onclick="javascript:goBoard('${item.num}')">작성일 : <fmt:formatDate value="${writeDay}" pattern="yyyy-MM-dd" /></a>
         			</div>
         		<div class="col-auto d-none d-lg-block" style="width: 180px; height: 220px;">
         			<c:if test="${item.img1_url eq null}">

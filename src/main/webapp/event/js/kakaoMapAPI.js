@@ -1,4 +1,4 @@
-var addressForMap = "서울특별시 노원구 노원로 62 306동 702호";
+var addressForMap = "'${e_board.address}'";
 
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

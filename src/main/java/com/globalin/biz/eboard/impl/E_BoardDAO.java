@@ -136,7 +136,25 @@ public class E_BoardDAO implements E_BoardService{
 
 	@Override
 	public void deleteBoard(E_BoardVO vo) {
-		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		final String sql = "update E_BOARD set DELETEYN='Y' where num=?";
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			
+			stmt = conn.prepareStatement(sql);
+			System.out.println(vo.getNum());
+			stmt.setInt(1, vo.getNum());
+			stmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+		
 		
 	}
 

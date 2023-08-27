@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ import com.globalin.biz.eboard.impl.E_BoardDAO;
 public class E_BoardController {
 	
 	@RequestMapping("/event/insertE_Board.do")
-	public String insertBoard(E_BoardVO vo, E_BoardDAO dao, 
+	public String insertE_Board(E_BoardVO vo, E_BoardDAO dao, 
 	@RequestParam(value="startdate") String startdate,
 	@RequestParam(value="enddate") String enddate, HttpServletRequest request,
 	@RequestParam(value="thumb_img1") MultipartFile thumb_img1) throws IOException {
@@ -108,19 +109,31 @@ public class E_BoardController {
 	}
 	
 	@RequestMapping("/event/eventboard.do")
-	public String getboard(E_BoardVO vo, E_BoardDAO dao, Model model, 
-			@RequestParam(value="num", required=false)String num, 
-			@RequestParam(value="pageNum", required=false)String pageNum) {
+	public String getE_Board(E_BoardVO vo, E_BoardDAO dao, Model model, 
+			@RequestParam(value="num", required=false)String num) {
 		
 		E_BoardVO e_board = new E_BoardVO(); 
 		
 		e_board = dao.getBoard(vo, num);
 		
 		model.addAttribute("e_board", e_board);
-		model.addAttribute("pageNum", pageNum);
 		
 		return "/event/eventboard.jsp";
 	}
+	
+	@RequestMapping("/event/deleteE_Board.do")
+	public String deleteE_Board(E_BoardVO vo, E_BoardDAO dao, 
+		@RequestParam(value="num")String num) {
+		
+		System.out.println("/event/deleteE_Board.do : 컨트롤러 진입 확인");
+		
+		vo.setNum(Integer.parseInt(num));
+		dao.deleteBoard(vo);
+		
+		return "/event/eventlist.do";
+	}
+	
+	
 	
 	
 }
