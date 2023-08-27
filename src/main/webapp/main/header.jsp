@@ -26,7 +26,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">사대문</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
                                 <a href="feature.html" class="dropdown-item">사대문소개</a>
-                                <a href="blog.html" class="dropdown-item">행사안내</a>
+                                <a href="/event/eventlist.do" class="dropdown-item">행사안내</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">

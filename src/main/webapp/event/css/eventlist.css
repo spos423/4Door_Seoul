@@ -3,9 +3,7 @@
 	position: relative;
 	width: 180px;
 	height: 220px;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+	object-fit:cover;
 }
 
 body {

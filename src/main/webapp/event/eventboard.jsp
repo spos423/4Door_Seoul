@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,53 +56,121 @@
 	<div>
 		<span class="text-primary fw-bold" style="justify-content: center; align-items: center; display: flex;">이벤트</span>
 		<br>
-		<h3 class="text-secondary"style="justify-content: center; align-items: center; display: flex; font-family:'Noto Sans Korean', 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', 'dotum', '돋움', sans-serif;">제목이 들어갈 자리입니다.</h3>
+		<h3 class="text-dark" style="justify-content: center; align-items: center; display: flex; font-family:'Noto Sans Korean', 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', 'dotum', '돋움', sans-serif; color:black">${e_board.title}</h3>
 	</div>
 	
-	<div class="post-element" style="justify-content: center; align-items: center; display: flex;">
-		<span>최초작성일 : 2023.08.18 / 수정일 : 2023.08.18</span>
-		<hr>
+	
+    <fmt:parseDate value="${startdate}" var="start" pattern="yyyy-MM-dd'T'HH:mm" />
+    <fmt:parseDate value="${enddate}" var="end" pattern="yyyy-MM-dd'T'HH:mm" />
+    <fmt:parseDate value="${writedate}" var="writeDay" pattern="yyyy-MM-dd HH:mm:ss.SSS" />
+    <fmt:parseDate value="${updatedate}" var="updateDay" pattern="yyyy-MM-dd HH:mm:ss.SSS" />
+	
+	<jsp:useBean id="now" class="java.util.Date" scope="request" />
+    <fmt:parseNumber value="${now.time/(1000*60*60*24)}" integerOnly="true" var="nowDays" scope="request" />
+    <fmt:parseNumber value="${writeDay.time/(1000*60*60*24)}" integerOnly="true" var="writeDays" scope="request" />
+    <fmt:parseNumber value="${start.time/(1000*60*60*24)}" integerOnly="true" var="startDays" scope="request" />
+	<fmt:parseNumber value="${end.time/(1000*60*60*24)}" integerOnly="true" var="endDays" scope="request" />
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="dateline">
+		최초작성일 : <fmt:formatDate value="${writeDay}" pattern="yyyy-MM-dd" /> / <fmt:formatDate value="${updateDay}" pattern="yyyy-MM-dd" />
 	</div>
 	
-	<div>
-		<img src="./img/carousel-1.jpg" style="position: relative;width:100%!important;background-size: contain;background-repeat: no-repeat;background-position: bottom;">
+	<div class="container">
+		<img src="./img/carousel-1.jpg" class="thumb_img1">
 	</div>
 	<br>
 	
-	<div width="100%" height="400px" border="1">asdfa</div>
+	<div class="content-area">
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구
+	</div>
 	
 	<div align="center">
-		<table border="1" width="100%" cellpadding="0" cellspacing="0">
+		<table  width="100%" height="auto" cellpadding="10" cellspacing="100">
 			<tr>
-				<td align="center" width="30%">주소</td>
-				<td align="left" width="70%">우편번호 주소 출력</td>
+				<th >주소</th>
+				<td>우편번호 주소 출력</td>
 			</tr>
 			<tr>
-				<td align="center" width="30%">교통정보</td>
-				<td align="left" width="70%">교통정보 출력</td>
+				<th>교통정보</th>
+				<td>교통정보 출력</td>
 			</tr>
 			<tr>
-				<td align="center" width="30%">이용요금</td>
-				<td align="left" width="70%">이용요금 출력</td>
+				<th>이용요금</th>
+				<td>이용요금 출력</td>
 			</tr>
 			<tr>
-				<th align="center" width="30%">행사 기간</th>
-				<td align="left" width="70%">행사 시작일, 행사 종료일 출력</td>
+				<th>행사 기간</th>
+				<td>행사 시작일, 행사 종료일 출력</td>
 			</tr>
 			<tr>
-				<th align="center" width="30%">전화번호</th>
-				<td align="left" width="70%">전화번호 출력</td>
+				<th>전화번호</th>
+				<td>전화번호 출력</td>
 			</tr>
 			<tr>
-				<th align="center" width="30%">홈페이지</th>
-				<td align="left" width="70%">홈페이지 주소 출력</td>
+				<th>홈페이지</th>
+				<td><a href="#">홈페이지 바로가기</a></td>
 			</tr>
 		</table>
 	</div>
 	
+	<div class="dateline"><b>위치 정보<b></div>
+	
+	<div class="container">
+		<div id="map" style="width:90%; height:400px; margin:auto!important;"></div>
+	</div>
+	
+	<br><hr>
+	
+	<div class="container">
+		<form action="#" method="post">
+			<div class="input-group">
+  				<span class="input-group-text">Comment</span>
+  				<textarea class="form-control" aria-label="With textarea"></textarea>
+  				<button class="btn btn-outline-secondary" type="submit" id="button-addon2">등록하기</button>
+			</div>
+		</form>
+	</div>
+	
+	<br>
+	
+	<div class="container" >
+		<table width="100%" height="auto" cellpadding="0" cellspacing="0">
+			<tr><td class="Comment-form-title">댓&ensp;&ensp;&ensp;&ensp;글</td></tr>
+			
+			<tr height="25px"><td class="Comment-form-writer">&ensp;작성자</td></tr>
+			<tr><td class="Comment-form-content">&ensp;댓글 내용이 입력될 공간입니다.</td></tr>
+			<tr><td class="comment-form-date">&ensp;작성일자 : 2023.08.23&ensp;<a href="#" class="reply-comment">답글쓰기</a></td></tr>
+			
+			<table width="100%" height="auto" cellpadding="0" cellspacing="0">
+			<tr><td class="Comment-form-writer">&ensp;작성자</td></tr>
+			<tr><td class="Comment-form-content">&ensp;댓글 내용이 입력될 공간입니다.</td></tr>
+			<tr><td class="comment-form-date">&ensp;작성일자 : 2023.08.23&ensp;<a href="#" class="reply-comment">답글쓰기</a></td></tr>
+			</table>
+			
+		</table>
+		
+	</div>
+	
+	<br>
+
 </div>
 
-<br>
 </main>
 
 
@@ -112,6 +182,9 @@
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+	<!-- 카카오맵 API -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3533e1b86e9d6cdbe13026ff2f91936c&libraries=services" ></script>
+	<script type="text/javascript" src="./js/kakaoMapAPI.js"></script>
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="./lib/wow/wow.min.js"></script>
