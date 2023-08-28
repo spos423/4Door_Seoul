@@ -13,11 +13,11 @@ import com.globalin.biz.eboard.impl.E_ReplyDAO;
 @SessionAttributes("e_reply")
 public class E_ReplyController {
 	
-	@RequestMapping("/event/insertE_Reply.do")
+	@RequestMapping("/event/InsertE_Reply.do")
 	public String insertBoard(E_ReplyVO vo, E_ReplyDAO dao) throws IOException {
 		
-		
-		return null;
+		dao.insertReply(vo);
+		return "/event";
 	}
 	
 	

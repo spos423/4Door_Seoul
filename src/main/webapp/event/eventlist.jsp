@@ -183,7 +183,7 @@
 					</div>
 					    			
           			<div style="height: 32px!important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-          				<h3 class="mb-0">${item.title}</h3>
+          				<h3 class="mb-0" style="font-family: Open Sans,sans-serif;">${item.title}</h3>
 					</div>
           			<div class="mb-1 text-muted">
           				<fmt:formatDate value="${start}" pattern="yyyy-MM-dd" />

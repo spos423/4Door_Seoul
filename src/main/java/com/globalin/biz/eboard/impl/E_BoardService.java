@@ -16,7 +16,7 @@ public interface E_BoardService {
 	void insertBoard(E_BoardVO vo); // end insert
 
 	// 글 수정(Update)
-	void updateBoard(E_BoardVO vo); // end update
+	void updateBoard(E_BoardVO vo, String num);
 
 	// 글 삭제(Delete)
 	void deleteBoard(E_BoardVO vo); // end delete
@@ -29,6 +29,8 @@ public interface E_BoardService {
 	
 	// 기간으로 목록 조회
 	List<E_BoardVO> getBoardList(int start, int end, String search_startDate, String search_endDate, String status);
+
+
 
 
 }

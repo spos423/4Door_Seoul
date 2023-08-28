@@ -63,8 +63,7 @@ function goBoard(num) {
 	
 	let f = document.createElement('form');
     
-    let obj;
-    obj1 = document.createElement('input');
+    let obj1 = document.createElement('input');
     obj1.setAttribute('type', 'hidden');
     obj1.setAttribute('name', 'num');
     obj1.setAttribute('value', num);
