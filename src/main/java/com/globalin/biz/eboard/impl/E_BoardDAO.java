@@ -27,7 +27,7 @@ public class E_BoardDAO implements E_BoardService{
 		
 		try {
 			conn = JDBCUtil.getConnection();
-			stmt=conn.prepareStatement("select count(*) from e_board where "+searchCondition+" like '%"+keyword+"%'");
+			stmt=conn.prepareStatement("select count(*) from e_board where deleteyn='N' and "+searchCondition+" like '%"+keyword+"%'");
 			rs = stmt.executeQuery();
 			
 			if(rs.next()) {
@@ -46,7 +46,7 @@ public class E_BoardDAO implements E_BoardService{
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		StringBuffer sql = new StringBuffer("select count(*) from e_board where ");
+		StringBuffer sql = new StringBuffer("select count(*) from e_board where deleteyn='N' and ");
 		
 		int x = 0;
 		
@@ -128,12 +128,54 @@ public class E_BoardDAO implements E_BoardService{
 		}
 	}// end insertArticle
 
-	@Override
-	public void updateBoard(E_BoardVO vo) {
-		// TODO Auto-generated method stub
+	
+	@Override 
+	public void updateBoard(E_BoardVO vo, String num) {
+		StringBuffer sql = new StringBuffer("update E_Board set TITLE=?, CONTENT=?, ZIPCODE=?, ADDRESS=?, "
+						+ "TRAF=?, PRICE=?, STARTDATE=?, ENDDATE=?, TEL=?, URI=?, UPDATER=?, UPDATEDATE=? ");
 		
+		if(vo.getImg1_url() != null) {
+			sql.append(", img1_url=?");
+		}
+		
+		sql.append("where num=?");
+		
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			
+			stmt = conn.prepareStatement(sql.toString());
+			stmt.setString(1, vo.getTitle());
+			stmt.setString(2, vo.getContent());
+			stmt.setString(3, vo.getZipcode());
+			stmt.setString(4, vo.getAddress());
+			stmt.setString(5, vo.getTraf());
+			stmt.setString(6, vo.getPrice());
+			stmt.setTimestamp(7, Timestamp.valueOf(vo.getStartdate().substring(0,10)+" "+vo.getStartdate().substring(11)+":00"));
+			stmt.setTimestamp(8, Timestamp.valueOf(vo.getEnddate().substring(0,10)+" "+vo.getEnddate().substring(11)+":59"));
+			stmt.setString(9, vo.getTel());
+			stmt.setString(10, vo.getUri());
+			stmt.setString(11, vo.getWriter());
+			stmt.setTimestamp(12, DateUtil.getCurrentTime());
+			
+			if(vo.getImg1_url() != null) {
+				stmt.setString(13, vo.getImg1_url());
+				stmt.setInt(14, Integer.parseInt(num));
+			}else {
+				stmt.setInt(13, Integer.parseInt(num));
+			}
+			
+			stmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}	  
 	}
-
+	 
 	@Override
 	public void deleteBoard(E_BoardVO vo) {
 		Connection conn = null;
@@ -145,7 +187,6 @@ public class E_BoardDAO implements E_BoardService{
 			conn = JDBCUtil.getConnection();
 			
 			stmt = conn.prepareStatement(sql);
-			System.out.println(vo.getNum());
 			stmt.setInt(1, vo.getNum());
 			stmt.executeUpdate();
 			
@@ -189,8 +230,8 @@ public class E_BoardDAO implements E_BoardService{
 				e_board.setAddress(rs.getString("address"));
 				e_board.setTraf(rs.getString("traf"));
 				e_board.setPrice(rs.getString("price"));
-				e_board.setStartdate(rs.getTimestamp("startdate").toString());
-				e_board.setEnddate(rs.getTimestamp("enddate").toString());
+				e_board.setStartdate(rs.getTimestamp("startdate").toLocalDateTime().toString());
+				e_board.setEnddate(rs.getTimestamp("enddate").toLocalDateTime().toString());
 				e_board.setTel(rs.getString("tel"));
 				e_board.setUri(rs.getString("uri"));
 				e_board.setWriter(rs.getString("writer"));
@@ -334,7 +375,5 @@ public class E_BoardDAO implements E_BoardService{
 		}
 		return e_boardList;
 	}
-
-
 	
 }

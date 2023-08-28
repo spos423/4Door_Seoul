@@ -50,8 +50,8 @@
 <div class="container">
 	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
   		<ol class="breadcrumb">
-    		<li class="breadcrumb-item h5"><a href="#">HOME</a></li>
-    		<li class="breadcrumb-item h5"><a href="#">사대문</a></li>
+    		<li class="breadcrumb-item h5"><a href="/">HOME</a></li>
+    		<li class="breadcrumb-item h5"><a href="javascript:void(0)">사대문</a></li>
     		<li class="breadcrumb-item active h5" aria-current="page">행사안내</li>
   		</ol>
 	</nav>
@@ -60,8 +60,8 @@
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
   				<p class="d-inline-flex gap-1">
   					<input class="btn btn-primary me-md-2" type="button" value="글목록" onclick="location.href='/event/eventlist.do'">
-	 				<input class="btn btn-primary me-md-2" type="button" value="수정">
-  					<input class="btn btn-primary" type="button" value="삭제" onclick="deleteCheck()">
+	 				<input class="btn btn-primary me-md-2" type="button" value="수정" onclick="goUpdate('${e_board.num}')">
+  					<input class="btn btn-primary" type="button" value="삭제" onclick="deleteCheck('${e_board.num}')">
 				</p>
 			</div>
 		</div>
@@ -75,8 +75,8 @@
 	</div>
 	
 	
-    <fmt:parseDate value="${e_board.startdate}" var="start" pattern="yyyy-MM-dd HH:mm:ss.SSS" />
-    <fmt:parseDate value="${e_board.enddate}" var="end" pattern="yyyy-MM-dd HH:mm:ss.SSS" />
+    <fmt:parseDate value="${e_board.startdate}" var="start" pattern="yyyy-MM-dd'T'HH:mm"  />
+    <fmt:parseDate value="${e_board.enddate}" var="end" pattern="yyyy-MM-dd'T'HH:mm" />
     <fmt:parseDate value="${e_board.writedate}" var="writeDay" pattern="yyyy-MM-dd HH:mm:ss.SSS" />
     <fmt:parseDate value="${e_board.updatedate}" var="updateDay" pattern="yyyy-MM-dd HH:mm:ss.SSS" />
 	
@@ -142,16 +142,7 @@
 	</div>
 	
 	<br><hr>
-	
-	<div class="container">
-		<form action="#" method="post">
-			<div class="input-group">
-  				<span class="input-group-text">Comment</span>
-  				<textarea class="form-control" aria-label="With textarea"></textarea>
-  				<button class="btn btn-outline-secondary" type="submit" id="button-addon2">등록하기</button>
-			</div>
-		</form>
-	</div>
+	<c:import url="./reply_Form.jsp" />
 	
 	<br>
 	
@@ -161,13 +152,8 @@
 			
 			<tr height="25px"><td class="Comment-form-writer">&ensp;작성자</td></tr>
 			<tr><td class="Comment-form-content">&ensp;댓글 내용이 입력될 공간입니다.</td></tr>
-			<tr><td class="comment-form-date">&ensp;작성일자 : 2023.08.23&ensp;<a href="#" class="reply-comment">답글쓰기</a></td></tr>
-			
-			<table width="100%" height="auto" cellpadding="0" cellspacing="0">
-			<tr><td class="Comment-form-writer">&ensp;작성자</td></tr>
-			<tr><td class="Comment-form-content">&ensp;댓글 내용이 입력될 공간입니다.</td></tr>
-			<tr><td class="comment-form-date">&ensp;작성일자 : 2023.08.23&ensp;<a href="#" class="reply-comment">답글쓰기</a></td></tr>
-			</table>
+			<tr><td class="comment-form-date">&ensp;작성일자 : 2023.08.23&ensp;<a href="#" onclick="" class="reply-comment">답글쓰기</a>&ensp;&ensp;<a href="#" class="reply-comment">삭제하기</a></td></tr>
+				
 			
 		</table>
 		

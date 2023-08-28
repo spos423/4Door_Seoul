@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,17 +28,14 @@ public class E_BoardController {
 	@RequestParam(value="startdate") String startdate,
 	@RequestParam(value="enddate") String enddate, HttpServletRequest request,
 	@RequestParam(value="thumb_img1") MultipartFile thumb_img1) throws IOException {
-		
-		thumb_img1 = vo.getThumb_img1();
+			
 		if(!thumb_img1.isEmpty()) {
 			
 			String filename = thumb_img1.getOriginalFilename();
 			thumb_img1.transferTo(new File(request.getSession().getServletContext().getRealPath("/event/upload/") + filename));
 			
 			String savepath = "./upload/" + filename;
-			System.out.println(savepath);
 			vo.setImg1_url(savepath);
-			
 		}
 		
 		dao.insertBoard(vo);
@@ -125,15 +121,44 @@ public class E_BoardController {
 	public String deleteE_Board(E_BoardVO vo, E_BoardDAO dao, 
 		@RequestParam(value="num")String num) {
 		
-		System.out.println("/event/deleteE_Board.do : 컨트롤러 진입 확인");
-		
 		vo.setNum(Integer.parseInt(num));
 		dao.deleteBoard(vo);
 		
 		return "/event/eventlist.do";
 	}
 	
+	@RequestMapping("/event/updateE_Board.do")
+	public String updateE_Board(E_BoardVO vo, E_BoardDAO dao, Model model,
+		@RequestParam(value="num")String num) {
+		
+		vo.setNum(Integer.parseInt(num));
+		
+		E_BoardVO e_board = new E_BoardVO(); 
+		
+		e_board = dao.getBoard(vo, num);
+		
+		model.addAttribute("e_board", e_board);
+		
+		return "/event/eventForm_Update.jsp";
+	}
 	
+	@RequestMapping("/event/updateE_Board_Proc.do")
+	public String updateE_Board_proc(E_BoardVO vo, E_BoardDAO dao, HttpServletRequest request,
+		@RequestParam(value="num")String num,	
+		@RequestParam(value="thumb_img1") MultipartFile thumb_img1) throws IOException {
+		
+		if(!thumb_img1.isEmpty()) {
+			String filename = thumb_img1.getOriginalFilename();
+			thumb_img1.transferTo(new File(request.getSession().getServletContext().getRealPath("/event/upload/") + filename));
+			
+			String savepath = "./upload/" + filename;
+			vo.setImg1_url(savepath);
+		}
+		
+		dao.updateBoard(vo, num);
+		return "redirect:/event/eventForm_Proc.jsp";
+
+	}
 	
 	
 }

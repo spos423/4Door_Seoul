@@ -12,8 +12,8 @@
     <!-- Navbar Start -->
     <div class="container-fluid bg-blue sticky-top">
         <div class="container">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0" style="margin-bottom: 100px;">
-                <a href="index.html" class="navbar-brand">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
+                <a href="/" class="navbar-brand">
                     <img class="img-fluid" src="./img/logo.png" alt="Logo">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -21,7 +21,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="/" class="nav-item nav-link active">Home</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">사대문</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">

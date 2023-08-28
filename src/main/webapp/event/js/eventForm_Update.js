@@ -52,7 +52,10 @@ function formCheck() {
     document.eventForm.startdate.focus();
     return false;
     }
-	
+
+
+
+    
 }
 
 function lengthLimit(el,maxlength) {
@@ -96,3 +99,4 @@ function fileUploadCheck(fileVal) {
 	document.eventForm.thumb_img1.value="";
 	}
 }
+

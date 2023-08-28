@@ -29,21 +29,19 @@ public class E_BoardServiceImpl implements E_BoardService {
 	}
 
 	@Override
-	public void updateBoard(E_BoardVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void deleteBoard(E_BoardVO vo) {
 		e_boardDAO.deleteBoard(vo);
 		
 	}
-
+	
+	@Override 
+	public void updateBoard(E_BoardVO vo, String num) { 
+		updateBoard(vo, num); 
+	}
+	
 	@Override
 	public E_BoardVO getBoard(E_BoardVO vo, String num) {
-		// TODO Auto-generated method stub
-		return null;
+		return e_boardDAO.getBoard(vo, num);
 	}
 
 	@Override
@@ -55,6 +53,7 @@ public class E_BoardServiceImpl implements E_BoardService {
 	public List<E_BoardVO> getBoardList(int start, int end, String search_startDate, String search_endDate, String status) {
 		return null;
 	}
+
 
 
 }
