@@ -1,0 +1,105 @@
+.dateline{
+	display: flex;
+	flex-basis:100%;
+	align-items: center;
+	color:#5F5F5F;
+	font-size : 14px;
+	margin: 50px 50px;
+}
+.dateline::before{
+	content:"";
+	flex-grow:1;
+	margin: 0px 16px;
+	background:#5F5F5F;
+	height:1px;
+	font-size:0px;
+	line-height:0px;
+}
+.dateline::after{
+	content:"";
+	flex-grow:1;
+	margin: 0px 16px;
+	background:#5F5F5F;
+	height:1px;
+	font-size:0px;
+	line-height:0px;	
+}
+
+img{
+	display : block;
+    margin : auto;
+}
+
+.thumb_img1 {
+	width:90%!important;
+	height:auto;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	border-radius: 20px;
+}
+
+
+.content-area {
+	font-size:16px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	color: #3F3F3F;
+}
+
+
+tr > th {
+	width:100%;
+	height:auto;
+	vertical-align: top;
+	width: 20%;
+	font-size: 18px;
+	color: #3F3F3F;
+	font-family: "Open Sans",sans-serif;
+}
+
+tr > td {
+	vertical-align: top;
+	align-content:left;
+	width: 80%;
+	font-size: 18px;
+	color: #5F5F5F;
+	font-family: "Open Sans",sans-serif;
+}
+
+.container > $map {
+	width:90%;
+	height:400px;
+	margin:auto!important;
+}
+
+.comment{
+	display : block;
+    margin : auto!important;
+}
+
+.Comment-form-title{
+	font-size: 18px;
+}
+
+.Comment-form-writer{
+	font-size: 16px;
+	margin-top: 10px;
+	color:black;
+}
+
+.Comment-form-content{
+	font-size: 16px;
+	color:black;
+}
+
+.comment-form-date{
+	font-size: 13px;
+	color: #6F6F6F;
+	color:black;
+}
+
+.comment-form-date > a{
+	font-size: 14px;
+	color:#7F7F7F;
+}

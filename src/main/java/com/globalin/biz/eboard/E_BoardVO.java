@@ -2,16 +2,18 @@ package com.globalin.biz.eboard;
 
 import java.sql.Timestamp;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class E_BoardVO {
 	private int num;
 	private String title;
 	private String content;
-	private int zipcode;
+	private String zipcode;
 	private String address;
 	private String traf;
 	private String price;
-	private Timestamp startdate;
-	private Timestamp enddate;
+	private String startdate;
+	private String enddate;
 	private String tel;
 	private String uri;
 	private char deleteyn;
@@ -20,12 +22,8 @@ public class E_BoardVO {
 	private String updater;
 	private Timestamp updatedate;
 	private int readcnt;
+	private MultipartFile thumb_img1;
 	private String img1_url;
-	private String img2_url;
-	private String img3_url;
-	private String img4_url;
-	private String img5_url;
-	
 	public int getNum() {
 		return num;
 	}
@@ -44,10 +42,10 @@ public class E_BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getZipcode() {
+	public String getZipcode() {
 		return zipcode;
 	}
-	public void setZipcode(int zipcode) {
+	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 	public String getAddress() {
@@ -68,16 +66,16 @@ public class E_BoardVO {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public Timestamp getStartdate() {
+	public String getStartdate() {
 		return startdate;
 	}
-	public void setStartdate(Timestamp timestamp) {
-		this.startdate = timestamp;
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
 	}
-	public Timestamp getEnddate() {
+	public String getEnddate() {
 		return enddate;
 	}
-	public void setEnddate(Timestamp enddate) {
+	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
 	public String getTel() {
@@ -128,35 +126,17 @@ public class E_BoardVO {
 	public void setReadcnt(int readcnt) {
 		this.readcnt = readcnt;
 	}
+	public MultipartFile getThumb_img1() {
+		return thumb_img1;
+	}
+	public void setThumb_img1(MultipartFile thumb_img1) {
+		this.thumb_img1 = thumb_img1;
+	}
 	public String getImg1_url() {
 		return img1_url;
 	}
 	public void setImg1_url(String img1_url) {
 		this.img1_url = img1_url;
-	}
-	public String getImg2_url() {
-		return img2_url;
-	}
-	public void setImg2_url(String img2_url) {
-		this.img2_url = img2_url;
-	}
-	public String getImg3_url() {
-		return img3_url;
-	}
-	public void setImg3_url(String img3_url) {
-		this.img3_url = img3_url;
-	}
-	public String getImg4_url() {
-		return img4_url;
-	}
-	public void setImg4_url(String img4_url) {
-		this.img4_url = img4_url;
-	}
-	public String getImg5_url() {
-		return img5_url;
-	}
-	public void setImg5_url(String img5_url) {
-		this.img5_url = img5_url;
 	}
 	
 }

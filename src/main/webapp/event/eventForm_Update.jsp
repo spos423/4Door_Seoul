@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +45,7 @@ function postForm() {
 
 <!-- 폼 정보 알림 메세지 -->
 <script src="./js/eventForm.js"></script>
+
 <title>FOR문 SEOUL : 이벤트 리스트</title>
 </head>
 <body>
@@ -67,31 +68,35 @@ function postForm() {
 
   <p class="display-1">행사안내 양식</p>
   <hr>
-  <form action="/event/insertE_Board.do" name="eventForm" method="post" enctype="multipart/form-data" onsubmit="return formCheck()">
+  <form action="/event/updateE_Board_Proc.do" name="eventForm" method="post" enctype="multipart/form-data" onsubmit="return formCheck()">
+	
+	<!-- submit할 때 같이 넘길 num값  -->	
+	<input type="hidden" name="num" value="${e_board.num}">
+	
     <div class="input-group mb-3">
   		<span class="input-group-text" id="event_span">제목</span>
- 		<input type="text" name="title" class="form-control" placeholder="글 제목을 입력해주세요.(50자 이내)" maxlength="5" oninput="lengthLimit(this,this.maxlength)">
+ 		<input type="text" name="title" class="form-control" placeholder="글 제목을 입력해주세요.(50자 이내)" maxlength="50" oninput="lengthLimit(this,this.maxlength)" value="${e_board.title}">
  		<span class="input-group-text" id="event_span">작성자</span>
- 		<input type="text" name="writer" class="form-control" placeholder="Writer" value="일단 이걸로(10자 이내)" maxlength="10" oninput="lengthLimit(this,this.maxlength)" readonly>
+ 		<input type="text" name="writer" class="form-control" placeholder="Writer" maxlength="10" oninput="lengthLimit(this,this.maxlength)" readonly="readonly" value="${e_board.writer}">
 	</div>
 	
 	<div class="input-group mb-3 insert">
   		<label class="input-group-text" id="event_label">Upload</label>
-  		<input type="file" class="form-control" name="thumb_img1" onchange="return fileUploadCheck(this.value)">
+  		<input type="file" class="form-control" name="thumb_img1" onchange="return fileUploadCheck(this.value)" value="${e_board.img1_url}">
 	</div>
     
 	<div class="input-group mb-3" id="zipcode_div">
   		<span class="input-group-text" id="zipcode_span">우편번호</span>
-  		<input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="우편번호 입력(5자)" maxlength="5" oninput="lengthLimit(this,this.maxlength)" readonly="readonly">
+  		<input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="우편번호 입력(5자)" maxlength="5" oninput="lengthLimit(this,this.maxlength)" readonly="readonly" value="${e_board.zipcode}">
   		<button class="btn btn-outline-secondary" id="address_kakao" type="button">주소검색</button>
 	</div>
 	
 	<div class="input-group mb-3">
 		<span class="input-group-text" id="event_span">주소</span>
-  		 <input type="text" name="address" id="address" class="form-control" placeholder="도로명 주소 입력" maxlength="50" oninput="lengthLimit(this,this.maxlength)">
+  		 <input type="text" name="address" id="address" class="form-control" placeholder="도로명 주소 입력" maxlength="50" oninput="lengthLimit(this,this.maxlength)" value="${e_board.address}">
 	</div>
 
-<textarea id="summernote" name="content"></textarea>
+<textarea id="summernote" name="content">${e_board.content}</textarea>
     <script>
       $('#summernote').summernote({
         height: 500,
@@ -111,26 +116,30 @@ function postForm() {
 	
     <div class="input-group mb-3">
   		<span class="input-group-text" id="event_span">이용요금</span>
- 		<input type="text" name="price" class="form-control" placeholder="이용요금 있을시 작성(30자 내외)" maxlength="30" oninput="lengthLimit(this,this.maxlength)">
+ 		<input type="text" name="price" class="form-control" placeholder="이용요금 있을시 작성(30자 내외)" maxlength="30" oninput="lengthLimit(this,this.maxlength)" value="${e_board.price}">
  		<span class="input-group-text" id="event_span">전화번호</span>
- 		<input type="text" name="tel" class="form-control" placeholder="행사 담당부서 연락처(20자 내외)" maxlength="20" oninput="lengthLimit(this,this.maxlength)">
+ 		<input type="text" name="tel" class="form-control" placeholder="행사 담당부서 연락처(20자 내외)" maxlength="20" oninput="lengthLimit(this,this.maxlength)" value="${e_board.tel}">
 	</div>
     
     <div class="input-group mb-3">
     	<span class="input-group-text" id="event_span">교통정보</span>
-      	<input type="text" name="traf" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력" maxlength="100" oninput="lengthLimit(this,this.maxlength)">
+      	<input type="text" name="traf" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력" maxlength="100" oninput="lengthLimit(this,this.maxlength)" value="${e_board.traf}">
     </div>
     
     <div class="input-group mb-3">
     	<span class="input-group-text" id="event_span">웹사이트</span>
-      	<input type="text" name="uri" class="form-control" id="url_info" placeholder="요금 입력" maxlength="100" oninput="lengthLimit(this,this.maxlength)">
+      	<input type="text" name="uri" class="form-control" id="url_info" placeholder="요금 입력" maxlength="100" oninput="lengthLimit(this,this.maxlength)" value="${e_board.uri}">
     </div>
     
     <div class="input-group mb-3">
+    	
+    	<fmt:parseDate value="${e_board.startdate}" var="start" pattern="yyyy-MM-dd'T'HH:mm" />
+    	<fmt:parseDate value="${e_board.enddate}" var="end" pattern="yyyy-MM-dd'T'HH:mm" />
+    
     	<span class="input-group-text" id="event_span">행사 시작일</span>
-		<input type="datetime-local" name="startdate" class="form-control" oninput="printConsole(this)">
+		<input type="datetime-local" name="startdate" class="form-control" oninput="printConsole(this)" value="<fmt:formatDate value="${start}" pattern="yyyy-MM-dd'T'HH:mm"/>">
 		<span class="input-group-text" id="event_span">행사 종료일</span>
-		<input type="datetime-local" name="enddate" class="form-control" oninput="return startFirst()">
+		<input type="datetime-local" name="enddate" class="form-control" oninput="return startFirst()" value="<fmt:formatDate value="${end}" pattern="yyyy-MM-dd'T'HH:mm"/>">
     </div>
  
 	

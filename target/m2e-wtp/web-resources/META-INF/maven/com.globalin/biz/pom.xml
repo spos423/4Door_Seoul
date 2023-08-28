@@ -168,6 +168,13 @@
     <artifactId>mybatis-spring</artifactId>
     <version>1.2.4</version>
 </dependency>
+<!-- cos.jar : https://mvnrepository.com/artifact/servlets.com/cos -->
+<dependency>
+    <groupId>servlets.com</groupId>
+    <artifactId>cos</artifactId>
+    <version>05Nov2002</version>
+</dependency>
+
 <!-- end 라이브러리  -->			
 		
 		       

@@ -8,7 +8,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.globalin.biz.eboard.E_BoardVO;
-import com.globalin.biz.eboard.ipml.E_BoardService;
+import com.globalin.biz.eboard.impl.E_BoardService;
 
 
 
@@ -31,12 +31,12 @@ public class E_BoardClient {
 		E_BoardVO vo = new E_BoardVO();
 		vo.setTitle("1111");
 		vo.setContent("1111");
-		vo.setZipcode(1111);
+		vo.setZipcode("1111");
 		vo.setAddress("1111");
 		vo.setTraf("1111");
 		vo.setPrice("1111");
-		vo.setStartdate(new Timestamp(System.currentTimeMillis()));
-		vo.setEnddate(new Timestamp(System.currentTimeMillis()));
+		//vo.setStartdate(new Timestamp(System.currentTimeMillis()));
+		//vo.setEnddate(new Timestamp(System.currentTimeMillis()));
 		vo.setTel("111-1111-1111");
 		vo.setUri("1111");
 		vo.setWriter("1111");
@@ -45,6 +45,8 @@ public class E_BoardClient {
 		vo.setUpdatedate(new Timestamp(System.currentTimeMillis()));
 		
 		boardService.insertBoard(vo);
+		
+		factory.close();
 	}
 
 }
