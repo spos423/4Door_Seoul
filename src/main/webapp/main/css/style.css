@@ -97,6 +97,7 @@
     height: 135px;
     top: 0;
     left: 0;
+    object-fit:cover;
 }
 
 .navbar .navbar-nav .nav-link {

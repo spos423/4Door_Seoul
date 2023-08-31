@@ -30,11 +30,7 @@
 
 <title></title>
 </head>
-<body style="display:flex;
-		     flex-flow:column;
-		     min-height:100vh;
-		     padding:0;
-		     margin:0;">	   
+<body style="display:flex;flex-flow:column;min-height:100vh;padding:0;margin:0;">	   
 		    
 	<!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">

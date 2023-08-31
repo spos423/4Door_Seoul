@@ -8,9 +8,6 @@
     <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
-
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -32,16 +29,13 @@
 <link href="./css/style.css" rel="stylesheet">
 <link href="./css/eventboard.css" rel="stylesheet">
 
-<!--  커스텀 JS -->
-<script type="text/javascript" src="./js/eventboard.js"></script>
 
 <title>FOR문 SEOUL : 이벤트 보드</title>
 </head>
 <body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
 
 <header>
-<c:import url="/main/header.jsp" />
-
+	<c:import url="/main/header.jsp" />
 </header>
 
 
@@ -174,6 +168,8 @@
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+	<!--  커스텀 JS -->
+	<script type="text/javascript" src="./js/eventboard.js"></script>
 	<!-- 카카오맵 API -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3533e1b86e9d6cdbe13026ff2f91936c&libraries=services" ></script>
 	<script type="text/javascript" >
