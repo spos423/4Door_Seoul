@@ -9,6 +9,9 @@
     <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+<!-- Favicon -->
+<link href="img/favicon.ico" rel="icon">
+
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -106,14 +109,14 @@
 	</div>
 	
 	<div class="collapse" id="searchPeriod">
-		<div class="text-center">
+		<div class="text-center" >
 			<form action="/event/eventlist.do" class="form-control" name="searchPeriod_Form" method="post" onsubmit="return searchPeriod()">
-    			<div class="input-group mb-3">
-    				<span class="input-group-text" id="event_span">행사 시작일</span>
-					<input type="datetime-local" name="startdate" class="form-control" oninput="printConsole(this)">
-					<span class="input-group-text" id="event_span">행사 종료일</span>
-					<input type="datetime-local" name="enddate" class="form-control" oninput="return startFirst()">
-				</div>
+				<div class="input-group mb-3">
+    			<span class="input-group-text" id="event_span">행사 시작일</span>
+				<input type="datetime-local" name="startdate" class="form-control" oninput="printConsole(this)">
+				<span class="input-group-text" id="event_span">행사 종료일</span>
+				<input type="datetime-local" name="enddate" class="form-control" oninput="return startFirst()">
+    			</div>
    			</form>
    		</div>
    	</div>	
@@ -263,7 +266,7 @@
 </footer>
 
 <!-- Back to Top -->
-<a href="javascript:void(0)" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

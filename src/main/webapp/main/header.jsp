@@ -14,7 +14,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
                 <a href="/" class="navbar-brand">
-                    <img class="img-fluid" src="../main/img/logo.png" alt="Logo" style="border-radius:0 0 50px 50px; border-style:solid; border-top-style: none; border-color: #5f5f5f;">
+                    <img class="img-fluid" src="./img/logo.png" alt="Logo">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">사대문</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="/event/ForDoor_Intro.jsp" class="dropdown-item">사대문소개</a>
+                                <a href="feature.html" class="dropdown-item">사대문소개</a>
                                 <a href="/event/eventlist.do" class="dropdown-item">행사안내</a>
                             </div>
                         </div>

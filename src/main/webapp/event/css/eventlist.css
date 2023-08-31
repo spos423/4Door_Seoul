@@ -19,8 +19,12 @@ main {
 }
 
 .listslide_custom {
+	overflow: hidden;
+	position: relative;	
 	width:100%!important;
 	height:300px;
+	background-size: contain;
+	background-repeat: no-repeat;
 	background-position: bottom;
 	object-fit: cover;
 	object-position: 50% 75%;
@@ -50,10 +54,4 @@ main {
 .insert .file-list .filebox .delete i{
     color: #ff5353;
     margin-left: 5px;
-}
-.breadcrumb-item > a{
-	font-weight: 700;
-}
-.breadcrumb > li {
-	font-family: Gothic;
 }
