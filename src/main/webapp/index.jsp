@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -23,12 +22,12 @@
 <link href="./main/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
 <!-- Bootstrap Stylesheet -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link href="./main/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Template Stylesheet -->
 <link href="./main/css/style.css" rel="stylesheet">
 
-<title></title>
+<title>FOR문 SEOUL : 메인</title>
 </head>
 <body style="display:flex;
 		     flex-flow:column;
@@ -49,7 +48,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
                 <a href="/" class="navbar-brand">
-                    <img class="img-fluid" src="./main/img/logo.png" alt="Logo">
+                    <img class="img-fluid" src="./main/img/logo.png" alt="Logo" style="border-radius:0 0 50px 50px; border-style:solid; border-top-style: none; border-color: #5f5f5f;">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -60,7 +59,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">사대문</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="feature.html" class="dropdown-item">사대문소개</a>
+                                <a href="/event/ForDoor_Intro.jsp" class="dropdown-item">사대문소개</a>
                                 <a href="/event/eventlist.do" class="dropdown-item">행사안내</a>
                             </div>
                         </div>
@@ -130,11 +129,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="fw-medium" href="#">2023 IT1기 FOR문 Seoul</a>, All Right Reserved.
+                                        &copy; <a class="fw-medium" href="javascript:void(0)" style="color:#bbbbbb;">
+                    2023 IT1기 FOR문 Seoul</a>, All Right Reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a class="fw-medium" href="#">Hon Gyul</a>
+                    Designed By <a class="fw-medium" href="javascript:void(0)" style="color:#dfdfdf;">Hon Gyul</a>
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@
     <!-- Copyright End -->
 	
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+	<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 	<!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
