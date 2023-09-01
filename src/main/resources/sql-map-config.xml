@@ -11,13 +11,14 @@
 <typeAliases>
 	<typeAlias alias="FR_Board" type="com.globalin.biz.frboard.FR_BoardVO"/>
 	<typeAlias alias="GM_Board" type="com.globalin.biz.gmboard.GM_BoardVO"/>
-	<!-- <typeAlias alias="FR_Board" type="com.globalin.biz.frboard.FR_BoardVO"/> -->
+    <typeAlias alias="D_Board" type="com.globalin.biz.dboard.D_BoardVO"/>
 </typeAliases>
 
 <!-- SQL Mapper 설정 -->
 <mappers>
 	<mapper resource="mappings/FR_Board-mappings.xml"/>
 	<mapper resource="mappings/GM_Board-mappings.xml"/>
+    <mapper resource="mappings/D_Board-mappings.xml"/>
 </mappers>
   	
 </configuration>

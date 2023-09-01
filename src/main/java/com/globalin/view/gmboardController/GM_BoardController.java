@@ -30,7 +30,7 @@ public class GM_BoardController {
 	private GM_BoardService boardService;
 	
 	//글 입력
-	@RequestMapping(value="/main/gmboard/insertgmBoard.do")
+	@RequestMapping(value="/gmboard/insertgmBoard.do")
 	public String insertgmBoard(GM_BoardVO vo) throws IOException{
 	    
 		/*
@@ -43,31 +43,31 @@ public class GM_BoardController {
 		
 	boardService.insertgmBoard(vo);
 		
-	return "redirect:/main/gmboard/getgmBoardList.do";
+	return "redirect:/gmboard/getgmBoardList.do";
 	}
 	
 	//글 수정
-	@RequestMapping("/main/gmboard/updategmBoard.do")
+	@RequestMapping("/gmboard/updategmBoard.do")
 	public String updategmBoard(@ModelAttribute("gmboard") GM_BoardVO vo) {
 	
 	    boardService.updategmBoard(vo);
 	
-	return "redirect:/main/gmboard/getgmBoardList.do";
+	return "redirect:/gmboard/getgmBoardList.do";
 	}
 	
 	//글 삭제
-	@RequestMapping("/main/gmboard/deletegmBoard.do")
+	@RequestMapping("/gmboard/deletegmBoard.do")
 	public String deletegmBoard(GM_BoardVO vo) {
 		
 		
 		boardService.deletegmBoard(vo);
 		
-		return "redirect:/main/gmboard/getgmBoardList.do";
+		return "redirect:/gmboard/getgmBoardList.do";
 	}
 	
 	
 	//글 상세조회
-	@RequestMapping(value= "/main/gmboard/getgmBoard.do")
+	@RequestMapping(value= "/gmboard/getgmBoard.do")
 	public String getBoard(GM_BoardVO vo , Model model) {
 		boardService.readcount(vo);
 		
@@ -90,7 +90,7 @@ public class GM_BoardController {
 		}
 	
 	// 글 목록 조회
-	@RequestMapping("/main/gmboard/getgmBoardList.do")
+	@RequestMapping("/gmboard/getgmBoardList.do")
 	public String getBoarList(GM_BoardVO vo, Model model) {
 		
 		System.out.println("==============");
@@ -108,7 +108,7 @@ public class GM_BoardController {
 		
 		model.addAttribute("gmboardList",boardService.getgmBoardList(vo));
 		
-		return "/main/gmboard/getgmBoardList.jsp";
+		return "/gmboard/getgmBoardList.jsp";
 		
 		
 	}

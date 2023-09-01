@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.globalin.biz.frboard.FR_BoardVO;
 
+
 public interface FR_BoardService {
      
 
@@ -24,5 +25,7 @@ public interface FR_BoardService {
 		
 	// 글 목록 조회
 	List<FR_BoardVO> getBoardList(FR_BoardVO vo);
+
+
 	
 }

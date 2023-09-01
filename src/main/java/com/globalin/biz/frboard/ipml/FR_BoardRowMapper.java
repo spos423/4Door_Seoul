@@ -14,7 +14,7 @@ public class FR_BoardRowMapper implements RowMapper<FR_BoardVO> {
 	public FR_BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
 		FR_BoardVO frboard = new FR_BoardVO();
-		frboard.setNum(rs.getInt("mum"));
+		frboard.setNum(rs.getInt("num"));
 		frboard.setTitle(rs.getString("title"));
 		frboard.setContent(rs.getString("content"));
 		frboard.setWriter(rs.getString("writer"));		
