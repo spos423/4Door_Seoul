@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- https://mybatis.org/mybatis-3/getting-started.html -->
+<!-- properties 파일 설정  -->
+<properties resource="config/database.properties" />
+
+<!-- Alias 설정 : SQL명령어들이 저장되는 SQL Mapper에서 사용할 수 있도록 하는 설정 -->
+<typeAliases>
+	<typeAlias alias="FR_Board" type="com.globalin.biz.frboard.FR_BoardVO"/>
+	<typeAlias alias="GM_Board" type="com.globalin.biz.gmboard.GM_BoardVO"/>
+    <typeAlias alias="D_Board" type="com.globalin.biz.dboard.D_BoardVO"/>
+</typeAliases>
+
+<!-- SQL Mapper 설정 -->
+<mappers>
+	<mapper resource="mappings/FR_Board-mappings.xml"/>
+	<mapper resource="mappings/GM_Board-mappings.xml"/>
+    <mapper resource="mappings/D_Board-mappings.xml"/>
+</mappers>
+  	
+</configuration>

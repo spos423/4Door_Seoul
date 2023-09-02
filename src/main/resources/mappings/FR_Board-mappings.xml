@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="FR_BoardDAO">
+	
+	<select id="getBoardList" resultType="FR_Board">
+		SELECT * FROM FRBOARD
+		<if test="searchCondition == 'title'">	
+			WHERE TITLE LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		
+		<if test="searchCondition == 'content'">	
+			WHERE CONTENT LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		
+		<if test="searchCondition == 'writer'">	
+			WHERE WRITER LIKE '%'||#{searchKeyword}||'%'
+		</if>
+
+		ORDER BY NUM DESC
+	</select>
+	
+	<update id="readcount">
+	UPDATE FRBOARD
+	SET readcount=readcount+1
+	WHERE NUM= #{num}
+	</update>
+ 
+	<select id="getBoard" resultType="FR_Board">
+		 SELECT * 
+		FROM FRBOARD
+	     WHERE NUM = #{num}
+	</select>
+  
+	<insert id="insertBoard">
+		INSERT INTO FRBOARD(num, title, content, writer)
+		VALUES((SELECT NVL(MAX(num),0)+1 FROM FRBOARD), #{title}, #{content}, #{writer})
+	</insert>
+	
+	<update id="updateBoard">
+		UPDATE FRBOARD 
+		SET TITLE=#{title}, CONTENT=#{content } 
+		WHERE NUM=#{num}
+	</update>
+	
+	<delete id="deleteBoard">
+		DELETE FROM FRBOARD 
+		WHERE NUM=#{num}
+	</delete>
+	
+	
+	
+	
+</mapper>

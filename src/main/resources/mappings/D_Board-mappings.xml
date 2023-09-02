@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="D_BoardDAO">
+  		<insert id="insertDBoard">
+		INSERT INTO dboard(rno, d_num, content, writer, regdate)
+		VALUES(SEQ_COMMENT.NEXTVAL, #{d_num}, #{content}, #{writer}, SYSDATE)
+	    </insert>
+	
+	<update id="updateDBoard">
+		UPDATE dboard SET content = #{content} WHERE rno = #{rno}
+	</update>
+	
+	<delete id="deleteDBoard">
+		DELETE FROM dboard WHERE rno = #{rno}
+	</delete>
+
+	<select id="getDBoardList" resultType="D_Board" parameterType="int">
+		SELECT * FROM dboard WHERE d_num = #{d_num}
+	</select>
+  </mapper>
