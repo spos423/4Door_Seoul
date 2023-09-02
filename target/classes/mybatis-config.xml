@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<configuration>
+<!--Alias 설정-->
+
+<typeAliases>
+   <typeAlias alias="frboard" type="com.globalin.biz.frboard.FR_BoardVO"/>
+    <typeAlias alias="gmboard" type="com.globalin.biz.gmboard.GM_BoardVO"/>
+    <typeAlias alias="gmboard" type="com.globalin.biz.dboard.D_BoardVO"/>
+</typeAliases>
+
+
+</configuration>

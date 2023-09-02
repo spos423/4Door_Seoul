@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="GM_BoardDAO">
+	
+	<select id="getgmBoardList" resultType="GM_Board">
+		SELECT * FROM GMBOARD
+		<if test="searchCondition == 'title'">	
+			WHERE TITLE LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		
+		<if test="searchCondition == 'content'">	
+			WHERE CONTENT LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		
+		<if test="searchCondition == 'writer'">	
+			WHERE WRITER LIKE '%'||#{searchKeyword}||'%'
+		</if>
+
+		ORDER BY NUM DESC
+	</select>
+	
+	<update id="readcount">
+	UPDATE GMBOARD
+	SET readcount=readcount+1
+	WHERE NUM= #{num}
+	</update>
+ 
+	<select id="getgmBoard" resultType="GM_Board">
+		 SELECT * 
+		FROM GMBOARD
+	     WHERE NUM = #{num}
+	</select>
+  
+	<insert id="insertgmBoard">
+		INSERT INTO GMBOARD(num, title, content, writer)
+		VALUES((SELECT NVL(MAX(num),0)+1 FROM GMBOARD), #{title}, #{content}, #{writer})
+	</insert>
+	
+	<update id="updategmBoard">
+		UPDATE GMBOARD 
+		SET TITLE=#{title}, CONTENT=#{content } 
+		WHERE NUM=#{num}
+	</update>
+	
+	<delete id="deletegmBoard">
+		DELETE FROM GMBOARD 
+		WHERE NUM=#{num}
+	</delete>
+	
+	
+	
+	
+</mapper>

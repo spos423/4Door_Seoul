@@ -1,7 +1,6 @@
 package com.globalin.view.eboard;
 
 import java.io.File;
-//import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
@@ -19,16 +18,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.globalin.biz.eboard.E_BoardVO;
 import com.globalin.biz.eboard.impl.E_BoardDAO;
 
-<<<<<<< HEAD
-@Controller(value="e_boardService")
+@Controller
 @SessionAttributes("e_board")
-=======
-//@Controller
-//@SessionAttributes("E_Board")
->>>>>>> refs/remotes/origin/yeonwoo
 public class E_BoardController {
 	
-<<<<<<< HEAD
 	@RequestMapping("/event/insertE_Board.do")
 	public String insertE_Board(E_BoardVO vo, E_BoardDAO dao, 
 	@RequestParam(value="startdate") String startdate,
@@ -42,21 +35,6 @@ public class E_BoardController {
 			
 			String savepath = "./upload/" + filename;
 			vo.setImg1_url(savepath);
-=======
-	//@Autowired
-	private E_BoardService e_boardService;
-	
-	
-	//@RequestMapping("/biz/event/insertE_Board.do")
-	public String insertBoard(E_BoardVO vo) throws IOException {
-		
-		System.out.println("湲� �벑濡� 泥섎━");
-		/*
-		MultipartFile uploadFile = vo.getUploadFile();
-		if(!uploadFile.isEmpty()) {
-			String filename = uploadFile.getOriginalFilename();
-			uploadFile.transferTo(new File("C:/ddd/"+filename));
->>>>>>> refs/remotes/origin/yeonwoo
 		}
 		
 		dao.insertBoard(vo);
@@ -132,7 +110,6 @@ public class E_BoardController {
 		E_BoardVO e_board = new E_BoardVO(); 
 		
 		e_board = dao.getBoard(vo, num);
-		
 		model.addAttribute("e_board", e_board);
 		
 		return "/event/eventboard.jsp";
@@ -157,7 +134,6 @@ public class E_BoardController {
 		E_BoardVO e_board = new E_BoardVO(); 
 		
 		e_board = dao.getBoard(vo, num);
-		
 		model.addAttribute("e_board", e_board);
 		
 		return "/event/eventForm_Update.jsp";
@@ -180,6 +156,4 @@ public class E_BoardController {
 		return "redirect:/event/eventForm_Proc.jsp";
 
 	}
-	
-	
 }
