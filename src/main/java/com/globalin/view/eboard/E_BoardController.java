@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.globalin.biz.eboard.E_BoardVO;
 import com.globalin.biz.eboard.impl.E_BoardDAO;
 
-@Controller(value="e_boardService")
+@Controller
 @SessionAttributes("e_board")
 public class E_BoardController {
 	

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.globalin.biz.eboard.E_BoardVO;
 
-@Service
+@Service("e_boardService")
 public class E_BoardServiceImpl implements E_BoardService {
 
 	@Autowired
