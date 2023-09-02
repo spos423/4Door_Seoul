@@ -4,121 +4,67 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-<<<<<<< HEAD
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-=======
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
->>>>>>> refs/remotes/origin/yeonwoo
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-
-
-	<!-- 
-	<bean id="puserService" class="com.globalin.biz.user.impl.PUserServiceImpl">
-		<property name="puserDAO" ref="puserDAO"></property>
-	</bean>
-	<bean id="puserDAO" class="com.globalin.biz.user.impl.PUserDAO"></bean> 
-	-->
-
-<!-- 	
-	<bean id="userService" class="com.globalin.biz.user.impl.UserServiceImpl">
-		<property name="userDAO" ref="userDAO"></property>
-	</bean>
-	<bean id="userDAO" class="com.globalin.biz.user.impl.UserDAO"></bean> -->
 	
-<<<<<<< HEAD
-	<context:component-scan base-package="com.globalin.biz" />
-=======
+<context:component-scan base-package="com.globalin.biz" />
 
-	<!-- DataSource 설정 -->
->>>>>>> refs/remotes/origin/yeonwoo
+<context:property-placeholder location="classpath:config/database.properties" />
 	
-	<!-- 
-		<context:property-placeholder> : 외부의 파일을 참조할 때 사용
-		loacation에서 classpath: -> src/main/resources를 뜻함
-	-->
-	<context:property-placeholder location="classpath:config/database.properties" />
-	
-	<!-- 
-		외부 파일에서 키값을 가져와서 사용할 시 el -> ${} 사용해야 한다 !!!
-		BoardDAOSPring 첫번째 방법
-	-->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">	  
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">	  
 		<property name="driverClassName" value="${jdbc.driver}"></property>
 		<property name="url" value="${jdbc.url}"></property>
 		<property name="username" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>	
-	</bean>
-<<<<<<< HEAD
-	
-		<!-- 
-=======
+</bean>
 
-	<!-- 
->>>>>>> refs/remotes/origin/yeonwoo
-		BoardDAOSpring 두번째 방법
-		Spring jdbc 설정
-	-->
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"></property>
-	</bean>
+</bean>
 
-	<!-- Transaction 설정 -->
-	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+<!-- Transaction 설정 -->
+<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
-	</bean>
+</bean>
 	
-	<!-- Mybatis 두번째 방법 -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!-- Mybatis 두번째 방법 -->
+<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:sql-map-config.xml"></property>
-	</bean>
+</bean>
 	
-	<bean class="org.mybatis.spring.SqlSessionTemplate">
+<bean class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSession"></constructor-arg>
-	</bean> 
+</bean> 
 	
-<<<<<<< HEAD
-	<tx:advice id="txAdvice" transaction-manager="txManager">
+<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
 			<tx:method name="get" read-only="true"></tx:method>
 			<tx:method name="*"></tx:method>
 		</tx:attributes>
-	</tx:advice>
+</tx:advice>
 	
-	<aop:config>
+<aop:config>
 		<aop:pointcut expression="execution(* com.globalin.biz..*Impl.*(..))" id="txPointcut"></aop:pointcut>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
-	</aop:config>
+</aop:config>
 	
-	
-=======
-	
-	
-	
-	<tx:advice id="txAdvice" transaction-manager="txManager">
+<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
 			<tx:method name="get" read-only="true"></tx:method>
 			<tx:method name="*"></tx:method>
 		</tx:attributes>
-	</tx:advice>
+</tx:advice>
 	
-	<aop:config>
+<aop:config>
 		<aop:pointcut expression="execution(* com.globalin.biz..*Impl.*(..))" id="txPointcut"></aop:pointcut>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
-	</aop:config>
+</aop:config>
 
-
-	<context:component-scan base-package="com.globalin.biz"></context:component-scan>
-	
-
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
->>>>>>> refs/remotes/origin/yeonwoo
 	
 </beans>
