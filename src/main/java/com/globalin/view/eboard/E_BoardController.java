@@ -111,7 +111,6 @@ public class E_BoardController {
 		E_BoardVO e_board = new E_BoardVO(); 
 		
 		e_board = dao.getBoard(vo, num);
-		
 		model.addAttribute("e_board", e_board);
 		
 		return "/event/eventboard.jsp";
@@ -136,7 +135,6 @@ public class E_BoardController {
 		E_BoardVO e_board = new E_BoardVO(); 
 		
 		e_board = dao.getBoard(vo, num);
-		
 		model.addAttribute("e_board", e_board);
 		
 		return "/event/eventForm_Update.jsp";
@@ -159,6 +157,4 @@ public class E_BoardController {
 		return "redirect:/event/eventForm_Proc.jsp";
 
 	}
-	
-	
 }
