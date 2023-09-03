@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #88B44E;
+    --primary: #252C30;
     --secondary: #FB9F38;
     --light: #F5F8F2;
     --dark: #252C30;
@@ -167,7 +167,7 @@
     bottom: 0;
     display: flex;
     align-items: center;
-    background: rgba(136, 180, 78, .7);
+    background: rgba(255, 255, 255, .1);
     z-index: 1;
 }
 
@@ -200,7 +200,7 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(136, 180, 78, .7), rgba(136, 180, 78, .7)), url(../img/carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(../img/carousel-1.jpg) center center no-repeat;
     background-size: cover;
 }
 
