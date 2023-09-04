@@ -66,9 +66,9 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">여행정보</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="feature.html" class="dropdown-item">축제&행사</a>
-                                <a href="blog.html" class="dropdown-item">볼거리</a>
-                                <a href="testimonial.html" class="dropdown-item">먹거리</a>
+                                <a href="/t_list.do?ct_u=0&ct_d=0" class="dropdown-item">축제&행사</a>
+                                <a href="/t_list.do?ct_u=1&ct_d=9" class="dropdown-item">볼거리</a>
+                                <a href="/t_list.do?ct_u=2&ct_d=9" class="dropdown-item">먹거리</a>
                             </div>
                         </div>
                         <a href="contact.html" class="nav-item nav-link">커뮤니티</a>

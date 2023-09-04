@@ -44,13 +44,13 @@
 
 	<!-- Navbar Start -->
 	<header>
-		<c:import url="./header.jsp"></c:import>
+		<c:import url="../main/header.jsp"></c:import>
 	</header>
 	<!-- Navbar End -->
 
 
 	<!-- Carousel Start -->
-	<!-- <div class="dd"></div> -->
+	<div class="dd"></div>
 
 
 	<main class="container-fluid px-0 mb-5" id="main">
@@ -167,7 +167,7 @@
 
 	<!-- Copyright Start -->
 	<footer>
-		<c:import url="./footer.jsp"></c:import>
+		<c:import url="../main/footer.jsp"></c:import>
 	</footer>
 	<!-- Copyright End -->
 	
