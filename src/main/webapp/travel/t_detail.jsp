@@ -44,13 +44,13 @@
 
 	<!-- Navbar Start -->
 	<header>
-		<c:import url="./header.jsp"></c:import>
+		<c:import url="../main/header.jsp"></c:import>
 	</header>
 	<!-- Navbar End -->
 
 
 	<!-- Carousel Start -->
-	<!-- <div class="dd"></div> -->
+	<div class="dd"></div>
 
 
 	<main class="container-fluid px-0 mb-5" id="main">
@@ -100,20 +100,20 @@
 		<br>
 		<div class="float-right">
 			<div class="board_btn">
-				<a href="t_update.traveldo?num=${num}&ct_u=${ct_u}&ct_d=${ct_d}&ct2=${ct2}" class="btn">게시글 수정</a>
+				<a href="t_update.do?num=${num}&ct_u=${ct_u}&ct_d=${ct_d}&ct2=${ct2}" class="btn">게시글 수정</a>
 			</div>
 			<div class="board_btn">
-				<a href="t_delete_proc.traveldo?num=${num}&ct_u=${ct_u}&ct_d=${ct2}" class="btn" onclick="deleteCheck()">
+				<a href="t_delete_proc.do?num=${num}&ct_u=${ct_u}&ct_d=${ct2}" class="btn" onclick="deleteCheck()">
 					게시글 삭제		    
 				</a>
 			</div>
 			<div class="board_btn">
 				<c:choose>
 					<c:when test="${ct_u==0}">
-				<a href="t_list.traveldo?ct_u=${ct_u}&ct_d=${ct2}&pageNum=${pageNum}&searchKeyword=${searchKeyword}&date_start=${date_start}&date_end=${date_end}" class="btn">
+				<a href="t_list.do?ct_u=${ct_u}&ct_d=${ct2}&pageNum=${pageNum}&searchKeyword=${searchKeyword}&date_start=${date_start}&date_end=${date_end}" class="btn">
 					</c:when>
 					<c:otherwise>
-				<a href="t_list.traveldo?ct_u=${ct_u}&ct_d=${ct2}&pageNum=${pageNum}&searchKeyword=${searchKeyword}" class="btn">
+				<a href="t_list.do?ct_u=${ct_u}&ct_d=${ct2}&pageNum=${pageNum}&searchKeyword=${searchKeyword}" class="btn">
 					</c:otherwise>
 				</c:choose>
 					게시글 목록		    
@@ -252,7 +252,7 @@
 
 	<!-- Copyright Start -->
 	<footer>
-		<c:import url="./footer.jsp"></c:import>
+		<c:import url="../main/footer.jsp"></c:import>
 	</footer>
 	<!-- Copyright End -->
 	

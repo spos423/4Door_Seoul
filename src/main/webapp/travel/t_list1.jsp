@@ -39,13 +39,13 @@
 
 	<!-- Navbar Start -->
 	<header>
-		<c:import url="./header.jsp"></c:import>
+		<c:import url="../main/header.jsp"></c:import>
 	</header>
 	<!-- Navbar End -->
 
 
 	<!-- Carousel Start -->
-	<!-- <div class="dd"></div> -->
+	<div class="dd"></div>
 
 
 	<main class="container-fluid px-0 mb-5" id="main">
@@ -56,28 +56,28 @@
 			<div class="ct_div">
 				<c:choose>
 					<c:when test="${ct_d eq 9}">
-						<a href="t_list.traveldo?ct_u=1&ct_d=9" class="ct_active">전체</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=3" class="ct_detail">명소</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=4" class="ct_detail">자연&경관</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=5" class="ct_detail">엔터테인먼트</a>
+						<a href="t_list.do?ct_u=1&ct_d=9" class="ct_active">전체</a>
+						<a href="t_list.do?ct_u=1&ct_d=3" class="ct_detail">명소</a>
+						<a href="t_list.do?ct_u=1&ct_d=4" class="ct_detail">자연&경관</a>
+						<a href="t_list.do?ct_u=1&ct_d=5" class="ct_detail">엔터테인먼트</a>
 					</c:when>
 					<c:when test="${ct_d eq 3}">
-						<a href="t_list.traveldo?ct_u=1&ct_d=9" class="ct_detail">전체</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=3" class="ct_active">명소</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=4" class="ct_detail">자연&경관</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=5" class="ct_detail">엔터테인먼트</a>
+						<a href="t_list.do?ct_u=1&ct_d=9" class="ct_detail">전체</a>
+						<a href="t_list.do?ct_u=1&ct_d=3" class="ct_active">명소</a>
+						<a href="t_list.do?ct_u=1&ct_d=4" class="ct_detail">자연&경관</a>
+						<a href="t_list.do?ct_u=1&ct_d=5" class="ct_detail">엔터테인먼트</a>
 					</c:when>
 					<c:when test="${ct_d eq 4}">
-						<a href="t_list.traveldo?ct_u=1&ct_d=9" class="ct_detail">전체</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=3" class="ct_detail">명소</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=4" class="ct_active">자연&경관</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=5" class="ct_detail">엔터테인먼트</a>
+						<a href="t_list.do?ct_u=1&ct_d=9" class="ct_detail">전체</a>
+						<a href="t_list.do?ct_u=1&ct_d=3" class="ct_detail">명소</a>
+						<a href="t_list.do?ct_u=1&ct_d=4" class="ct_active">자연&경관</a>
+						<a href="t_list.do?ct_u=1&ct_d=5" class="ct_detail">엔터테인먼트</a>
 					</c:when>
 					<c:otherwise>
-						<a href="t_list.traveldo?ct_u=1&ct_d=9" class="ct_detail">전체</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=3" class="ct_detail">명소</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=4" class="ct_detail">자연&경관</a>
-						<a href="t_list.traveldo?ct_u=1&ct_d=5" class="ct_active">엔터테인먼트</a>
+						<a href="t_list.do?ct_u=1&ct_d=9" class="ct_detail">전체</a>
+						<a href="t_list.do?ct_u=1&ct_d=3" class="ct_detail">명소</a>
+						<a href="t_list.do?ct_u=1&ct_d=4" class="ct_detail">자연&경관</a>
+						<a href="t_list.do?ct_u=1&ct_d=5" class="ct_active">엔터테인먼트</a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -88,7 +88,7 @@
 				<div class="offset-md-5 col-3">
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 		  				<div class="d-inline-flex gap-1">
-			 				<input class="btn btn-primary me-md-2" type="button" value="게시글 작성" onclick='window.location="t_write.traveldo?ct_u=1&ct_d=${ct_d}"'>
+			 				<input class="btn btn-primary me-md-2" type="button" value="게시글 작성" onclick='window.location="t_write.do?ct_u=1&ct_d=${ct_d}"'>
 		  					<input class="btn btn-primary" type="button" value="키워드 검색" data-bs-toggle="collapse" data-bs-target="#searchKeyword" aria-expanded="false" aria-controls="searchKeyword">
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 			
 			<div class="collapse" id="searchKeyword">
 		    	<div class="container text-center">
-		    		<form name="keywordForm" class="form-control" action="t_list.traveldo" method="post">
+		    		<form name="keywordForm" class="form-control" action="t_list.do" method="post">
 		    			<input type="hidden" name="ct_u" value="1">
 		    			<input type="hidden" name="ct_d" value="${ct_d}">
 		    			
@@ -116,7 +116,7 @@
 				
 					<c:if test="${boardList!=null and !boardList.isEmpty()}">
 						<c:forEach var="vo" items="${boardList}" begin="0" end="${boardList.size()-1}" step="1" varStatus="status">
-				<a href="t_detail.traveldo?num=${vo.getNum()}&ct2=${ct_d}&pageNum=${currentPage}&searchKeyword=${searchKeyword}">
+				<a href="t_detail.do?num=${vo.getNum()}&ct2=${ct_d}&pageNum=${currentPage}&searchKeyword=${searchKeyword}">
 					<div class="mb_board">  
 						<div class="mb_board_one">
 							<div class="mb_board_one_left">
@@ -145,7 +145,7 @@
 				<div class="mb">
 							</c:if>
 					
-				<a href="t_detail.traveldo?num=${vo.getNum()}&ct2=${ct_d}&pageNum=${currentPage}&searchKeyword=${searchKeyword}">
+				<a href="t_detail.do?num=${vo.getNum()}&ct2=${ct_d}&pageNum=${currentPage}&searchKeyword=${searchKeyword}">
 					<div class="mb_board">  
 						<div class="mb_board_one">
 							<div class="mb_board_one_left">
@@ -202,42 +202,42 @@
 			
 			<c:if test="${firstPage!=startPage}">
 				<c:if test="${searchKeyword eq ''}">
-					<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${firstPage}" class="page_f"><<</a>
-					<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${startPage-1}" class="page_f"><</a>
+					<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${firstPage}" class="page_f"><<</a>
+					<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${startPage-1}" class="page_f"><</a>
 				</c:if>
 				<c:if test="${searchKeyword ne ''}">
-					<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${firstPage}&searchKeyword=${searchKeyword}" class="page_f"><<</a>
-					<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${startPage-1}&searchKeyword=${searchKeyword}" class="page_f"><</a>
+					<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${firstPage}&searchKeyword=${searchKeyword}" class="page_f"><<</a>
+					<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${startPage-1}&searchKeyword=${searchKeyword}" class="page_f"><</a>
 				</c:if>
 			</c:if>
 			
 			<c:forEach var="i" begin="${startPage}" end="${endPage}" step="1">
 				<c:if test="${searchKeyword eq ''}">
 					<c:if test="${i eq currentPage}">
-						<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${i}" class="page_f_on">${i}</a>
+						<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${i}" class="page_f_on">${i}</a>
 					</c:if>
 					<c:if test="${i ne currentPage}">
-						<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${i}" class="page_f">${i}</a>
+						<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${i}" class="page_f">${i}</a>
 					</c:if>
 				</c:if>
 				<c:if test="${searchKeyword ne ''}">
 					<c:if test="${i eq currentPage}">
-						<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${i}&searchKeyword=${searchKeyword}" class="page_f_on">${i}</a>
+						<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${i}&searchKeyword=${searchKeyword}" class="page_f_on">${i}</a>
 					</c:if>
 					<c:if test="${i ne currentPage}">
-						<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${i}&searchKeyword=${searchKeyword}" class="page_f">${i}</a>
+						<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${i}&searchKeyword=${searchKeyword}" class="page_f">${i}</a>
 					</c:if>
 				</c:if>
 			</c:forEach>
 			
 			<c:if test="${lastPage!=endPage}">
 				<c:if test="${searchKeyword eq ''}">
-					<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${endPage+1}" class="page_f">></a>
-					<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${lastPage}" class="page_f">>></a>
+					<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${endPage+1}" class="page_f">></a>
+					<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${lastPage}" class="page_f">>></a>
 				</c:if>
 				<c:if test="${searchKeyword ne ''}">
-					<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${endPage+1}&searchKeyword=${searchKeyword}" class="page_f">></a>
-					<a href="t_list.traveldo?ct_u=1&ct_d=${ct_d}&pageNum=${lastPage}&searchKeyword=${searchKeyword}" class="page_f">>></a>
+					<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${endPage+1}&searchKeyword=${searchKeyword}" class="page_f">></a>
+					<a href="t_list.do?ct_u=1&ct_d=${ct_d}&pageNum=${lastPage}&searchKeyword=${searchKeyword}" class="page_f">>></a>
 				</c:if>
 			</c:if>
 			
@@ -251,7 +251,7 @@
 
 	<!-- Copyright Start -->
 	<footer style="width:100%">
-		<c:import url="./footer.jsp"></c:import>
+		<c:import url="../main/footer.jsp"></c:import>
 	</footer>
     <!-- Copyright End -->
 	

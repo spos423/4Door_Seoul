@@ -44,13 +44,13 @@
 
 	<!-- Navbar Start -->
 	<header>
-		<c:import url="./header.jsp"></c:import>
+		<c:import url="../main/header.jsp"></c:import>
 	</header>
 	<!-- Navbar End -->
 
 
 	<!-- Carousel Start -->
-	<!-- <div class="dd"></div> -->
+	<div class="dd"></div>
 
 
 	<main class="container-fluid px-0 mb-5" id="main">
@@ -65,7 +65,7 @@
 			<nav class="left_null">&nbsp;</nav>
 			<nav class="right_null">&nbsp;</nav>
 			<div class="board_center">
-			  	<form action="t_write_proc.traveldo" method="post" name="boardForm" enctype="multipart/form-data">
+			  	<form action="t_write_proc.do" method="post" name="boardForm" enctype="multipart/form-data">
 					<input type="hidden" name="ct_u" value="1">
 					
 					<div class="form-group">
@@ -172,7 +172,7 @@
 
 	<!-- Copyright Start -->
 	<footer>
-		<c:import url="./footer.jsp"></c:import>
+		<c:import url="../main/footer.jsp"></c:import>
 	</footer>
 	<!-- Copyright End -->
 	

@@ -28,7 +28,7 @@ public class t_boardController {
 	/*
 		게시글 목록 조회 컨트롤러
 	*/
-	@RequestMapping("t_list.traveldo")
+	@RequestMapping("t_list.do")
 	public String getBoardList(
 			@RequestParam(value = "searchKeyword", defaultValue = "", required = false) String searchKeyword,
 			@RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum,
@@ -138,7 +138,7 @@ public class t_boardController {
 	/*
 		게시글 상세 조회  컨트롤러
 	*/
-	@RequestMapping("/t_detail.traveldo")
+	@RequestMapping("/t_detail.do")
 	public String getBoard(t_boardVO vo, t_boardDAO board, Model model, HttpServletRequest request) {
 		
 		System.out.println("@Controller @RequestMapping 게시글 조회 처리");
@@ -215,7 +215,7 @@ public class t_boardController {
 	/*
 		게시글 등록페이지 컨트롤러
 	*/
-	@RequestMapping("/t_write.traveldo")
+	@RequestMapping("/t_write.do")
 	public String getWriteForm(t_boardVO vo, Model model) {
 		
 		System.out.println("@Controller @RequestMapping 게시글 등록 페이지 이동");
@@ -238,7 +238,7 @@ public class t_boardController {
 	/*
 		게시글 수정페이지 컨트롤러
 	*/
-	@RequestMapping("/t_update.traveldo")
+	@RequestMapping("/t_update.do")
 	public String getUpdateForm(t_boardVO vo, t_boardDAO board, Model model, HttpServletRequest request) {
 		
 		System.out.println("@Controller @RequestMapping 게시글 수정 페이지 이동");
@@ -291,7 +291,7 @@ public class t_boardController {
 	/*
 		게시글 등록 처리 컨트롤러
 	*/
-	@RequestMapping("/t_write_proc.traveldo")
+	@RequestMapping("/t_write_proc.do")
 	public ModelAndView insertBoard(t_boardVO vo, t_boardDAO board, ModelAndView mav, HttpServletRequest request) {
 		
 		System.out.println("@Controller @RequestMapping 게시글 등록 처리");
@@ -407,7 +407,7 @@ public class t_boardController {
 		mav.addObject("ct_u", ct1);
 		mav.addObject("ct_d", ct2);
 		
-		mav.setViewName("redirect:t_list.traveldo");
+		mav.setViewName("redirect:t_list.do");
 		return mav;
 	}
 	
@@ -415,7 +415,7 @@ public class t_boardController {
 	/*
 		게시글 수정 처리 컨트롤러
 	*/
-	@RequestMapping("/t_update_proc.traveldo")
+	@RequestMapping("/t_update_proc.do")
 	public ModelAndView updateBoard(t_boardVO vo, t_boardDAO board, ModelAndView mav, HttpServletRequest request) {
 		
 		System.out.println("@Controller @Requestmapping 게시글 수정 처리");
@@ -539,7 +539,7 @@ public class t_boardController {
 		mav.addObject("ct_u", ct1);
 		mav.addObject("ct2", ct2);
 		
-		mav.setViewName("redirect:t_detail.traveldo");
+		mav.setViewName("redirect:t_detail.do");
 		return mav;
 	}
 	
@@ -547,7 +547,7 @@ public class t_boardController {
 	/*
 		게시글 삭제 처리 컨트롤러
 	*/
-	@RequestMapping("/t_delete_proc.traveldo")
+	@RequestMapping("/t_delete_proc.do")
 	public ModelAndView deleteBoard(t_boardVO vo, t_boardDAO board, ModelAndView mav) {
 		
 		System.out.println("@Controller @RequestMapping 게시글 삭제 처리");
@@ -557,7 +557,7 @@ public class t_boardController {
 		mav.addObject("ct_u", vo.getCt_u());
 		mav.addObject("ct_d", vo.getCt_d());
 		
-		mav.setViewName("redirect:t_list.traveldo");
+		mav.setViewName("redirect:t_list.do");
 		
 		return mav;
 	}
