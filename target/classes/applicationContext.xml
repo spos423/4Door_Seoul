@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+	<!-- 
+		어노테이션 기능을 사용하기 위해서는 Namespaces탭의 context를 체크
+	-->
+	<context:component-scan base-package="com.globalin.biz.travel"></context:component-scan>
+	
+	<!-- 
+		클래스에서 어노테이션 aop 기능을 사용하려면 Namespaces 탭의 aop를 체크 !!!
+	-->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+  
+  	<mvc:annotation-driven></mvc:annotation-driven>
+
+</beans>
