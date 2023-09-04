@@ -303,7 +303,8 @@ public class t_boardController {
 		int ct2 = 0;
 		
 		// 업로드할 파일 경로
-		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload");
+//		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload");
+		String uploadPath = "c://upload";
 		
 		// 파일 최대 크기 지정
 		int size = 10*1024*1024;
@@ -347,7 +348,7 @@ public class t_boardController {
 			vo.setOpen_day(multi.getParameter("open_day"));
 			vo.setTel(multi.getParameter("tel"));
 			vo.setWriter(multi.getParameter("writer"));
-			vo.setFilepath("/resources/upload/"+filename);
+			vo.setFilepath("c://upload"+filename);
 			
 			if(ct_u!=2) {
 				vo.setPrice(multi.getParameter("price"));
@@ -430,7 +431,8 @@ public class t_boardController {
 		int ct2 = 9;
 		
 		// 파일 업로드 경로
-		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload");
+//		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload");
+		String uploadPath = "c://upload";
 		
 		// 파일 크기 지정
 		int size = 10*1024*1024;
@@ -481,7 +483,7 @@ public class t_boardController {
 					img.delete();
 				}
 				
-				vo.setFilepath("/resources/upload/" + filename);
+				vo.setFilepath("c://upload" + filename);
 			}
 			
 			if(ct1!=2) {
