@@ -7,7 +7,7 @@
 <meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
+<link href="/main/img/logo.png" rel="icon">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,7 @@
     
     <!-- Navbar Start -->
     <header>
-    	<c:import url="./header.jsp"></c:import>
+    	<c:import url="/main/header.jsp"></c:import>
     </header>
     <!-- Navbar End -->
 
@@ -110,7 +110,7 @@
 	
     <!-- Copyright Start -->
     <footer>
-    	<c:import url="./footer.jsp"></c:import>
+    	<c:import url="/main/footer.jsp"></c:import>
     </footer>
     <!-- Copyright End -->
 	
