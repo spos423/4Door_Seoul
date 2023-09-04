@@ -65,7 +65,7 @@
 			<nav class="left_null">&nbsp;</nav>
 			<nav class="right_null">&nbsp;</nav>
 			<div class="board_center">
-			  	<form action="t_write_proc.traveldo" method="post" name="boardForm" enctype="multipart/form-data">
+			  	<form action="t_write_proc.do" method="post" name="boardForm" enctype="multipart/form-data">
 					<input type="hidden" name="ct_u" value="2">
 					
 					 <div class="form-group">

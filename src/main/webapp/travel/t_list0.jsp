@@ -56,19 +56,19 @@
 			<div class="ct_div">
 				<c:choose>
 					<c:when test="${ct_d==0}">
-						<a href="t_list.traveldo?ct_u=0&ct_d=0" class="ct_active">진행중</a>
-						<a href="t_list.traveldo?ct_u=0&ct_d=1" class="ct_detail">진행예정</a>
-						<a href="t_list.traveldo?ct_u=0&ct_d=2" class="ct_detail">진행완료</a>
+						<a href="t_list.do?ct_u=0&ct_d=0" class="ct_active">진행중</a>
+						<a href="t_list.do?ct_u=0&ct_d=1" class="ct_detail">진행예정</a>
+						<a href="t_list.do?ct_u=0&ct_d=2" class="ct_detail">진행완료</a>
 					</c:when>
 					<c:when test="${ct_d==1}">
-						<a href="t_list.traveldo?ct_u=0&ct_d=0" class="ct_detail">진행중</a>
-						<a href="t_list.traveldo?ct_u=0&ct_d=1" class="ct_active">진행예정</a>
-						<a href="t_list.traveldo?ct_u=0&ct_d=2" class="ct_detail">진행완료</a>
+						<a href="t_list.do?ct_u=0&ct_d=0" class="ct_detail">진행중</a>
+						<a href="t_list.do?ct_u=0&ct_d=1" class="ct_active">진행예정</a>
+						<a href="t_list.do?ct_u=0&ct_d=2" class="ct_detail">진행완료</a>
 					</c:when>
 					<c:otherwise>
-						<a href="t_list.traveldo?ct_u=0&ct_d=0" class="ct_detail">진행중</a>
-						<a href="t_list.traveldo?ct_u=0&ct_d=1" class="ct_detail">진행예정</a>
-						<a href="t_list.traveldo?ct_u=0&ct_d=2" class="ct_active">진행완료</a>
+						<a href="t_list.do?ct_u=0&ct_d=0" class="ct_detail">진행중</a>
+						<a href="t_list.do?ct_u=0&ct_d=1" class="ct_detail">진행예정</a>
+						<a href="t_list.do?ct_u=0&ct_d=2" class="ct_active">진행완료</a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -79,7 +79,7 @@
 				<div class="offset-md-5 col-3">
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 		  				<div class="d-inline-flex gap-1">
-			 				<input class="btn btn-primary me-md-2" type="button" value="게시글 작성" onclick='window.location="t_write.traveldo?ct_u=0&ct_d=${ct_d}"'>
+			 				<input class="btn btn-primary me-md-2" type="button" value="게시글 작성" onclick='window.location="t_write.do?ct_u=0&ct_d=${ct_d}"'>
 			 				<input class="btn btn-primary me-md-2" type="button" value="기간 검색" data-bs-toggle="collapse" data-bs-target="#searchPeriod" aria-expanded="false" aria-controls="searchPeriod">
 		  					<input class="btn btn-primary" type="button" value="키워드 검색" data-bs-toggle="collapse" data-bs-target="#searchKeyword" aria-expanded="false" aria-controls="searchKeyword">
 						</div>
@@ -89,7 +89,7 @@
 			
 			<div class="collapse" id="searchPeriod">
 				<div class="container text-center" >
-					<form name="dateForm" class="form-control" action="t_list.traveldo?ct_u=0" method="post">
+					<form name="dateForm" class="form-control" action="t_list.do?ct_u=0" method="post">
 						<input type="hidden" name="ct_d" value="${ct_d}">
 						
 						<label class="label">시작일 </label> 
@@ -103,7 +103,7 @@
 			
 			<div class="collapse" id="searchKeyword">
 		    	<div class="container text-center">
-		    		<form name="keywordForm" class="form-control" action="t_list.traveldo?ct_u=0" method="post">
+		    		<form name="keywordForm" class="form-control" action="t_list.do?ct_u=0" method="post">
 		    			<input type="hidden" name="ct_d" value="${ct_d}">
 		    			
 		    			<input type="text" class="searchKeyword" placeholder="키워드" name="searchKeyword">
@@ -122,7 +122,7 @@
 					<c:if test="${boardList!=null and !boardList.isEmpty()}">
 						<c:forEach var="vo" items="${boardList}" begin="0" end="${boardList.size()-1}" step="1" varStatus="status">
 						
-						<a href="t_detail.traveldo?num=${vo.getNum()}&ct2=${ct_d}&pageNum=${currentPage}&date_start=${date_start}&date_end=${date_end}&searchKeyword=${searchKeyword}">
+						<a href="t_detail.do?num=${vo.getNum()}&ct2=${ct_d}&pageNum=${currentPage}&date_start=${date_start}&date_end=${date_end}&searchKeyword=${searchKeyword}">
 					 		<div class="mb_board">  
 								<div class="mb_board_one">
 									<div class="mb_board_one_left">
@@ -154,7 +154,7 @@
 					<div class="mb">
 							</c:if>
 								
-						<a href="t_detail.traveldo?num=${vo.getNum()}&ct2=${ct_d}&pageNum=${currentPage}&date_start=${date_start}&date_end=${date_end}&searchKeyword=${searchKeyword}">
+						<a href="t_detail.do?num=${vo.getNum()}&ct2=${ct_d}&pageNum=${currentPage}&date_start=${date_start}&date_end=${date_end}&searchKeyword=${searchKeyword}">
 							<div class="mb_board">  
 								<div class="mb_board_one">
 									<div class="mb_board_one_left">
@@ -218,21 +218,21 @@
 					<c:when test="${searchKeyword eq ''}">
 						<c:if test="${date_start eq '' and date_end eq ''}">
 						
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${firstPage}" class="page_f"><<</a>
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${startPage-1}" class="page_f"><</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${firstPage}" class="page_f"><<</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${startPage-1}" class="page_f"><</a>
 							
 						</c:if>
 						<c:if test="${date_start ne '' or date_end ne ''}">
 						
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${firstPage}&date_start=${date_start}&date_end=${date_end}" class="page_f"><<</a>
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${startPage-1}&date_start=${date_start}&date_end=${date_end}" class="page_f"><</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${firstPage}&date_start=${date_start}&date_end=${date_end}" class="page_f"><<</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${startPage-1}&date_start=${date_start}&date_end=${date_end}" class="page_f"><</a>
 						
 						</c:if>
 					</c:when>
 					<c:otherwise>
 						
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${firstPage}&searchKeyword=${searchKeyword}" class="page_f"><<</a>
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${startPage-1}&searchKeyword=${searchKeyword}" class="page_f"><</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${firstPage}&searchKeyword=${searchKeyword}" class="page_f"><<</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${startPage-1}&searchKeyword=${searchKeyword}" class="page_f"><</a>
 						
 					</c:otherwise>
 				</c:choose>
@@ -245,12 +245,12 @@
 							<c:choose>
 								<c:when test="${i eq currentPage}">
 								
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${i}" class="page_f_on">${i}</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${i}" class="page_f_on">${i}</a>
 									
 								</c:when>
 								<c:otherwise>
 								
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${i}" class="page_f">${i}</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${i}" class="page_f">${i}</a>
 							
 								</c:otherwise>
 							</c:choose>	
@@ -259,12 +259,12 @@
 							<c:choose>
 								<c:when test="${i eq currentPage}">
 								
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${i}&date_start=${date_start}&date_end=${date_end}" class="page_f_on">${i}</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${i}&date_start=${date_start}&date_end=${date_end}" class="page_f_on">${i}</a>
 									
 								</c:when>
 								<c:otherwise>
 								
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${i}&date_start=${date_start}&date_end=${date_end}" class="page_f">${i}</a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${i}&date_start=${date_start}&date_end=${date_end}" class="page_f">${i}</a>
 							
 								</c:otherwise>
 							</c:choose>	
@@ -274,12 +274,12 @@
 						<c:choose>
 							<c:when test="${i eq currentPage}">
 							
-						<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${i}&searchKeyword=${searchKeyword}" class="page_f_on">${i}</a>
+						<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${i}&searchKeyword=${searchKeyword}" class="page_f_on">${i}</a>
 								
 							</c:when>
 							<c:otherwise>
 							
-						<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${i}&searchKeyword=${searchKeyword}" class="page_f">${i}</a>
+						<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${i}&searchKeyword=${searchKeyword}" class="page_f">${i}</a>
 						
 							</c:otherwise>
 						</c:choose>	
@@ -292,21 +292,21 @@
 					<c:when test="${searchKeyword eq ''}">
 						<c:if test="${date_start eq '' and date_end eq ''}">
 							
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${endPage+1}" class="page_f">></a>
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${lastPage}" class="page_f">>></a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${endPage+1}" class="page_f">></a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${lastPage}" class="page_f">>></a>
 						
 						</c:if>
 						<c:if test="${date_start ne '' or date_end ne ''}">
 						
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${endPage+1}&date_start=${date_start}&date_end=${date_end}" class="page_f">></a>
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${lastPage}&date_start=${date_start}&date_end=${date_end}" class="page_f">>></a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${endPage+1}&date_start=${date_start}&date_end=${date_end}" class="page_f">></a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${lastPage}&date_start=${date_start}&date_end=${date_end}" class="page_f">>></a>
 						
 						</c:if>
 					</c:when>
 					<c:otherwise>
 					
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${endPage+1}&searchKeyword=${searchKeyword}" class="page_f">></a>
-							<a href="t_list.traveldo?ct_u=0&ct_d=${ct_d}&pageNum=${lastPage}&searchKeyword=${searchKeyword}" class="page_f">>></a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${endPage+1}&searchKeyword=${searchKeyword}" class="page_f">></a>
+							<a href="t_list.do?ct_u=0&ct_d=${ct_d}&pageNum=${lastPage}&searchKeyword=${searchKeyword}" class="page_f">>></a>
 					
 					</c:otherwise>
 				</c:choose>
