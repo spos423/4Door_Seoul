@@ -37,8 +37,12 @@
                                 <a href="testimonial.html" class="dropdown-item">먹거리</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">커뮤니티</a>
-                        <a href="contact.html" class="nav-item nav-link">고객센터</a>
+                       <div>
+                        <a href="/frboard/getBoardList.do" class="nav-item nav-link">커뮤니티</a>
+                          </div>
+                          <div>
+                        <a href="/gmboard/getgmBoardList.do" class="nav-item nav-link">고객센터</a>
+                        </div>
                         <a href="contact.html" class="nav-item nav-link"></a>
                         <a href="contact.html" class="nav-item nav-link"></a>
                         <a href="contact.html" class="nav-item nav-link"></a>

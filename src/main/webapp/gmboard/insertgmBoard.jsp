@@ -56,7 +56,7 @@
  -->
 
 	<main class="container-fluid px-0 mb-5" style="float:left; width:60%; display: block; flex: 1;">
-		 <div class="container">
+		 <div class="container" style="margin-top: 100px;">
     <div class="row">
      <h1 align="center">글쓰기</h1>
      <form method=post action="insertgmBoard.do" enctype="multipart/form-data">

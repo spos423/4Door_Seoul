@@ -8,7 +8,7 @@
 <meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
+<link href="/main/img/logo.png" rel="icon">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +46,7 @@
     
     <!-- Navbar Start -->
     <header>
-    	<c:import url="./header.jsp"></c:import>
+    	<c:import url="/main/header.jsp"></c:import>
     </header>
     <!-- Navbar End -->
 
@@ -55,11 +55,11 @@
 	<!-- <div class="dd" style="float: left; height:100px; width:100%; display:inline-block;"></div> -->
 
  
-
+     
 	<main class="container-fluid px-0 mb-5" style="float:left; width:60%; display: block; flex: 1;">
     <div class="container"> 
     
-      <div class="row"> 
+      <div class="row" style="margin-top: 100px;"> 
        <h1 align="center">자유 게시판</h1>
        <table class="table table-striped">
          <tr class="danger">
@@ -100,7 +100,16 @@
            </td>
          </tr>
          </table>
-         
+         <form  action="getBoardList.do" method="post" align="center">
+
+       <select name="searchCondition">
+         <option value="title" >제목</option>
+         <option value="content">내용</option>
+         <option value="writer">작성자</option>
+       </select>
+       <input name="searchKeyword" typer="text"/>
+       <input type="submit" value="검색"/>  
+     </form>
      
       </div>
      </div>
@@ -111,7 +120,7 @@
 	
     <!-- Copyright Start -->
     <footer>
-    	<c:import url="./footer.jsp"></c:import>
+    	<c:import url="/main/footer.jsp"></c:import>
     </footer>
     <!-- Copyright End -->
 	

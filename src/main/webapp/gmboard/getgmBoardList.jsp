@@ -46,7 +46,7 @@
     
     <!-- Navbar Start -->
     <header>
-    	<c:import url="./header.jsp"></c:import>
+    	<c:import url="/main/header.jsp"></c:import>
     </header>
     <!-- Navbar End -->
 
@@ -58,7 +58,7 @@
 
 	<main class="container-fluid px-0 mb-5" style="float:left; width:60%; display: block; flex: 1;">
     <div class="container"> 
-      <div class="row"> 
+      <div class="row" style="margin-top: 100px;"> 
        <h1 align="center">건의 게시판</h1>
        <table class="table table-striped">
          <tr class="danger">
@@ -119,7 +119,7 @@
 	
     <!-- Copyright Start -->
     <footer>
-    	<c:import url="./footer.jsp"></c:import>
+    	<c:import url="/main/footer.jsp"></c:import>
     </footer>
     <!-- Copyright End -->
 	
