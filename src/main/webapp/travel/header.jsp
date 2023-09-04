@@ -14,7 +14,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0" style="margin-bottom: 100px;">
                 <a href="index.html" class="navbar-brand">
-                    <img class="img-fluid" src="./img/logo.png" alt="Logo">
+                    <img class="img-fluid" src="/resources/img/logo.png" alt="Logo">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -32,9 +32,9 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">여행정보</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="feature.html" class="dropdown-item">축제&행사</a>
-                                <a href="blog.html" class="dropdown-item">볼거리</a>
-                                <a href="testimonial.html" class="dropdown-item">먹거리</a>
+                                <a href="t_list.traveldo?ct_u=0&ct_d=0" class="dropdown-item">축제&행사</a>
+                                <a href="t_list.traveldo?ct_u=1&ct_d=9" class="dropdown-item">볼거리</a>
+                                <a href="t_list.traveldo?ct_u=2&ct_d=9" class="dropdown-item">먹거리</a>
                             </div>
                         </div>
                         <a href="contact.html" class="nav-item nav-link">커뮤니티</a>
