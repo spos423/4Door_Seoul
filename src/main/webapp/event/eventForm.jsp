@@ -5,10 +5,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-<!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,44 +27,33 @@
 
 <!-- Template Stylesheet -->
 <link href="./css/style.css" rel="stylesheet">
+<link href="./css/eventForm.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-<title>FOR문 SEOUL : 이벤트 리스트</title>
-
-<style type="text/css">
-#zipcode_div{
-	width:50%
-}
-#zipcode_p{
-	width:24%
-}
-span, label {
-	width: 12%
-}
-
-
-</style>
+<!-- Summernote JavaScript -->
 <script type="text/javascript">
 function postForm() {
     $('textarea[name="content"]').val($('#summernote').summernote('code'));
 }
 </script>
 
+<!-- 폼 정보 알림 메세지 -->
+<script src="./js/eventForm.js"></script>
+<title>FOR문 SEOUL : 이벤트 리스트</title>
 </head>
-<body style="display:flex; flex-flow:column; min-height:100vh; padding:0; margin:0;">
+<body>
 
 <header>
 <c:import url="/main/header.jsp" />
-
 </header>
 
 
-<main class="eventform" style="flex:1; width:50%;align-self: center;">
-<div class="container" style="flex:1;">
-	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+<main class="eventform">
+<div class="container">
+	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
   		<ol class="breadcrumb">
     		<li class="breadcrumb-item h5"><a href="#">HOME</a></li>
     		<li class="breadcrumb-item h5 active"><a href="#">사대문</a></li>
@@ -77,44 +64,42 @@ function postForm() {
 
   <p class="display-1">행사안내 양식</p>
   <hr>
-  <form action="insertE_Board.do" method="post" onsubmit="postForm()">
+  <form action="/event/insertE_Board.do" name="eventForm" method="post" enctype="multipart/form-data" onsubmit="return formCheck()">
     <div class="input-group mb-3">
-  		<span class="input-group-text">제목</span>
- 		<input type="text" name="title" class="form-control" placeholder="Title" aria-label="Title" style="width:48%">
- 		<span class="input-group-text">작성자</span>
- 		<input type="text" name="writer" class="form-control" placeholder="Wirter" aria-label="Writer" style="width:28%">
+  		<span class="input-group-text" id="event_span">제목</span>
+ 		<input type="text" name="title" class="form-control" placeholder="글 제목을 입력해주세요.(50자 이내)" maxlength="5" oninput="lengthLimit(this,this.maxlength)">
+ 		<span class="input-group-text" id="event_span">작성자</span>
+ 		<input type="text" name="writer" class="form-control" placeholder="Writer" value="일단 이걸로(10자 이내)" maxlength="10" oninput="lengthLimit(this,this.maxlength)" readonly>
 	</div>
 	
-	<div class="input-group mb-3">
-  		<label class="input-group-text" for="inputGroupFile01">Upload</label>
-  		<input type="file" class="form-control">
+	<div class="input-group mb-3 insert">
+  		<label class="input-group-text" id="event_label">Upload</label>
+  		<input type="file" class="form-control" name="thumb_img1" onchange="return fileUploadCheck(this.value)">
 	</div>
     
 	<div class="input-group mb-3" id="zipcode_div">
-  		<span class="input-group-text" id="zipcode_p">우편번호</span>
-  		<input type="text" class="form-control" placeholder="Username" aria-label="Username">
-  		<button class="btn btn-outline-secondary" type="button">Button</button>
+  		<span class="input-group-text" id="zipcode_span">우편번호</span>
+  		<input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="우편번호 입력(5자)" maxlength="5" oninput="lengthLimit(this,this.maxlength)" readonly="readonly">
+  		<button class="btn btn-outline-secondary" id="address_kakao" type="button">주소검색</button>
 	</div>
 	
 	<div class="input-group mb-3">
-		<span class="input-group-text">주소</span>
-  		 <input type="text" class="form-control" placeholder="도로명 주소 입력" name="zipcode">
+		<span class="input-group-text" id="event_span">주소</span>
+  		 <input type="text" name="address" id="address" class="form-control" placeholder="도로명 주소 입력" maxlength="50" oninput="lengthLimit(this,this.maxlength)">
 	</div>
 
-<textarea name="content" style="display: none;"></textarea>	
-<div id="summernote"></div>
+<textarea id="summernote" name="content"></textarea>
     <script>
       $('#summernote').summernote({
-        placeholder: 'Hello stand alone ui',
-        tabsize: 2,
         height: 500,
+        placeholder: '게시글 입력란(한글 800자 이내)',
+        tabsize: 2,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
           ['table', ['table']],
-          ['insert', ['link', 'picture', 'video']],
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       });
@@ -122,36 +107,37 @@ function postForm() {
 	<br>
 	
     <div class="input-group mb-3">
-  		<span class="input-group-text">이용요금</span>
- 		<input type="text" name="price" class="form-control" placeholder="Charge_info" aria-label="Charge_info">
- 		<span class="input-group-text">전화번호</span>
- 		<input type="text" name="tel" class="form-control" placeholder="tel_info" aria-label="tel_info">
+  		<span class="input-group-text" id="event_span">이용요금</span>
+ 		<input type="text" name="price" class="form-control" placeholder="이용요금 있을시 작성(30자 내외)" maxlength="30" oninput="lengthLimit(this,this.maxlength)">
+ 		<span class="input-group-text" id="event_span">전화번호</span>
+ 		<input type="text" name="tel" class="form-control" placeholder="행사 담당부서 연락처(20자 내외)" maxlength="20" oninput="lengthLimit(this,this.maxlength)">
 	</div>
     
     <div class="input-group mb-3">
-    	<span class="input-group-text">교통정보</span>
-      	<input type="text" name="traf" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력">
+    	<span class="input-group-text" id="event_span">교통정보</span>
+      	<input type="text" name="traf" class="form-control" id="traffic_info" placeholder="교통 정보를 간단하게 입력" maxlength="100" oninput="lengthLimit(this,this.maxlength)">
     </div>
     
     <div class="input-group mb-3">
-    	<span class="input-group-text">웹사이트</span>
-      	<input type="text" name="uri" class="form-control" id="url_info" placeholder="요금 입력">
+    	<span class="input-group-text" id="event_span">웹사이트</span>
+      	<input type="text" name="uri" class="form-control" id="url_info" placeholder="요금 입력" maxlength="100" oninput="lengthLimit(this,this.maxlength)">
     </div>
     
     <div class="input-group mb-3">
-    	<span class="input-group-text">행사 시작일</span>
-		<input type="datetime-local" class="form-control" name="startdate">
-		<span class="input-group-text">행사 종료일</span>
-		<input type="datetime-local" class="form-control" name="enddate">
+    	<span class="input-group-text" id="event_span">행사 시작일</span>
+		<input type="datetime-local" name="startdate" class="form-control" oninput="printConsole(this)">
+		<span class="input-group-text" id="event_span">행사 종료일</span>
+		<input type="datetime-local" name="enddate" class="form-control" oninput="return startFirst()">
     </div>
  
 	
 	<div class="row">
-		<div class="offset-md-9 col-3">
-			<button style="width: 100px; border-radius: 20px;" type="submit" class="btn btn-primary">등록</button>
- 		   	<button style="width: 100px; border-radius: 20px;" type="button" class="btn btn-primary">취소</button>
+		<div class="offset-md-8 col-2">
+			<button name="submit_btn" type="submit" class="btn btn-primary">등록</button>
     	</div>
-    	
+    	<div class="col-2">
+ 			<button name="cancel_btn" type="button" class="btn btn-primary" onclick="javascript:history.go(-1)">취소</button>
+    	</div>
     </div>
     
     <br><br>
@@ -160,13 +146,30 @@ function postForm() {
 </div>
 </main>
 
-<footer style="height: 30%">
+<footer>
 	<c:import url="/main/footer.jsp" />
 </footer>
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+	
+	<!-- 카카오 주소검색 라이브러리 -->
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+window.onload = function(){
+    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("zipcode").value = data.zonecode; // 우편번호 넣기
+                document.getElementById("address").value = data.address; // 주소 넣기
+                document.querySelector("input[name=address]").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+}
+</script>
+	
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="./lib/wow/wow.min.js"></script>
