@@ -195,6 +195,7 @@ a{
 	color: #777;
 	overflow: hidden;
     text-overflow: ellipsis;
+    max-height: 35px;
 }
 
 .mb_date{
