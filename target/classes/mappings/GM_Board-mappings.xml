@@ -46,7 +46,7 @@
 	</update>
 	
 	<delete id="deletegmBoard">
-		Cascade Delete FROM GMBOARD 
+		Delete FROM GMBOARD 
 		WHERE NUM=#{num}
 	</delete>
 	
