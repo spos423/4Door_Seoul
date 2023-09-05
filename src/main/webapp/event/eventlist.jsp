@@ -109,13 +109,14 @@
 	</div>
 	
 	<div class="collapse" id="searchPeriod">
-		<div class="text-center" >
+		<div class="text-center">
 			<form action="/event/eventlist.do" class="form-control" name="searchPeriod_Form" method="post" onsubmit="return searchPeriod()">
-				<div class="input-group mb-3">
+				<div class="input-group mb-3" style="margin-top: 10px;">
     			<span class="input-group-text" id="event_span">행사 시작일</span>
-				<input type="datetime-local" name="startdate" class="form-control" oninput="printConsole(this)">
+				<input type="date" name="search_startDate" class="form-control">
 				<span class="input-group-text" id="event_span">행사 종료일</span>
-				<input type="datetime-local" name="enddate" class="form-control" oninput="return startFirst()">
+				<input type="date" name="search_endDate" class="form-control" oninput="return startFirst()">
+    			<button class="btn btn-outline-secondary" type="submit" id="button-addon2">기간 검색</button>
     			</div>
    			</form>
    		</div>

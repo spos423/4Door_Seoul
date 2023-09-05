@@ -67,7 +67,7 @@ function postForm() {
   <form action="/event/insertE_Board.do" name="eventForm" method="post" enctype="multipart/form-data" onsubmit="return formCheck()">
     <div class="input-group mb-3">
   		<span class="input-group-text" id="event_span">제목</span>
- 		<input type="text" name="title" class="form-control" placeholder="글 제목을 입력해주세요.(50자 이내)" maxlength="5" oninput="lengthLimit(this,this.maxlength)">
+ 		<input type="text" name="title" class="form-control" placeholder="글 제목을 입력해주세요.(50자 이내)" maxlength="50" oninput="lengthLimit(this,this.maxlength)">
  		<span class="input-group-text" id="event_span">작성자</span>
  		<input type="text" name="writer" class="form-control" placeholder="Writer" value="일단 이걸로(10자 이내)" maxlength="10" oninput="lengthLimit(this,this.maxlength)" readonly>
 	</div>

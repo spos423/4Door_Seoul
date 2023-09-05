@@ -47,6 +47,10 @@ function searchPeriod() {
     start.focus();
     return false;
     }
+    
+    
+    
+    
 }
 
 function searchKeyword() {
@@ -57,7 +61,6 @@ function searchKeyword() {
 	return false;
 	}
 }
-
 
 function goBoard(num) {
 	
@@ -73,4 +76,12 @@ function goBoard(num) {
     f.setAttribute('action', '/event/eventboard.do');
     document.body.appendChild(f);
     f.submit();
+}
+
+function startFirst(){
+	if(document.searchPeriod_Form.search_startDate.value==""){
+	alert('행사 시작일을 먼저 입력해주세요.');
+	document.searchPeriod_Form.search_startDate.focus();
+    return false;
+	}
 }
