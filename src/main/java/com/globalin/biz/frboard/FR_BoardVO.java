@@ -1,7 +1,6 @@
 package com.globalin.biz.frboard;
 
 import java.util.Date;
-import org.springframework.ui.Model;
 
 import org.springframework.web.multipart.MultipartFile;
 

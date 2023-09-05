@@ -83,8 +83,18 @@
                         <a href="contact.html" class="nav-item nav-link"></a>
                         <!-- <a href="contact.html" class="nav-item nav-link">로그아웃</a>
                         <a href="contact.html" class="nav-item nav-link">마이페이지</a> -->
-                        <a href="contact.html" class="nav-item nav-link">로그인</a>
-                        <a href="contact.html" class="nav-item nav-link">회원가입</a>
+                        
+	                        <c:if test="${loginID ne null }">
+								<a href="/member.mdo?cmd=login" class="nav-item nav-link">마이페이지</a>
+	                            <a href="/member.mdo?cmd=logout" class="nav-item nav-link">로그아웃</a>                                          
+	                        </c:if>
+	                         <c:if test="${loginID eq null }">
+								<a href="/member/login.jsp" class="nav-item nav-link">로그인</a>
+	                        	<a href="javascript:void(0)" class="nav-item nav-link" onclick="javascript:window.location='member.mdo?cmd=regForm'">회원가입</a>
+	                        </c:if>
+                        
+                        
+                        
                     </div>
                     <!-- <div class="border-start ps-4 d-none d-lg-block">
                         <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>

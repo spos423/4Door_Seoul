@@ -1,6 +1,5 @@
 package com.globalin.biz.dboard.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.globalin.biz.dboard.D_BoardVO;

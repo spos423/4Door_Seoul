@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Apply a cozy and fresh style to the entire page */
+body {
+	
+    font-family: Arial, sans-serif;
+    background-color: #f2f5f9;
+    
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  
+    min-height: 100vh;
+}
+
+form {
+	width: 600px;
+	margin:0 auto;
+}
+
+/* Style for the table */
+table {
+    width: 100%; /* Adjust the width to fit content */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Add some padding to the table */
+    
+}
+
+/* Style for table header */
+table th {
+    background-color: #4B89DC;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Style for table cells */
+table td {
+	
+    padding: 10px;
+}
+
+/* Style for input fields */
+input[type="text"],
+input[type="password"],
+select {
+    width: auto;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color:#4B89DC;
+}
+
+
+/* Style for buttons */
+input[type="button"],
+input[type="submit"] {
+    padding: 10px;
+    background-color: #4B89DC;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background-color: #4B89DC;
+}
+
+/* Style for the email select box and input */
+#select, #textEmail {
+    width: 20%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s ease;
+}
+
+#textEmail:focus {
+    border-color: #4B89DC;
+}
+
+/* Hide the text input by default */
+#textEmail {
+    display: none;
+}
+
+/* Add this to your existing <style> block */
+#emailId,
+#textEmail,
+#select {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 3px; /* Adjust margin as needed */
+}
+
+#emailId {
+	width:90px;
+}
+
+#textEmail{
+ width:90px;
+}
+
+#select{
+width:150px;
+}
