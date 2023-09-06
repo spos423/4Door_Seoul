@@ -85,7 +85,14 @@
                         <a href="contact.html" class="nav-item nav-link">마이페이지</a> -->
                         
 	                        <c:if test="${loginID ne null }">
-								<a href="/member.mdo?cmd=login" class="nav-item nav-link">마이페이지</a>
+								<div class="nav-item dropdown">
+		                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">마이페이지</a>
+		                            <div class="dropdown-menu bg-light rounded-0 m-0">
+		                                <a href="/member.mdo?cmd=modifyForm" class="dropdown-item">정보수정</a>
+		                                <a href="/member.mdo?cmd=delete" class="dropdown-item">회원탈퇴</a>
+		                                <a href="/member.mdo?cmd=logout" class="dropdown-item">로그아웃</a>
+		                            </div>
+		                        </div>
 	                            <a href="/member.mdo?cmd=logout" class="nav-item nav-link">로그아웃</a>                                          
 	                        </c:if>
 	                         <c:if test="${loginID eq null }">
