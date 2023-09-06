@@ -1,6 +1,5 @@
 package com.globalin.biz.frboard.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.globalin.biz.frboard.FR_BoardVO;

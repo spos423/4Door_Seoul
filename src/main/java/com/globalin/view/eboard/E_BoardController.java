@@ -26,15 +26,18 @@ public class E_BoardController {
 	@RequestMapping("/event/insertE_Board.do")
 	public String insertE_Board(E_BoardVO vo, E_BoardDAO dao, 
 	@RequestParam(value="startdate") String startdate,
-	@RequestParam(value="enddate") String enddate, HttpServletRequest request,
+	@RequestParam(value="enddate") String enddate,
 	@RequestParam(value="thumb_img1") MultipartFile thumb_img1) throws IOException {
 			
-		if(!thumb_img1.isEmpty()) {
+		MultipartFile uploadFile = vo.getThumb_img1();
+		System.out.println(uploadFile);
+		
+		if(!uploadFile.isEmpty()) {
 			
-			String filename = thumb_img1.getOriginalFilename();
-			thumb_img1.transferTo(new File(request.getSession().getServletContext().getRealPath("/event/upload/") + filename));
+			String filename = uploadFile.getOriginalFilename();
+			uploadFile.transferTo(new File("C:/upload/event" + filename));
 			
-			String savepath = "./upload/" + filename;
+			String savepath = "C:/upload/event" + filename;
 			vo.setImg1_url(savepath);
 		}
 		
