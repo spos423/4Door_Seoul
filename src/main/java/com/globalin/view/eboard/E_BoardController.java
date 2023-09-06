@@ -24,20 +24,23 @@ import com.globalin.biz.eboard.impl.E_BoardDAO;
 public class E_BoardController {
 	
 	@RequestMapping("/event/insertE_Board.do")
-	public String insertE_Board(E_BoardVO vo, E_BoardDAO dao, 
+	public String insertE_Board(E_BoardVO vo, E_BoardDAO dao, HttpServletRequest request,
 	@RequestParam(value="startdate") String startdate,
 	@RequestParam(value="enddate") String enddate,
 	@RequestParam(value="thumb_img1") MultipartFile thumb_img1) throws IOException {
 			
 		MultipartFile uploadFile = vo.getThumb_img1();
-		System.out.println(uploadFile);
+		System.out.println(uploadFile.getOriginalFilename());
 		
 		if(!uploadFile.isEmpty()) {
 			
 			String filename = uploadFile.getOriginalFilename();
-			uploadFile.transferTo(new File("C:/upload/event" + filename));
+			String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload/event/");
 			
-			String savepath = "C:/upload/event" + filename;
+			System.out.println(uploadPath);
+			uploadFile.transferTo(new File(uploadPath + filename));
+			
+			String savepath = "../resources/upload/event/" + filename;
 			vo.setImg1_url(savepath);
 		}
 		

@@ -142,12 +142,12 @@
 <br>
 
 	<c:if test="${count eq 0}">
-	<table width="700" border="1" cellpadding="0" cellspacing="0">
-   		<tr>
-      		<td align="center">게시판에 저장된 글이 없습니다.</td>
-   		</tr>
-	</table>
-	</c:if>
+  		<div class="container">
+      		<br>
+        	<p class="display-6" align="center" style="font-family: TheJamsil5Bold;">게시판에 저장된 글이 없습니다.</p>
+      		<br>
+   		</div>
+   </c:if>
 
 
 
@@ -199,7 +199,7 @@
         				<img src="/event/upload/no_image.jpg" class="img-thumbnail thumbnail_custom">
         			</c:if>
         			<c:if test="${item.img1_url ne null}">
-          				<img src="${item.img1_url}" class="img-thumbnail thumbnail_custom">
+          				<img src="${item.img1_url}" class="img-thumbnail thumbnail_custom" alt="이미지를 찾지 못했습니다.">
           			</c:if>
         		</div>
       		</div>
