@@ -46,7 +46,7 @@
 	</update>
 	
 	<delete id="deletegmBoard">
-		Delete FROM GMBOARD 
+		DELETE FROM GMBOARD 
 		WHERE NUM=#{num}
 	</delete>
 	
