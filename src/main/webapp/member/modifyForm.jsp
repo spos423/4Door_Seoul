@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 폼</title>
+<title>회원정보 수정 폼</title>
 <link type="text/css" rel="stylesheet" href="/member/form.css"><!-- "/com.globalin.login.view/form.css?ver=1.3" -->
 <script type="text/javascript" src="script.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

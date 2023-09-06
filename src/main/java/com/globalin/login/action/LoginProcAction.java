@@ -24,10 +24,12 @@ public class LoginProcAction implements Action {
 		System.out.println("check = " + check);
 		
 		if(check == 1) {
-			int  yn = dao.getyn(id);
+			int yn = dao.getyn(id);
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("loginID", id);
 			session.setAttribute("yn", yn);
+			session.setAttribute("member", dao.getMember(id));
 		}else if(id != null && pass != null) {
 			request.setAttribute("check",check);
 		}
