@@ -21,9 +21,8 @@ table, tr, td {
 <body>
 	<c:choose>
 		<c:when test="${loginID ne null }">
-
-			<div class="mypage" align="left">
-				<table width="300" border="0" align="left">
+			<div class="mypage" align="center" style="position:absolute;top:30%;left:40%;">
+				<table width="300" border="0" align="center">
 
 
 

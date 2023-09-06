@@ -56,7 +56,12 @@ main {
 	flex:1;
 }
 
-.intro {
+.intro .seodaemun {
+	opacity: 0;
+	animation-fill-mode: forwards;
+}
+
+.dongdaemun {
 	opacity: 0;
 }
 
@@ -68,21 +73,17 @@ footer{
 @keyframes animate-in {
     from {
         opacity: 0;
-        background-color:transparent;
     }
     to{
-        opacity: 1;
-        background-color: white;
+        opacity: 1 forwards;
     }
 }
 
 @keyframes animate-out {
     from{
         opacity: 1;
-        background-color: white; 
     } 
     to{
-        opacity: 0;
-        background-color:transparent;
+        opacity: 0 forwards;
     }   
 }

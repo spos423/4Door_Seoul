@@ -37,7 +37,7 @@
 <section class="seoul-background"></section>
 
 <main style="background-color: transparent;">
-	<div class="row intro" >
+	<div class="row intro" style="animation:opacity 0;">
 		<h1 class="display-1" align="center" style="font-family: 'TheJamsil5Bold'; align-content: center; color: #5f5f5f;"><strong>서울의 사대문</strong></h1>
 
 		<br><hr><br>
@@ -56,7 +56,7 @@
 
 <section class="ddp-background"></section>
 
-<main>
+<main style="background-color: transparent;">
 	<div class="row dongdaemun">
 		<h1 class="display-1" align="left" align="center" style="padding-left:100px; font-family: 'TheJamsil5Bold'; align-content: center; color: #5f5f5f;">
 		<strong>왜 흥인지문만 4글자일까?</strong>
@@ -81,7 +81,7 @@
 <section class="donuiumn-background"></section>
 
 <main>
-	<div class="row dongdaemun">
+	<div class="row seodaemun">
 
 		<h1 class="display-1 col-12" align="left" align="center" style="padding-left:100px; font-family: 'TheJamsil5Bold'; align-content: center; color: #5f5f5f;">
 		<strong>지금은 볼 수 없는 돈의문을 아시나요?</strong>
@@ -106,10 +106,10 @@
 <section class="sungnyemun-background"></section>
 
 <main>
-	<div class="row dongdaemun">
+	<div class="row namdaemun">
 
 		<h1 class="display-1 col-12" align="left" align="center" style="padding-left:100px; font-family: 'TheJamsil5Bold'; align-content: center; color: #5f5f5f;">
-		<strong>????????????????</strong>
+		<strong>숭례문 이야기</strong>
 		</h1>
 
 		<br><hr><br>
@@ -125,7 +125,7 @@
 		</div>
 		<figure class="figure col-6">
   			<img src="./img/Sungnyemun-2.jpg" class="figure-img img-fluid rounded" width="100%" style="border-radius: 500px 0 0 500px;">
-  			<figcaption class="figure-caption text-center"><h6>돈의문 현판(돈의문의 유일한 흔적)</h6></figcaption>
+  			<figcaption class="figure-caption text-center"><h6></h6></figcaption>
 		</figure>
 		<br><hr>
 	</div>
@@ -134,7 +134,7 @@
 <section class="sukjeongmun-background"></section>
 
 <main>
-	<div class="row dongdaemun"  style="background-color: transparent;">
+	<div class="row bukdaemun"  style="background-color: transparent;">
 
 		<h1 class="display-1 col-12" align="left" align="center" style="padding-left:100px; font-family: 'TheJamsil5Bold'; align-content: center; color: #5f5f5f;">
 		<strong>액을 막고 비를 부르던 문 : 숙정문</strong>

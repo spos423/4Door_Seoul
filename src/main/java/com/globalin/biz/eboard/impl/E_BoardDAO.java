@@ -359,6 +359,7 @@ public class E_BoardDAO implements E_BoardService{
 					vo.setContent(rs.getString("content"));
 					vo.setStartdate(rs.getTimestamp("startdate").toLocalDateTime().toString());
 					vo.setEnddate(rs.getTimestamp("enddate").toLocalDateTime().toString());
+					vo.setWritedate(rs.getTimestamp("writedate"));
 					vo.setReadcnt(rs.getInt("readcnt"));
 					vo.setImg1_url(rs.getString("img1_url"));
 					

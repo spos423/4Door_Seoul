@@ -32,6 +32,7 @@ public class LoginProcAction implements Action {
 			session.setAttribute("member", dao.getMember(id));
 		}else if(id != null && pass != null) {
 			request.setAttribute("check",check);
+			return new ActionForward("/member/loginfail.jsp", true);
 		}
 		
 		return new ActionForward("/", true);
