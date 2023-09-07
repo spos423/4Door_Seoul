@@ -14,12 +14,12 @@ window.addEventListener('scroll', function(){
     }else {
     	introDiv.style.animation="animate-out 1s ease-out forwards";
     }
-    
-    if(value>1800 && value<2900) {
+   
+    if(value>1700 && value<2700) {
     	dongdaemunDiv.style.animation="animate-in 1s ease-out forwards";
     }else {
     	dongdaemunDiv.style.animation="animate-out 1s ease-out forwards";
-    }
+    }    
     
 	if(value>3500 && value<4500) {
 		seodaemunDiv.style.animation="animate-in 1s ease-out forwards";
@@ -40,3 +40,4 @@ window.addEventListener('scroll', function(){
 	}
 	
 });
+
