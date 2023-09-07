@@ -56,15 +56,10 @@ main {
 	flex:1;
 }
 
-.intro .seodaemun {
+.intro .seodaemun .dondaemun {
 	opacity: 0;
 	animation-fill-mode: forwards;
 }
-
-.dongdaemun {
-	opacity: 0;
-}
-
 
 footer{
 	height: 30%;
